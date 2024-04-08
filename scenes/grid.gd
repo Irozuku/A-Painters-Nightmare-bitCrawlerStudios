@@ -24,8 +24,10 @@ func _process(delta):
 			text.text = "NADA"
 		elif (points == [1, 5, 9, 6, 3, 7] or points == [7, 5, 3, 6, 9, 1]):
 			text.text = "Poder 1"
-		elif (points == [2, 1]):
+		elif (points == [1, 2, 3, 5, 7, 8, 9] or points == [9, 8, 7, 5, 3, 2, 1]):
 			text.text = "Poder 2"
+		elif (points == [4, 8, 5, 2, 6] or points == [6, 2, 5, 8, 4]):
+			text.text = "Poder 3"
 		else:
 			text.text = "Incorrecto"
 		sprite1.modulate = Color("ffffff")
