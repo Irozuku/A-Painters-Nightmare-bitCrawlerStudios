@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cd1nndfdodm00"]
+[gd_scene load_steps=3 format=3 uid="uid://cd1nndfdodm00"]
 
 [ext_resource type="PackedScene" uid="uid://cdpy0wgc2r7dc" path="res://scenes/player.tscn" id="1_ei826"]
+[ext_resource type="PackedScene" uid="uid://ipscaqabriwe" path="res://scenes/grid.tscn" id="2_phdx0"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(2, 5)
 
 [node name="Player" parent="." instance=ExtResource("1_ei826")]
 position = Vector2(416, 282)
+
+[node name="Area2D" parent="." instance=ExtResource("2_phdx0")]
+position = Vector2(957, 192)

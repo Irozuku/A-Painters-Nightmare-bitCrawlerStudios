@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3 uid="uid://ipscaqabriwe"]
+
+[ext_resource type="Texture2D" uid="uid://drp4ge6v2l5uv" path="res://icon.svg" id="1_tntsb"]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_tntsb")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-117, -112)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_tntsb")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(-2, -109)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_tntsb")
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2(108, -101)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D3"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_tntsb")
+
+[node name="Area2D4" type="Area2D" parent="."]
+position = Vector2(-109, -2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D4"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_tntsb")
+
+[node name="Area2D5" type="Area2D" parent="."]
+position = Vector2(-1, -2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D5"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_tntsb")
+
+[node name="Area2D6" type="Area2D" parent="."]
+position = Vector2(119, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D6"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_tntsb")
+
+[node name="Area2D7" type="Area2D" parent="."]
+position = Vector2(-106, 106)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D7"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_tntsb")
+
+[node name="Area2D8" type="Area2D" parent="."]
+position = Vector2(-1, 107)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D8"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_tntsb")
+
+[node name="Area2D9" type="Area2D" parent="."]
+position = Vector2(112, 121)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D9"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_tntsb")
