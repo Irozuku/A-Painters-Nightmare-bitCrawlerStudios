@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ipscaqabriwe"]
+[gd_scene load_steps=16 format=3 uid="uid://ipscaqabriwe"]
 
 [ext_resource type="Script" path="res://scenes/grid.gd" id="1_42ppi"]
 [ext_resource type="Texture2D" uid="uid://drp4ge6v2l5uv" path="res://icon.svg" id="1_tntsb"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://scenes/Point7.gd" id="9_7433d"]
 [ext_resource type="Script" path="res://scenes/Point8.gd" id="10_svhmx"]
 [ext_resource type="Script" path="res://scenes/Point9.gd" id="11_lm87c"]
+[ext_resource type="PackedScene" uid="uid://c6r4p4lxsya4" path="res://scenes/symbol_remainder.tscn" id="13_12nfd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djerg"]
 size = Vector2(26, 25.6)
@@ -28,9 +29,9 @@ texture = ExtResource("1_tntsb")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -21.0
-offset_top = 210.0
+offset_top = 198.0
 offset_right = 25.0
-offset_bottom = 233.0
+offset_bottom = 221.0
 text = "NADA"
 
 [node name="PaintBar" parent="." instance=ExtResource("3_l6slk")]
@@ -144,6 +145,10 @@ texture = ExtResource("1_tntsb")
 [node name="Coll9" type="CollisionShape2D" parent="Point9"]
 position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_hj2oq")
+
+[node name="SymbolRemainder" parent="." instance=ExtResource("13_12nfd")]
+position = Vector2(0, 230)
+scale = Vector2(0.5, 0.5)
 
 [connection signal="mouse_entered" from="Point1" to="." method="_on_point_1_mouse_entered"]
 [connection signal="mouse_entered" from="Point1" to="Point1" method="_on_mouse_entered"]
