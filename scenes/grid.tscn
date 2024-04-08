@@ -1,72 +1,49 @@
-[gd_scene load_steps=2 format=3 uid="uid://ipscaqabriwe"]
+[gd_scene load_steps=7 format=3 uid="uid://ipscaqabriwe"]
 
+[ext_resource type="Script" path="res://scenes/grid.gd" id="1_42ppi"]
 [ext_resource type="Texture2D" uid="uid://drp4ge6v2l5uv" path="res://icon.svg" id="1_tntsb"]
+[ext_resource type="Script" path="res://scenes/Point1.gd" id="3_uskx1"]
+[ext_resource type="Script" path="res://scenes/Point2.gd" id="4_ltwip"]
 
-[node name="Area2D" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_djerg"]
+size = Vector2(26, 25.6)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hj2oq"]
+size = Vector2(128, 130)
+
+[node name="Grid" type="Area2D"]
+script = ExtResource("1_42ppi")
+
+[node name="GridSprite" type="Sprite2D" parent="."]
 scale = Vector2(3, 3)
 texture = ExtResource("1_tntsb")
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-117, -112)
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Point1" type="Area2D" parent="."]
+position = Vector2(-119, -119)
 scale = Vector2(0.5, 0.5)
+script = ExtResource("3_uskx1")
+
+[node name="PointSprite1" type="Sprite2D" parent="Point1"]
 texture = ExtResource("1_tntsb")
 
-[node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(-2, -109)
+[node name="Coll1" type="CollisionShape2D" parent="Point1"]
+position = Vector2(-1, 0)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_djerg")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
+[node name="Point2" type="Area2D" parent="."]
+position = Vector2(0, -119)
 scale = Vector2(0.5, 0.5)
+script = ExtResource("4_ltwip")
+
+[node name="PointSprite2" type="Sprite2D" parent="Point2"]
 texture = ExtResource("1_tntsb")
 
-[node name="Area2D3" type="Area2D" parent="."]
-position = Vector2(108, -101)
+[node name="Coll2" type="CollisionShape2D" parent="Point2"]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_hj2oq")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D3"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_tntsb")
-
-[node name="Area2D4" type="Area2D" parent="."]
-position = Vector2(-109, -2)
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D4"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_tntsb")
-
-[node name="Area2D5" type="Area2D" parent="."]
-position = Vector2(-1, -2)
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D5"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_tntsb")
-
-[node name="Area2D6" type="Area2D" parent="."]
-position = Vector2(119, 5)
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D6"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_tntsb")
-
-[node name="Area2D7" type="Area2D" parent="."]
-position = Vector2(-106, 106)
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D7"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_tntsb")
-
-[node name="Area2D8" type="Area2D" parent="."]
-position = Vector2(-1, 107)
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D8"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_tntsb")
-
-[node name="Area2D9" type="Area2D" parent="."]
-position = Vector2(112, 121)
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D9"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_tntsb")
+[connection signal="mouse_entered" from="Point1" to="." method="_on_point_1_mouse_entered"]
+[connection signal="mouse_entered" from="Point1" to="Point1" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Point2" to="." method="_on_point_2_mouse_entered"]
+[connection signal="mouse_entered" from="Point2" to="Point2" method="_on_mouse_entered"]
