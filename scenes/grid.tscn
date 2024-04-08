@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://ipscaqabriwe"]
+[gd_scene load_steps=15 format=3 uid="uid://ipscaqabriwe"]
 
 [ext_resource type="Script" path="res://scenes/grid.gd" id="1_42ppi"]
 [ext_resource type="Texture2D" uid="uid://drp4ge6v2l5uv" path="res://icon.svg" id="1_tntsb"]
+[ext_resource type="PackedScene" uid="uid://chyt1wxxoph5v" path="res://scenes/paint_bar.tscn" id="3_l6slk"]
 [ext_resource type="Script" path="res://scenes/Point1.gd" id="3_uskx1"]
 [ext_resource type="Script" path="res://scenes/Point2.gd" id="4_ltwip"]
 [ext_resource type="Script" path="res://scenes/Point3.gd" id="5_awcnf"]
@@ -31,6 +32,10 @@ offset_top = 210.0
 offset_right = 25.0
 offset_bottom = 233.0
 text = "NADA"
+
+[node name="PaintBar" parent="." instance=ExtResource("3_l6slk")]
+position = Vector2(-1, -241)
+scale = Vector2(0.6, 0.6)
 
 [node name="Point1" type="Area2D" parent="."]
 position = Vector2(-119, -119)

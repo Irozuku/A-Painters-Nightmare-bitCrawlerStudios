@@ -21,7 +21,7 @@ func _ready():
 func _process(delta):
 	if (Input.is_action_just_released("left_click")):
 		if (points == []):
-			text.text = "NADA"
+			text.text = "Nada"
 		elif (points == [1, 5, 9, 6, 3, 7] or points == [7, 5, 3, 6, 9, 1]):
 			text.text = "Poder 1"
 		elif (points == [1, 2, 3, 5, 7, 8, 9] or points == [9, 8, 7, 5, 3, 2, 1]):

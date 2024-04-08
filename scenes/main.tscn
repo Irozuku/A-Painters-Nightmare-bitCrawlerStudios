@@ -9,5 +9,6 @@ position = Vector2(2, 5)
 [node name="Player" parent="." instance=ExtResource("1_ei826")]
 position = Vector2(416, 282)
 
-[node name="Area2D" parent="." instance=ExtResource("2_phdx0")]
-position = Vector2(957, 192)
+[node name="Grid" parent="." instance=ExtResource("2_phdx0")]
+position = Vector2(995, 235)
+scale = Vector2(0.8, 0.8)
