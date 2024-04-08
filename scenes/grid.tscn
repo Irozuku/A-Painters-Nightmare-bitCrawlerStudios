@@ -1,9 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://ipscaqabriwe"]
+[gd_scene load_steps=14 format=3 uid="uid://ipscaqabriwe"]
 
 [ext_resource type="Script" path="res://scenes/grid.gd" id="1_42ppi"]
 [ext_resource type="Texture2D" uid="uid://drp4ge6v2l5uv" path="res://icon.svg" id="1_tntsb"]
 [ext_resource type="Script" path="res://scenes/Point1.gd" id="3_uskx1"]
 [ext_resource type="Script" path="res://scenes/Point2.gd" id="4_ltwip"]
+[ext_resource type="Script" path="res://scenes/Point3.gd" id="5_awcnf"]
+[ext_resource type="Script" path="res://scenes/Point4.gd" id="6_gl04j"]
+[ext_resource type="Script" path="res://scenes/Point5.gd" id="7_qstoo"]
+[ext_resource type="Script" path="res://scenes/Point6.gd" id="8_akyws"]
+[ext_resource type="Script" path="res://scenes/Point7.gd" id="9_7433d"]
+[ext_resource type="Script" path="res://scenes/Point8.gd" id="10_svhmx"]
+[ext_resource type="Script" path="res://scenes/Point9.gd" id="11_lm87c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djerg"]
 size = Vector2(26, 25.6)
@@ -17,6 +24,13 @@ script = ExtResource("1_42ppi")
 [node name="GridSprite" type="Sprite2D" parent="."]
 scale = Vector2(3, 3)
 texture = ExtResource("1_tntsb")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -21.0
+offset_top = 210.0
+offset_right = 25.0
+offset_bottom = 233.0
+text = "NADA"
 
 [node name="Point1" type="Area2D" parent="."]
 position = Vector2(-119, -119)
@@ -43,7 +57,104 @@ texture = ExtResource("1_tntsb")
 position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_hj2oq")
 
+[node name="Point3" type="Area2D" parent="."]
+position = Vector2(119, -119)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("5_awcnf")
+
+[node name="PointSprite3" type="Sprite2D" parent="Point3"]
+texture = ExtResource("1_tntsb")
+
+[node name="Coll3" type="CollisionShape2D" parent="Point3"]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_hj2oq")
+
+[node name="Point4" type="Area2D" parent="."]
+position = Vector2(-119, 0)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("6_gl04j")
+
+[node name="PointSprite4" type="Sprite2D" parent="Point4"]
+texture = ExtResource("1_tntsb")
+
+[node name="Coll4" type="CollisionShape2D" parent="Point4"]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_hj2oq")
+
+[node name="Point5" type="Area2D" parent="."]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("7_qstoo")
+
+[node name="PointSprite5" type="Sprite2D" parent="Point5"]
+texture = ExtResource("1_tntsb")
+
+[node name="Coll5" type="CollisionShape2D" parent="Point5"]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_hj2oq")
+
+[node name="Point6" type="Area2D" parent="."]
+position = Vector2(119, 0)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("8_akyws")
+
+[node name="PointSprite6" type="Sprite2D" parent="Point6"]
+texture = ExtResource("1_tntsb")
+
+[node name="Coll6" type="CollisionShape2D" parent="Point6"]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_hj2oq")
+
+[node name="Point7" type="Area2D" parent="."]
+position = Vector2(-119, 119)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("9_7433d")
+
+[node name="PointSprite7" type="Sprite2D" parent="Point7"]
+texture = ExtResource("1_tntsb")
+
+[node name="Coll7" type="CollisionShape2D" parent="Point7"]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_hj2oq")
+
+[node name="Point8" type="Area2D" parent="."]
+position = Vector2(0, 119)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("10_svhmx")
+
+[node name="PointSprite8" type="Sprite2D" parent="Point8"]
+texture = ExtResource("1_tntsb")
+
+[node name="Coll8" type="CollisionShape2D" parent="Point8"]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_hj2oq")
+
+[node name="Point9" type="Area2D" parent="."]
+position = Vector2(119, 119)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("11_lm87c")
+
+[node name="PointSprite9" type="Sprite2D" parent="Point9"]
+texture = ExtResource("1_tntsb")
+
+[node name="Coll9" type="CollisionShape2D" parent="Point9"]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_hj2oq")
+
 [connection signal="mouse_entered" from="Point1" to="." method="_on_point_1_mouse_entered"]
 [connection signal="mouse_entered" from="Point1" to="Point1" method="_on_mouse_entered"]
 [connection signal="mouse_entered" from="Point2" to="." method="_on_point_2_mouse_entered"]
 [connection signal="mouse_entered" from="Point2" to="Point2" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Point3" to="." method="_on_point_3_mouse_entered"]
+[connection signal="mouse_entered" from="Point3" to="Point3" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Point4" to="." method="_on_point_4_mouse_entered"]
+[connection signal="mouse_entered" from="Point4" to="Point4" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Point5" to="." method="_on_point_5_mouse_entered"]
+[connection signal="mouse_entered" from="Point5" to="Point5" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Point6" to="." method="_on_point_6_mouse_entered"]
+[connection signal="mouse_entered" from="Point6" to="Point6" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Point7" to="." method="_on_point_7_mouse_entered"]
+[connection signal="mouse_entered" from="Point7" to="Point7" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Point8" to="." method="_on_point_8_mouse_entered"]
+[connection signal="mouse_entered" from="Point8" to="Point8" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Point9" to="." method="_on_point_9_mouse_entered"]
+[connection signal="mouse_entered" from="Point9" to="Point9" method="_on_mouse_entered"]
