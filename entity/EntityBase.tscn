@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsctk0uoj5iav"]
+
+[ext_resource type="Script" path="res://entity/EntityBase.gd" id="1_p2tdv"]
+[ext_resource type="PackedScene" uid="uid://cjikt021ms80n" path="res://overlap/Hurtbox.tscn" id="2_fg6kv"]
+
+[node name="EntityBase" type="CharacterBody2D"]
+script = ExtResource("1_p2tdv")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Hurtbox" parent="." instance=ExtResource("2_fg6kv")]
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+
+[editable path="Hurtbox"]

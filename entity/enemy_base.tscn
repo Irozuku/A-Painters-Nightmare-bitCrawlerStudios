@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhw8bmboer45q"]
+
+[ext_resource type="PackedScene" uid="uid://bsctk0uoj5iav" path="res://entity/EntityBase.tscn" id="1_shacb"]
+[ext_resource type="Script" path="res://entity/enemy_base.gd" id="2_hesui"]
+
+[node name="EnemyBase" instance=ExtResource("1_shacb")]
+script = ExtResource("2_hesui")
+
+[editable path="Hurtbox"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://2mn76wqfxvq2"]
+
+[ext_resource type="PackedScene" uid="uid://bsctk0uoj5iav" path="res://entity/EntityBase.tscn" id="1_626d7"]
+[ext_resource type="Script" path="res://entity/player.gd" id="2_ubl2o"]
+
+[node name="Player" instance=ExtResource("1_626d7")]
+script = ExtResource("2_ubl2o")
+
+[node name="Hurtbox" parent="." index="3"]
+collision_layer = 2
+collision_mask = 4
+
+[editable path="Hurtbox"]
