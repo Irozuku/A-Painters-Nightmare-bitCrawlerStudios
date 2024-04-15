@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cawqpc185ey8c"]
+
+[ext_resource type="PackedScene" uid="uid://dkw2thdhv131u" path="res://overlap/Hitbox.tscn" id="1_7ts14"]
+[ext_resource type="Script" path="res://projectiles/basic_attack.gd" id="2_pronk"]
+[ext_resource type="Texture2D" uid="uid://drp4ge6v2l5uv" path="res://icon.svg" id="3_cy1b5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctoyi"]
+
+[node name="BasicAttack" groups=["Projectile"] instance=ExtResource("1_7ts14")]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("2_pronk")
+SPEED = 200
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_cy1b5")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_ctoyi")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." index="2"]
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
