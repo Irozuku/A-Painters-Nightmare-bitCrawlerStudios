@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnqo2wl5b7ayh"]
+
+[ext_resource type="Texture2D" uid="uid://cgos2br6123df" path="res://assets/border_sprite/border_off.png" id="1_c2ho2"]
+
+[node name="Border" type="Sprite2D"]
+texture = ExtResource("1_c2ho2")
+hframes = 10
+vframes = 8
