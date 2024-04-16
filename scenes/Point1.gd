@@ -13,3 +13,4 @@ func _process(delta):
 func _on_mouse_entered():
 	if (Input.is_action_pressed("left_click")):
 		sprite.modulate = Color("ff00ff")
+		
