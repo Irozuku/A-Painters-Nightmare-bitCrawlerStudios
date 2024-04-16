@@ -1,5 +1,6 @@
 extends Area2D
 
+@onready var points = $"..".points
 @onready var sprite = $PointSprite4
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,3 +14,6 @@ func _process(delta):
 func _on_mouse_entered():
 	if (Input.is_action_pressed("left_click")):
 		sprite.modulate = Color("ff00ff")
+		if (points.find(4) == -1):
+			points.append(4)
+			print(points)
