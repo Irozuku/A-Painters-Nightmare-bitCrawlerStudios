@@ -1,6 +1,7 @@
 extends Area2D
 
 var points = []
+var active_paint
 
 @onready var text = $Label
 @onready var sprite1 = $Point1/PointSprite1
