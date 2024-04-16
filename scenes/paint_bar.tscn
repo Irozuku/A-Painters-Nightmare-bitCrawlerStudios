@@ -26,6 +26,13 @@ scale = Vector2(2, 2)
 [node name="RedSprite" type="Sprite2D" parent="RedPaint"]
 texture = ExtResource("2_2cj68")
 
+[node name="Control" type="Control" parent="RedPaint"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+tooltip_text = "Deal [percent] extra damage"
+
 [node name="BluePaint" type="Area2D" parent="."]
 
 [node name="BlueBorder" parent="BluePaint" instance=ExtResource("2_8cegg")]

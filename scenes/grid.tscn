@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://ipscaqabriwe"]
+[gd_scene load_steps=19 format=3 uid="uid://ipscaqabriwe"]
 
 [ext_resource type="Script" path="res://scenes/grid.gd" id="1_42ppi"]
 [ext_resource type="Texture2D" uid="uid://drp4ge6v2l5uv" path="res://icon.svg" id="1_tntsb"]
+[ext_resource type="Texture2D" uid="uid://cgos2br6123df" path="res://assets/border_sprite/border_off.png" id="2_2gkvj"]
 [ext_resource type="PackedScene" uid="uid://chyt1wxxoph5v" path="res://scenes/paint_bar.tscn" id="3_l6slk"]
 [ext_resource type="Script" path="res://scenes/Point1.gd" id="3_uskx1"]
 [ext_resource type="Script" path="res://scenes/Point2.gd" id="4_ltwip"]
@@ -14,6 +15,7 @@
 [ext_resource type="Script" path="res://scenes/Point9.gd" id="11_lm87c"]
 [ext_resource type="PackedScene" uid="uid://c6r4p4lxsya4" path="res://scenes/symbol_remainder.tscn" id="13_12nfd"]
 [ext_resource type="Script" path="res://scenes/Brushstroke.gd" id="14_nvryy"]
+[ext_resource type="Texture2D" uid="uid://chdeoi52oom46" path="res://assets/stroke_sprite/stroke3.png" id="15_tt251"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djerg"]
 size = Vector2(26, 25.6)
@@ -25,8 +27,11 @@ size = Vector2(128, 130)
 script = ExtResource("1_42ppi")
 
 [node name="GridSprite" type="Sprite2D" parent="."]
-scale = Vector2(3, 3)
-texture = ExtResource("1_tntsb")
+scale = Vector2(6.8, 6.8)
+texture = ExtResource("2_2gkvj")
+hframes = 10
+vframes = 8
+frame = 5
 
 [node name="Label" type="Label" parent="."]
 offset_left = -21.0
@@ -41,7 +46,7 @@ scale = Vector2(0.6, 0.6)
 
 [node name="Point1" type="Area2D" parent="."]
 position = Vector2(-119, -119)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.65, 0.65)
 script = ExtResource("3_uskx1")
 
 [node name="PointSprite1" type="Sprite2D" parent="Point1"]
@@ -53,7 +58,7 @@ shape = SubResource("RectangleShape2D_djerg")
 
 [node name="Point2" type="Area2D" parent="."]
 position = Vector2(0, -119)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.65, 0.65)
 script = ExtResource("4_ltwip")
 
 [node name="PointSprite2" type="Sprite2D" parent="Point2"]
@@ -65,7 +70,7 @@ shape = SubResource("RectangleShape2D_hj2oq")
 
 [node name="Point3" type="Area2D" parent="."]
 position = Vector2(119, -119)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.65, 0.65)
 script = ExtResource("5_awcnf")
 
 [node name="PointSprite3" type="Sprite2D" parent="Point3"]
@@ -77,7 +82,7 @@ shape = SubResource("RectangleShape2D_hj2oq")
 
 [node name="Point4" type="Area2D" parent="."]
 position = Vector2(-119, 0)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.65, 0.65)
 script = ExtResource("6_gl04j")
 
 [node name="PointSprite4" type="Sprite2D" parent="Point4"]
@@ -88,7 +93,7 @@ position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_hj2oq")
 
 [node name="Point5" type="Area2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.65, 0.65)
 script = ExtResource("7_qstoo")
 
 [node name="PointSprite5" type="Sprite2D" parent="Point5"]
@@ -100,7 +105,7 @@ shape = SubResource("RectangleShape2D_hj2oq")
 
 [node name="Point6" type="Area2D" parent="."]
 position = Vector2(119, 0)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.65, 0.65)
 script = ExtResource("8_akyws")
 
 [node name="PointSprite6" type="Sprite2D" parent="Point6"]
@@ -112,7 +117,7 @@ shape = SubResource("RectangleShape2D_hj2oq")
 
 [node name="Point7" type="Area2D" parent="."]
 position = Vector2(-119, 119)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.65, 0.65)
 script = ExtResource("9_7433d")
 
 [node name="PointSprite7" type="Sprite2D" parent="Point7"]
@@ -124,7 +129,7 @@ shape = SubResource("RectangleShape2D_hj2oq")
 
 [node name="Point8" type="Area2D" parent="."]
 position = Vector2(0, 119)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.65, 0.65)
 script = ExtResource("10_svhmx")
 
 [node name="PointSprite8" type="Sprite2D" parent="Point8"]
@@ -136,7 +141,7 @@ shape = SubResource("RectangleShape2D_hj2oq")
 
 [node name="Point9" type="Area2D" parent="."]
 position = Vector2(119, 119)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.65, 0.65)
 script = ExtResource("11_lm87c")
 
 [node name="PointSprite9" type="Sprite2D" parent="Point9"]
@@ -151,6 +156,11 @@ position = Vector2(0, 230)
 scale = Vector2(0.5, 0.5)
 
 [node name="Brushstroke" type="Line2D" parent="."]
+width = 40.0
+texture = ExtResource("15_tt251")
+texture_mode = 2
+joint_mode = 2
+antialiased = true
 script = ExtResource("14_nvryy")
 
 [connection signal="mouse_entered" from="Point1" to="Point1" method="_on_mouse_entered"]
