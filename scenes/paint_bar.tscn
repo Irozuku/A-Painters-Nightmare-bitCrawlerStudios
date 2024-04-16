@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://chyt1wxxoph5v"]
+[gd_scene load_steps=7 format=3 uid="uid://chyt1wxxoph5v"]
 
+[ext_resource type="Script" path="res://scenes/paint_bar.gd" id="1_djux7"]
 [ext_resource type="Texture2D" uid="uid://drp4ge6v2l5uv" path="res://icon.svg" id="1_g6ipr"]
 [ext_resource type="Texture2D" uid="uid://ii1cp2n7ijdt" path="res://assets/paint_sprite/PotionRed.png" id="2_2cj68"]
 [ext_resource type="PackedScene" uid="uid://bnqo2wl5b7ayh" path="res://scenes/box_border.tscn" id="2_8cegg"]
@@ -7,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bdv67lynhbgex" path="res://assets/paint_sprite/PotionYellow.png" id="4_4hgsx"]
 
 [node name="PaintBar" type="Area2D"]
+script = ExtResource("1_djux7")
 
 [node name="ArrowQ" type="Area2D" parent="."]
 position = Vector2(-260, 0)
@@ -18,7 +20,7 @@ texture = ExtResource("1_g6ipr")
 [node name="RedPaint" type="Area2D" parent="."]
 position = Vector2(-145, 0)
 
-[node name="Border" parent="RedPaint" instance=ExtResource("2_8cegg")]
+[node name="RedBorder" parent="RedPaint" instance=ExtResource("2_8cegg")]
 scale = Vector2(2, 2)
 
 [node name="RedSprite" type="Sprite2D" parent="RedPaint"]
@@ -26,7 +28,7 @@ texture = ExtResource("2_2cj68")
 
 [node name="BluePaint" type="Area2D" parent="."]
 
-[node name="Border" parent="BluePaint" instance=ExtResource("2_8cegg")]
+[node name="BlueBorder" parent="BluePaint" instance=ExtResource("2_8cegg")]
 scale = Vector2(2, 2)
 
 [node name="BlueSprite" type="Sprite2D" parent="BluePaint"]
@@ -35,7 +37,7 @@ texture = ExtResource("3_hqahh")
 [node name="YellowPaint" type="Area2D" parent="."]
 position = Vector2(145, 0)
 
-[node name="Border" parent="YellowPaint" instance=ExtResource("2_8cegg")]
+[node name="YellowBorder" parent="YellowPaint" instance=ExtResource("2_8cegg")]
 scale = Vector2(2, 2)
 
 [node name="YellowSprite" type="Sprite2D" parent="YellowPaint"]

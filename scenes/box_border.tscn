@@ -6,3 +6,4 @@
 texture = ExtResource("1_c2ho2")
 hframes = 10
 vframes = 8
+frame = 2
