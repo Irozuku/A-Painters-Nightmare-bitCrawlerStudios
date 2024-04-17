@@ -1,8 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://cawqpc185ey8c"]
+[gd_scene load_steps=10 format=3 uid="uid://cawqpc185ey8c"]
 
 [ext_resource type="PackedScene" uid="uid://dkw2thdhv131u" path="res://overlap/Hitbox.tscn" id="1_7ts14"]
 [ext_resource type="Script" path="res://projectiles/basic_attack.gd" id="2_pronk"]
-[ext_resource type="Texture2D" uid="uid://drp4ge6v2l5uv" path="res://icon.svg" id="3_cy1b5"]
+[ext_resource type="Texture2D" uid="uid://btwregmo8u1qs" path="res://assets/basic_attack_sprite/Pure_01.png" id="3_ljwvv"]
+[ext_resource type="Texture2D" uid="uid://clejs1fl0jymi" path="res://assets/basic_attack_sprite/Pure_02.png" id="4_fah7a"]
+[ext_resource type="Texture2D" uid="uid://cub88fwfhm6d4" path="res://assets/basic_attack_sprite/Pure_03.png" id="5_c0jvj"]
+[ext_resource type="Texture2D" uid="uid://c7kgq4g5hwu6" path="res://assets/basic_attack_sprite/Pure_04.png" id="6_f2ggc"]
+[ext_resource type="Texture2D" uid="uid://c2bofogdofaxf" path="res://assets/basic_attack_sprite/Pure_05.png" id="7_2726g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gko03"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ljwvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fah7a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_c0jvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_f2ggc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2726g")
+}],
+"loop": false,
+"name": &"default",
+"speed": 7.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ctoyi"]
 
@@ -12,12 +39,18 @@ collision_mask = 5
 script = ExtResource("2_pronk")
 SPEED = 200
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
-texture = ExtResource("3_cy1b5")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_gko03")
+autoplay = "default"
+frame = 4
+frame_progress = 1.0
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("RectangleShape2D_ctoyi")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." index="2"]
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

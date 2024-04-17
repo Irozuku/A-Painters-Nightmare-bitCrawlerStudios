@@ -6,19 +6,21 @@
 [ext_resource type="Texture2D" uid="uid://drp4ge6v2l5uv" path="res://icon.svg" id="4_pkqpc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yywdo"]
-size = Vector2(100, 100)
+size = Vector2(30, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ty07w"]
-size = Vector2(128, 128)
+size = Vector2(40, 40)
 
 [node name="Main" type="Node2D"]
 position = Vector2(2, 5)
 
 [node name="Player" parent="." instance=ExtResource("3_mpe3j")]
 position = Vector2(574, 319)
+collision_layer = 2
 BASIC_ATTACK = ExtResource("2_c1j8i")
 
 [node name="Sprite" parent="Player" index="0"]
+scale = Vector2(0.31, 0.31)
 texture = ExtResource("4_pkqpc")
 
 [node name="CollisionShape2D" parent="Player" index="1"]
@@ -36,6 +38,7 @@ position = Vector2(404, -81)
 scale = Vector2(0.8, 0.8)
 
 [node name="BasicAttackTimer" type="Timer" parent="Player"]
+wait_time = 0.5
 one_shot = true
 
 [editable path="Player"]
