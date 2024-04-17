@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cjikt021ms80n"]
 
 [node name="Hurtbox" type="Area2D"]
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

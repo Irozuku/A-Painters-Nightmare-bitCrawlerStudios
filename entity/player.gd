@@ -27,3 +27,5 @@ func basic_attack(att_direction: Vector2):
 		att.rotation = att_rotation
 		
 		basic_attack_timer.start()
+
+

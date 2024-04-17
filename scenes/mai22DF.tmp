@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cd1nndfdodm00"]
+[gd_scene load_steps=12 format=3 uid="uid://cd1nndfdodm00"]
 
 [ext_resource type="PackedScene" uid="uid://cawqpc185ey8c" path="res://projectiles/basic_attack.tscn" id="2_c1j8i"]
 [ext_resource type="PackedScene" uid="uid://ipscaqabriwe" path="res://scenes/grid.tscn" id="2_phdx0"]
@@ -15,9 +15,6 @@ size = Vector2(40, 40)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_adrxd"]
 blend_mode = 1
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5w60"]
-size = Vector2(40, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6y0rj"]
 size = Vector2(50, 50)
@@ -56,41 +53,32 @@ scale = Vector2(0.8, 0.8)
 wait_time = 0.5
 one_shot = true
 
-[node name="Enemy_Test" parent="." instance=ExtResource("5_f366l")]
+[node name="Enemy1" parent="." instance=ExtResource("5_f366l")]
 collision_layer = 4
 collision_mask = 7
 
-[node name="Sprite" parent="Enemy_Test" index="0"]
+[node name="Sprite" parent="Enemy1" index="0"]
 material = SubResource("CanvasItemMaterial_adrxd")
-position = Vector2(291.6, 258.6)
+position = Vector2(297, 262)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_pkqpc")
 
-[node name="CollisionShape2D" parent="Enemy_Test" index="1"]
-position = Vector2(291.5, 258.5)
-shape = SubResource("RectangleShape2D_f5w60")
-debug_color = Color(0.588235, 0.376471, 1, 0.419608)
-
-[node name="Hurtbox" parent="Enemy_Test" index="3"]
-collision_layer = 4
-collision_mask = 8
-
-[node name="CollisionShape2D" parent="Enemy_Test/Hurtbox" index="0"]
-position = Vector2(291.6, 258.6)
+[node name="CollisionShape2D" parent="Enemy1/Hurtbox" index="0"]
+position = Vector2(297, 262)
 shape = SubResource("RectangleShape2D_6y0rj")
 debug_color = Color(0.811765, 0, 0.364706, 0.419608)
 
-[node name="Hitbox" parent="Enemy_Test" instance=ExtResource("6_qxiu3")]
+[node name="Hitbox" parent="Enemy1" instance=ExtResource("6_qxiu3")]
 collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionShape2D" parent="Enemy_Test/Hitbox" index="0"]
-position = Vector2(291.6, 258.6)
+[node name="CollisionShape2D" parent="Enemy1/Hitbox" index="0"]
+position = Vector2(297, 262)
 shape = SubResource("RectangleShape2D_e2lvb")
 debug_color = Color(0, 0.639216, 0.356863, 0.419608)
 
 [editable path="Player"]
 [editable path="Player/Hurtbox"]
-[editable path="Enemy_Test"]
-[editable path="Enemy_Test/Hurtbox"]
-[editable path="Enemy_Test/Hitbox"]
+[editable path="Enemy1"]
+[editable path="Enemy1/Hurtbox"]
+[editable path="Enemy1/Hitbox"]
