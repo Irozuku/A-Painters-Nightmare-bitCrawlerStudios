@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://rd3mejsi5rps"]
+
+[ext_resource type="Script" path="res://cursors/static_cursor.gd" id="1_s1qov"]
+[ext_resource type="Texture2D" uid="uid://drp4ge6v2l5uv" path="res://icon.svg" id="2_b7a6n"]
+
+[node name="StaticCursor" type="Area2D"]
+script = ExtResource("1_s1qov")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_b7a6n")
