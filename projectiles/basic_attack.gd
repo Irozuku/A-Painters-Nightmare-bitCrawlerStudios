@@ -3,6 +3,7 @@ extends "res://overlap/Hitbox.gd"
 @export var speed: int = 400
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
+@onready var projectile_asset = $ProjectileAsset
 
 func _physics_process(delta):
 	var direction = Vector2.RIGHT.rotated(rotation)
@@ -11,7 +12,8 @@ func _physics_process(delta):
 func destroy():
 	speed = 0
 	get_node("CollisionShape2D").disabled = true
-	playback.travel("collision_projectile")
+	projectile_asset.hide()
+	playback.travel("collision")
 	await animation_tree.animation_finished
 	queue_free()
 
