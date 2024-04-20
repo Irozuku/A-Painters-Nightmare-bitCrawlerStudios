@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu6fpsj8rapaj"
-path="res://.godot/imported/Pure_24.png-b9f42b426adf6f96ec13f5f388a34ab9.ctex"
+uid="uid://dca07l3iek3o6"
+path="res://.godot/imported/Free Smoke Fx  Pixel 05.png-ac8692012e45d87d314b3c83a60e2916.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/basic_attack_sprite/Pure_24.png"
-dest_files=["res://.godot/imported/Pure_24.png-b9f42b426adf6f96ec13f5f388a34ab9.ctex"]
+source_file="res://assets/basic_attack_sprite/explosion/Free Smoke Fx  Pixel 05.png"
+dest_files=["res://.godot/imported/Free Smoke Fx  Pixel 05.png-ac8692012e45d87d314b3c83a60e2916.ctex"]
 
 [params]
 

@@ -4,7 +4,7 @@ signal hp_max_changed(new_hp_max)
 signal hp_changed(new_hp)
 signal died
 
-@export var hp_max: int = 100: set = set_hp_max
+@export var hp_max: int = 2000: set = set_hp_max
 @export var hp: int = hp_max: set = set_hp, get = get_hp
 @export var defense: int = 0
 
