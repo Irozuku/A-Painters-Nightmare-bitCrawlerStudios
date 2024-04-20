@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cawqpc185ey8c"]
+[gd_scene load_steps=25 format=3 uid="uid://cawqpc185ey8c"]
 
 [ext_resource type="PackedScene" uid="uid://dkw2thdhv131u" path="res://overlap/Hitbox.tscn" id="1_7ts14"]
 [ext_resource type="Script" path="res://projectiles/basic_attack.gd" id="2_pronk"]
@@ -75,22 +75,18 @@ tracks/0/path = NodePath("ExplosionSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5),
+"times": PackedFloat32Array(0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [22, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 }
-
-[sub_resource type="Animation" id="Animation_vvsg3"]
-resource_name = "remove_projectile"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ProjectileSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ProjectileSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -133,16 +129,12 @@ tracks/0/keys = {
 _data = {
 "RESET": SubResource("Animation_oghah"),
 "collision_projectile": SubResource("Animation_b1xf8"),
-"remove_projectile": SubResource("Animation_vvsg3"),
 "start_projectile": SubResource("Animation_fomo6"),
 "travel_projectile": SubResource("Animation_t7mc1")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xt2ks"]
 animation = &"collision_projectile"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yvh8t"]
-animation = &"remove_projectile"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wjwne"]
 animation = &"start_projectile"
@@ -157,30 +149,24 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yo28s"]
-switch_mode = 2
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b2so7"]
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mfsua"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j6tig"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y4kmy"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uqvka"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_60143"]
-states/End/position = Vector2(1186, 100)
+states/End/position = Vector2(847, 100)
 states/collision_projectile/node = SubResource("AnimationNodeAnimation_xt2ks")
-states/collision_projectile/position = Vector2(978, 100)
-states/remove_projectile/node = SubResource("AnimationNodeAnimation_yvh8t")
-states/remove_projectile/position = Vector2(748, 100)
+states/collision_projectile/position = Vector2(639, 100)
 states/start_projectile/node = SubResource("AnimationNodeAnimation_wjwne")
 states/start_projectile/position = Vector2(364, 100)
 states/travel_projectile/node = SubResource("AnimationNodeAnimation_jnh58")
 states/travel_projectile/position = Vector2(364, 11)
-transitions = ["Start", "start_projectile", SubResource("AnimationNodeStateMachineTransition_oaens"), "collision_projectile", "End", SubResource("AnimationNodeStateMachineTransition_i8pka"), "remove_projectile", "collision_projectile", SubResource("AnimationNodeStateMachineTransition_yo28s"), "start_projectile", "travel_projectile", SubResource("AnimationNodeStateMachineTransition_b2so7"), "travel_projectile", "remove_projectile", SubResource("AnimationNodeStateMachineTransition_mfsua"), "start_projectile", "remove_projectile", SubResource("AnimationNodeStateMachineTransition_y4kmy")]
-graph_offset = Vector2(8, 4)
+transitions = ["Start", "start_projectile", SubResource("AnimationNodeStateMachineTransition_oaens"), "collision_projectile", "End", SubResource("AnimationNodeStateMachineTransition_i8pka"), "start_projectile", "travel_projectile", SubResource("AnimationNodeStateMachineTransition_b2so7"), "travel_projectile", "collision_projectile", SubResource("AnimationNodeStateMachineTransition_j6tig"), "start_projectile", "collision_projectile", SubResource("AnimationNodeStateMachineTransition_uqvka")]
+graph_offset = Vector2(-126, -63)
 
 [node name="BasicAttack" groups=["Projectile"] instance=ExtResource("1_7ts14")]
 collision_layer = 8
@@ -218,4 +204,3 @@ anim_player = NodePath("../AnimationPlayer")
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
-[connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]

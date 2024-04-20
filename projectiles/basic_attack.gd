@@ -8,14 +8,12 @@ func _physics_process(delta):
 	var direction = Vector2.RIGHT.rotated(rotation)
 	global_position += speed * direction * delta
 	
-
 func destroy():
 	speed = 0
 	get_node("CollisionShape2D").disabled = true
-	playback.travel("remove_projectile")
-	await $AnimationPlayer.animation_finished
+	playback.travel("collision_projectile")
+	await animation_tree.animation_finished
 	queue_free()
-	
 
 func _on_area_entered(area):
 	destroy()
