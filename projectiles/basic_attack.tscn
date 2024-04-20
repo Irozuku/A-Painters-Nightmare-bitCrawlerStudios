@@ -37,21 +37,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_fomo6"]
-resource_name = "start_projectile"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ProjectileSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4]
-}
-
 [sub_resource type="Animation" id="Animation_oghah"]
 length = 0.001
 tracks/0/type = "value"
@@ -77,22 +62,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_t7mc1"]
-resource_name = "travel_projectile"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ProjectileSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [3, 4]
 }
 
 [sub_resource type="Animation" id="Animation_b1xf8"]
@@ -126,6 +95,38 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_fomo6"]
+resource_name = "start_projectile"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProjectileSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_t7mc1"]
+resource_name = "travel_projectile"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProjectileSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 4]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t73i2"]
@@ -179,7 +180,7 @@ states/start_projectile/position = Vector2(364, 100)
 states/travel_projectile/node = SubResource("AnimationNodeAnimation_jnh58")
 states/travel_projectile/position = Vector2(364, 11)
 transitions = ["Start", "start_projectile", SubResource("AnimationNodeStateMachineTransition_oaens"), "collision_projectile", "End", SubResource("AnimationNodeStateMachineTransition_i8pka"), "remove_projectile", "collision_projectile", SubResource("AnimationNodeStateMachineTransition_yo28s"), "start_projectile", "travel_projectile", SubResource("AnimationNodeStateMachineTransition_b2so7"), "travel_projectile", "remove_projectile", SubResource("AnimationNodeStateMachineTransition_mfsua"), "start_projectile", "remove_projectile", SubResource("AnimationNodeStateMachineTransition_y4kmy")]
-graph_offset = Vector2(2, -45)
+graph_offset = Vector2(8, 4)
 
 [node name="BasicAttack" groups=["Projectile"] instance=ExtResource("1_7ts14")]
 collision_layer = 8

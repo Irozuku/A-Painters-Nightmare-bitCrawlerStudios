@@ -81,13 +81,13 @@ debug_color = Color(0, 0.647059, 0.235294, 0.419608)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
-[node name="Grid" parent="Player" instance=ExtResource("2_phdx0")]
-position = Vector2(404, -81)
-scale = Vector2(0.8, 0.8)
-
 [node name="BasicAttackTimer" type="Timer" parent="Player"]
 wait_time = 0.5
 one_shot = true
+
+[node name="Grid" parent="Player" instance=ExtResource("2_phdx0")]
+position = Vector2(404, -81)
+scale = Vector2(0.8, 0.8)
 
 [editable path="Enemy_Test"]
 [editable path="Enemy_Test/Hurtbox"]
