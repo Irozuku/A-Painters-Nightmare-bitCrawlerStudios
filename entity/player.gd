@@ -24,16 +24,16 @@ func _physics_process(delta):
 	
 	attack_direction = self.global_position.direction_to(get_global_mouse_position())
 	if change_attack:
-		attack_direction = static_direction
-		static_cursor_img.velocity = self.velocity
+		attack_direction = self.global_position.direction_to(static_cursor_img.global_position)
+		static_cursor_img.player_position = self.global_position
 	
 	if Input.is_action_just_pressed("static_basic_attack"):
 		change_attack = !change_attack
-		static_direction = self.global_position.direction_to(get_global_mouse_position())
 		if change_attack:
 			static_cursor_img = STATIC_CURSOR.instantiate()
 			get_tree().current_scene.add_child(static_cursor_img)
-			static_cursor_img.global_position = Vector2(static_cursor_img.RADIUS*cos(static_direction.angle()), static_cursor_img.RADIUS*sin(static_direction.angle())) + self.global_position
+			static_cursor_img.mouse_clicked = get_global_mouse_position()
+			static_cursor_img.player_position = self.global_position
 		else:
 			static_cursor_img.destroy()
 		
