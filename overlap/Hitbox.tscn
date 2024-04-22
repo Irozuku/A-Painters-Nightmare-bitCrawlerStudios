@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://overlap/Hitbox.gd" id="1_t8ope"]
 
 [node name="Hitbox" type="Area2D"]
+monitoring = false
 script = ExtResource("1_t8ope")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

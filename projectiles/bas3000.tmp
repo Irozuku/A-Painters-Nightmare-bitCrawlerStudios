@@ -1,0 +1,190 @@
+[gd_scene load_steps=24 format=3 uid="uid://cawqpc185ey8c"]
+
+[ext_resource type="PackedScene" uid="uid://dkw2thdhv131u" path="res://overlap/Hitbox.tscn" id="1_7ts14"]
+[ext_resource type="Script" path="res://projectiles/basic_attack.gd" id="2_pronk"]
+[ext_resource type="Texture2D" uid="uid://btwregmo8u1qs" path="res://assets/basic_attack_sprite/Pure_01.png" id="3_ljwvv"]
+[ext_resource type="Texture2D" uid="uid://clejs1fl0jymi" path="res://assets/basic_attack_sprite/Pure_02.png" id="4_fah7a"]
+[ext_resource type="Texture2D" uid="uid://cub88fwfhm6d4" path="res://assets/basic_attack_sprite/Pure_03.png" id="5_c0jvj"]
+[ext_resource type="Texture2D" uid="uid://c7kgq4g5hwu6" path="res://assets/basic_attack_sprite/Pure_04.png" id="6_f2ggc"]
+[ext_resource type="Texture2D" uid="uid://c2bofogdofaxf" path="res://assets/basic_attack_sprite/Pure_05.png" id="7_2726g"]
+[ext_resource type="Texture2D" uid="uid://c04eacwt55tun" path="res://assets/basic_attack_sprite/explosion/Free Smoke Fx  Pixel 05.png" id="8_bdo2b"]
+
+[sub_resource type="Animation" id="Animation_jh5vx"]
+resource_name = "start_projectile"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProjectileSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_xwgde"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProjectileSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ExplosionSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_b2p5y"]
+resource_name = "traveling_projectile"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProjectileSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_aheq6"]
+resource_name = "collision_projectile"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExplosionSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fyn4r"]
+_data = {
+"RESET": SubResource("Animation_xwgde"),
+"collision_projectile": SubResource("Animation_aheq6"),
+"start_projectile": SubResource("Animation_jh5vx"),
+"traveling_projectile": SubResource("Animation_b2p5y")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_11qvl"]
+animation = &"collision_projectile"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vckmr"]
+animation = &"start_projectile"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uy4ho"]
+animation = &"traveling_projectile"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c7dnw"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k50yo"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3d7eg"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qn2c1"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_y0p38"]
+states/End/position = Vector2(886, 82)
+states/Start/position = Vector2(151, 82)
+states/collision_projectile/node = SubResource("AnimationNodeAnimation_11qvl")
+states/collision_projectile/position = Vector2(713, 82)
+states/start_projectile/node = SubResource("AnimationNodeAnimation_vckmr")
+states/start_projectile/position = Vector2(295, 82)
+states/traveling_projectile/node = SubResource("AnimationNodeAnimation_uy4ho")
+states/traveling_projectile/position = Vector2(493, 82)
+transitions = ["Start", "start_projectile", SubResource("AnimationNodeStateMachineTransition_c7dnw"), "start_projectile", "traveling_projectile", SubResource("AnimationNodeStateMachineTransition_k50yo"), "traveling_projectile", "collision_projectile", SubResource("AnimationNodeStateMachineTransition_3d7eg"), "collision_projectile", "End", SubResource("AnimationNodeStateMachineTransition_qn2c1")]
+graph_offset = Vector2(17, 4)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gko03"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ljwvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fah7a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_c0jvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_f2ggc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2726g")
+}],
+"loop": false,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctoyi"]
+
+[node name="BasicAttack" groups=["Projectile"] instance=ExtResource("1_7ts14")]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("2_pronk")
+SPEED = 300
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_fyn4r")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="1"]
+tree_root = SubResource("AnimationNodeStateMachine_y0p38")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="ProjectileSprite" type="AnimatedSprite2D" parent="." index="2"]
+position = Vector2(5.96046e-08, 0)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_gko03")
+autoplay = "default"
+frame = 4
+
+[node name="ExplosionSprite" type="Sprite2D" parent="." index="3"]
+texture_filter = 1
+position = Vector2(-9.53674e-07, 5.96046e-08)
+scale = Vector2(0.3125, 0.3125)
+texture = ExtResource("8_bdo2b")
+hframes = 11
+vframes = 15
+
+[node name="CollisionShape2D" parent="." index="4"]
+shape = SubResource("RectangleShape2D_ctoyi")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." index="5"]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
