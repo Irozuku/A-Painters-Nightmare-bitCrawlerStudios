@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://chyt1wxxoph5v"]
+[gd_scene load_steps=8 format=3 uid="uid://chyt1wxxoph5v"]
 
 [ext_resource type="Script" path="res://scenes/paint_bar.gd" id="1_djux7"]
-[ext_resource type="Texture2D" uid="uid://drp4ge6v2l5uv" path="res://icon.svg" id="1_g6ipr"]
 [ext_resource type="Texture2D" uid="uid://ii1cp2n7ijdt" path="res://assets/paint_sprite/PotionRed.png" id="2_2cj68"]
 [ext_resource type="PackedScene" uid="uid://bnqo2wl5b7ayh" path="res://scenes/box_border.tscn" id="2_8cegg"]
+[ext_resource type="Texture2D" uid="uid://c4f330o3ptabx" path="res://assets/button_sprite/paint_bar_q.png" id="2_62f1f"]
 [ext_resource type="Texture2D" uid="uid://qlw7ehn5177c" path="res://assets/paint_sprite/PotionBlue.png" id="3_hqahh"]
 [ext_resource type="Texture2D" uid="uid://bdv67lynhbgex" path="res://assets/paint_sprite/PotionYellow.png" id="4_4hgsx"]
+[ext_resource type="Texture2D" uid="uid://c8qyju3ailris" path="res://assets/button_sprite/paint_bar_e.png" id="7_3wqxf"]
 
 [node name="PaintBar" type="Area2D"]
 script = ExtResource("1_djux7")
@@ -15,7 +16,8 @@ position = Vector2(-260, 0)
 scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="ArrowQ"]
-texture = ExtResource("1_g6ipr")
+texture_filter = 1
+texture = ExtResource("2_62f1f")
 
 [node name="RedPaint" type="Area2D" parent="."]
 position = Vector2(-145, 0)
@@ -48,4 +50,5 @@ position = Vector2(260, 0)
 scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="ArrowE"]
-texture = ExtResource("1_g6ipr")
+texture_filter = 1
+texture = ExtResource("7_3wqxf")
