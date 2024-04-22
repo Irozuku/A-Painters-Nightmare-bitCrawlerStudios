@@ -13,38 +13,5 @@ func _process(delta):
 	if (Input.is_action_just_released("left_click")):
 		clear_points()
 
-func _on_point_1_mouse_entered():
-	if (Input.is_action_pressed("left_click")):
-		add_point($"../Point1".position)
-
-func _on_point_2_mouse_entered():
-	if (Input.is_action_pressed("left_click")):
-		add_point($"../Point2".position)
-
-func _on_point_3_mouse_entered():
-	if (Input.is_action_pressed("left_click")):
-		add_point($"../Point3".position)
-
-func _on_point_4_mouse_entered():
-	if (Input.is_action_pressed("left_click")):
-		add_point($"../Point4".position)
-
-func _on_point_5_mouse_entered():
-	if (Input.is_action_pressed("left_click")):
-		add_point($"../Point5".position)
-
-func _on_point_6_mouse_entered():
-	if (Input.is_action_pressed("left_click")):
-		add_point($"../Point6".position)
-
-func _on_point_7_mouse_entered():
-	if (Input.is_action_pressed("left_click")):
-		add_point($"../Point7".position)
-
-func _on_point_8_mouse_entered():
-	if (Input.is_action_pressed("left_click")):
-		add_point($"../Point8".position)
-
-func _on_point_9_mouse_entered():
-	if (Input.is_action_pressed("left_click")):
-		add_point($"../Point9".position)
+func add_stroke(vector: Vector2):
+	add_point(vector)
