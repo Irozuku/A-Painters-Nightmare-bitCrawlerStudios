@@ -16,7 +16,7 @@ func _ready():
 	current_index = 0
 
 # Change the active paint color
-func change_active(paint):
+func change_active(paint: int):
 	for border in paint_array:
 		border.texture = inactive
 	current_index = paint
