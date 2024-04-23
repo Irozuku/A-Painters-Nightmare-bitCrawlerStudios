@@ -4,16 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://drp4ge6v2l5uv" path="res://icon.svg" id="2_b7a6n"]
 
 [node name="StaticCursor" type="Area2D"]
-collision_layer = 16
-collision_mask = 0
 script = ExtResource("1_s1qov")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0.686275, 0, 0.8)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_b7a6n")
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-
-[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
