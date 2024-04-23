@@ -2,6 +2,7 @@ extends Area2D
 
 var points = []
 var loaded_powers = []
+var loaded_paints = []
 var active_paint
 
 @onready var text = $Label
@@ -20,16 +21,24 @@ var active_paint
 func _ready():
 	pass # Replace with function body.
 
+# Loads corrrect patterns into power arrays
 func load_power(power: String, paint: int):
-	if loaded_powers.is_empty():
-		loaded_powers.append([power, paint])
-	else:
-		for pow in loaded_powers:
-			if not (power in pow):
-				loaded_powers.append([power, paint])
+	if (power not in loaded_powers):
+		loaded_powers.append(power)
+		loaded_paints.append(paint)
+
+# ONLY FOR DEBUG - CUT FROM MAIN
+func show_powers():
+	text.text = ""
+	var i = 0
+	while i < loaded_powers.size():
+		text.text += loaded_powers[i]
+		text.text += ": "+ str(loaded_paints[i])
+		i += 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	show_powers()
 	if (Input.is_action_just_released("left_click")):
 		active_paint = $PaintBar.current_index
 		if (points == [1, 5, 9, 6, 3, 7] or points == [7, 5, 3, 6, 9, 1]):
@@ -48,6 +57,6 @@ func _process(delta):
 		sprite8.modulate = Color("ffffff")
 		sprite9.modulate = Color("ffffff")
 		points.clear()
-	if (Input.is_action_pressed("release_power")):
+	if (Input.is_action_just_pressed("release_power")):
 		#Envia la orden de que poder realizar a ...
 		loaded_powers.clear()
