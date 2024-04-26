@@ -79,3 +79,7 @@ change_paint_right={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemy"
 2d_physics/layer_4="Projectile"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.356863, 0.294118, 0.431373, 1)
