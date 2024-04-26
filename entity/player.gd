@@ -3,7 +3,7 @@ extends "res://entity/EntityBase.gd"
 @export var BASIC_ATTACK: PackedScene = preload("res://projectiles/basic_attack.tscn")
 @onready var basic_attack_timer = $BasicAttackTimer
 
-@onready var STATIC_CURSOR : PackedScene = preload("res://cursors/static_cursor.tscn")
+@onready var STATIC_CURSOR : PackedScene = preload("res://cursor/static_cursor.tscn")
 
 
 var attack_direction

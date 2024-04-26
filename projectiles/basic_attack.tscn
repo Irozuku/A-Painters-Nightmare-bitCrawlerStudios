@@ -126,6 +126,7 @@ tree_root = SubResource("AnimationNodeStateMachine_60143")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="ProjectileAsset" type="Sprite2D" parent="." index="4"]
+modulate = Color(0.865797, 0.888354, 0, 1)
 texture_filter = 1
 rotation = -1.5708
 scale = Vector2(0.824859, -0.728)
