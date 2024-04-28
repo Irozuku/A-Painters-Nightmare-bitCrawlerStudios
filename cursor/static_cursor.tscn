@@ -1,17 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://rd3mejsi5rps"]
 
-[ext_resource type="Script" path="res://cursors/static_cursor.gd" id="1_s1qov"]
-[ext_resource type="Texture2D" uid="uid://drp4ge6v2l5uv" path="res://icon.svg" id="2_b7a6n"]
+[ext_resource type="Script" path="res://cursor/static_cursor.gd" id="1_785ha"]
+[ext_resource type="Texture2D" uid="uid://drp4ge6v2l5uv" path="res://icon.svg" id="2_oehi3"]
 
 [node name="StaticCursor" type="Area2D"]
 collision_layer = 16
 collision_mask = 0
-script = ExtResource("1_s1qov")
+script = ExtResource("1_785ha")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0.686275, 0, 0.8)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_b7a6n")
+texture = ExtResource("2_oehi3")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
