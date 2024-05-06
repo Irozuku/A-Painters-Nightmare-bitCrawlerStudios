@@ -104,6 +104,7 @@ graph_offset = Vector2(-54, 108)
 [node name="BasicAttack" groups=["Projectile"] instance=ExtResource("1_7ts14")]
 collision_layer = 8
 collision_mask = 5
+monitoring = true
 script = ExtResource("2_pronk")
 speed = 400
 
