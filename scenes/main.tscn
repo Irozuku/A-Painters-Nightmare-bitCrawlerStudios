@@ -8,12 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://dkw2thdhv131u" path="res://overlap/Hitbox.tscn" id="6_qxiu3"]
 [ext_resource type="PackedScene" uid="uid://24lw3uxpib54" path="res://map/map.tscn" id="7_27x1q"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yywdo"]
-size = Vector2(30, 30)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ty07w"]
-size = Vector2(40, 40)
-
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_adrxd"]
 blend_mode = 1
 
@@ -26,10 +20,52 @@ size = Vector2(50, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2lvb"]
 size = Vector2(40, 40)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yywdo"]
+size = Vector2(30, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ty07w"]
+size = Vector2(40, 40)
+
 [node name="Main" type="Node2D"]
 position = Vector2(2, 5)
 
 [node name="Map" parent="." instance=ExtResource("7_27x1q")]
+
+[node name="EnemyBase" parent="." instance=ExtResource("5_f366l")]
+position = Vector2(406, 337)
+
+[node name="Enemy_Test" parent="." instance=ExtResource("5_f366l")]
+collision_layer = 4
+collision_mask = 7
+
+[node name="Sprite" parent="Enemy_Test" index="0"]
+material = SubResource("CanvasItemMaterial_adrxd")
+position = Vector2(291.6, 258.6)
+scale = Vector2(3.62, 3.62)
+texture = ExtResource("4_pkqpc")
+
+[node name="CollisionShape2D" parent="Enemy_Test" index="1"]
+position = Vector2(291.5, 258.5)
+shape = SubResource("RectangleShape2D_f5w60")
+debug_color = Color(0.588235, 0.376471, 1, 0.419608)
+
+[node name="Hurtbox" parent="Enemy_Test" index="3"]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" parent="Enemy_Test/Hurtbox" index="0"]
+position = Vector2(291.6, 258.6)
+shape = SubResource("RectangleShape2D_6y0rj")
+debug_color = Color(0.811765, 0, 0.364706, 0.419608)
+
+[node name="Hitbox" parent="Enemy_Test" instance=ExtResource("6_qxiu3")]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="Enemy_Test/Hitbox" index="0"]
+position = Vector2(291.6, 258.6)
+shape = SubResource("RectangleShape2D_e2lvb")
+debug_color = Color(0, 0.639216, 0.356863, 0.419608)
 
 [node name="Player" parent="." instance=ExtResource("3_mpe3j")]
 position = Vector2(574, 319)
@@ -60,41 +96,8 @@ one_shot = true
 position = Vector2(404, -81)
 scale = Vector2(0.8, 0.8)
 
-[node name="Enemy_Test" parent="." instance=ExtResource("5_f366l")]
-collision_layer = 4
-collision_mask = 7
-
-[node name="Sprite" parent="Enemy_Test" index="0"]
-material = SubResource("CanvasItemMaterial_adrxd")
-position = Vector2(291.6, 258.6)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_pkqpc")
-
-[node name="CollisionShape2D" parent="Enemy_Test" index="1"]
-position = Vector2(291.5, 258.5)
-shape = SubResource("RectangleShape2D_f5w60")
-debug_color = Color(0.588235, 0.376471, 1, 0.419608)
-
-[node name="Hurtbox" parent="Enemy_Test" index="3"]
-collision_layer = 4
-collision_mask = 8
-
-[node name="CollisionShape2D" parent="Enemy_Test/Hurtbox" index="0"]
-position = Vector2(291.6, 258.6)
-shape = SubResource("RectangleShape2D_6y0rj")
-debug_color = Color(0.811765, 0, 0.364706, 0.419608)
-
-[node name="Hitbox" parent="Enemy_Test" instance=ExtResource("6_qxiu3")]
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape2D" parent="Enemy_Test/Hitbox" index="0"]
-position = Vector2(291.6, 258.6)
-shape = SubResource("RectangleShape2D_e2lvb")
-debug_color = Color(0, 0.639216, 0.356863, 0.419608)
-
-[editable path="Player"]
-[editable path="Player/Hurtbox"]
 [editable path="Enemy_Test"]
 [editable path="Enemy_Test/Hurtbox"]
 [editable path="Enemy_Test/Hitbox"]
+[editable path="Player"]
+[editable path="Player/Hurtbox"]
