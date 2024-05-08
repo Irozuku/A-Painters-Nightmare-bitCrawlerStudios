@@ -5,15 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://crqkn6et8giq8" path="res://assets/basic_attack_sprite/explosion/explosions.png" id="3_fo1tw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vpths"]
-radius = 21.0
+radius = 19.105
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o3nig"]
 radius = 21.0238
 
 [node name="EnemyChase" instance=ExtResource("1_shacb")]
-position = Vector2(4, -5)
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("2_hesui")
-metadata/_edit_group_ = true
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource("3_fo1tw")
@@ -22,7 +22,12 @@ vframes = 9
 frame = 57
 
 [node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_vpths")
+
+[node name="Hurtbox" parent="." index="3"]
+collision_layer = 4
+collision_mask = 8
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource("CircleShape2D_o3nig")

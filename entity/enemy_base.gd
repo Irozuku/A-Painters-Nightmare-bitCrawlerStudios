@@ -11,6 +11,7 @@ var acceleration = 1000
 	
 func _ready():
 	target = get_node("/root/Main/Player")
+	#body_entered.connect(_on_body_entered)
 
 func _physics_process(delta):
 	var direction_x = global_position.direction_to(target.global_position).x
@@ -20,4 +21,11 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func die():
+	queue_free()
+	
+func _on_body_entered(body:Node2D):
+	queue_free()
+
+
+func _on_hurtbox_area_entered(area):
 	queue_free()
