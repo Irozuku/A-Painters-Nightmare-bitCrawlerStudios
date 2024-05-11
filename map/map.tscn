@@ -5321,8 +5321,8 @@ texture = ExtResource("2_cfeb1")
 44:47/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_pvkxq"]
-physics_layer_0/collision_layer = 1
-physics_layer_0/collision_mask = 15
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 7
 sources/0 = SubResource("TileSetAtlasSource_bveoc")
 
 [node name="Map" type="Node2D"]

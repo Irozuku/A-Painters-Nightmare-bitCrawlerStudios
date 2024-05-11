@@ -32,6 +32,7 @@ position = Vector2(2, 5)
 position = Vector2(614, 142)
 
 [node name="Enemy_Test" parent="." instance=ExtResource("5_f366l")]
+collision_mask = 23
 
 [node name="Sprite" parent="Enemy_Test" index="0"]
 material = SubResource("CanvasItemMaterial_adrxd")
@@ -56,7 +57,7 @@ collision_mask = 2
 [node name="Player" parent="." instance=ExtResource("3_mpe3j")]
 position = Vector2(574, 319)
 collision_layer = 2
-collision_mask = 5
+collision_mask = 21
 BASIC_ATTACK = ExtResource("2_c1j8i")
 
 [node name="Sprite" parent="Player" index="0"]

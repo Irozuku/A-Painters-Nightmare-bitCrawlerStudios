@@ -12,7 +12,7 @@ radius = 21.0238
 
 [node name="EnemyChase" instance=ExtResource("1_shacb")]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 23
 script = ExtResource("2_hesui")
 
 [node name="Sprite" parent="." index="0"]
