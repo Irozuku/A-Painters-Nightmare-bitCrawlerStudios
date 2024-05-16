@@ -1,5 +1,5 @@
-extends CharacterBody2D
-
+#extends CharacterBody2D
+extends "res://entity/EntityBase.gd"
 class_name Enemy
 
 var type
