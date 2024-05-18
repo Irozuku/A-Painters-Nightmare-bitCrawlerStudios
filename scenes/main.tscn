@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cd1nndfdodm00"]
+[gd_scene load_steps=14 format=3 uid="uid://cd1nndfdodm00"]
 
 [ext_resource type="PackedScene" uid="uid://cawqpc185ey8c" path="res://projectiles/basic_attack.tscn" id="2_c1j8i"]
 [ext_resource type="PackedScene" uid="uid://ipscaqabriwe" path="res://scenes/grid.tscn" id="2_phdx0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dhw8bmboer45q" path="res://entity/enemy_base.tscn" id="5_f366l"]
 [ext_resource type="PackedScene" uid="uid://dkw2thdhv131u" path="res://overlap/Hitbox.tscn" id="6_qxiu3"]
 [ext_resource type="PackedScene" uid="uid://24lw3uxpib54" path="res://map/map.tscn" id="7_27x1q"]
+[ext_resource type="PackedScene" uid="uid://b0cifmwm2dt0j" path="res://UI/pause.tscn" id="8_3s2tb"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_adrxd"]
 blend_mode = 1
@@ -83,6 +84,11 @@ position = Vector2(404, -81)
 scale = Vector2(0.8, 0.8)
 collision_layer = 0
 collision_mask = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+
+[node name="Pause" parent="Player/CanvasLayer" instance=ExtResource("8_3s2tb")]
+visible = false
 
 [editable path="Enemy_Test"]
 [editable path="Enemy_Test/Hurtbox"]
