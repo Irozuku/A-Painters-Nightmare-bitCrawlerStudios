@@ -153,8 +153,8 @@ position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_hj2oq")
 
 [node name="SymbolRemainder" parent="." instance=ExtResource("13_12nfd")]
-position = Vector2(0, 230)
-scale = Vector2(0.5, 0.5)
+position = Vector2(0, 300)
+scale = Vector2(2, 2)
 
 [node name="Brushstroke" type="Line2D" parent="."]
 width = 40.0
