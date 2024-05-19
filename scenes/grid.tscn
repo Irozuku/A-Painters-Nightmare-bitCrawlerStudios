@@ -48,6 +48,7 @@ scale = Vector2(0.6, 0.6)
 [node name="Point1" type="Area2D" parent="."]
 position = Vector2(-119, -119)
 scale = Vector2(0.65, 0.65)
+collision_layer = 2
 script = ExtResource("3_uskx1")
 
 [node name="PointSprite1" type="Sprite2D" parent="Point1"]
@@ -60,6 +61,7 @@ shape = SubResource("RectangleShape2D_djerg")
 [node name="Point2" type="Area2D" parent="."]
 position = Vector2(0, -119)
 scale = Vector2(0.65, 0.65)
+collision_layer = 2
 script = ExtResource("4_ltwip")
 
 [node name="PointSprite2" type="Sprite2D" parent="Point2"]
@@ -72,6 +74,7 @@ shape = SubResource("RectangleShape2D_hj2oq")
 [node name="Point3" type="Area2D" parent="."]
 position = Vector2(119, -119)
 scale = Vector2(0.65, 0.65)
+collision_layer = 2
 script = ExtResource("5_awcnf")
 
 [node name="PointSprite3" type="Sprite2D" parent="Point3"]
@@ -84,6 +87,7 @@ shape = SubResource("RectangleShape2D_hj2oq")
 [node name="Point4" type="Area2D" parent="."]
 position = Vector2(-119, 0)
 scale = Vector2(0.65, 0.65)
+collision_layer = 2
 script = ExtResource("6_gl04j")
 
 [node name="PointSprite4" type="Sprite2D" parent="Point4"]
@@ -95,6 +99,7 @@ shape = SubResource("RectangleShape2D_hj2oq")
 
 [node name="Point5" type="Area2D" parent="."]
 scale = Vector2(0.65, 0.65)
+collision_layer = 2
 script = ExtResource("7_qstoo")
 
 [node name="PointSprite5" type="Sprite2D" parent="Point5"]
@@ -107,6 +112,7 @@ shape = SubResource("RectangleShape2D_hj2oq")
 [node name="Point6" type="Area2D" parent="."]
 position = Vector2(119, 0)
 scale = Vector2(0.65, 0.65)
+collision_layer = 2
 script = ExtResource("8_akyws")
 
 [node name="PointSprite6" type="Sprite2D" parent="Point6"]
@@ -119,6 +125,7 @@ shape = SubResource("RectangleShape2D_hj2oq")
 [node name="Point7" type="Area2D" parent="."]
 position = Vector2(-119, 119)
 scale = Vector2(0.65, 0.65)
+collision_layer = 2
 script = ExtResource("9_7433d")
 
 [node name="PointSprite7" type="Sprite2D" parent="Point7"]
@@ -131,6 +138,7 @@ shape = SubResource("RectangleShape2D_hj2oq")
 [node name="Point8" type="Area2D" parent="."]
 position = Vector2(0, 119)
 scale = Vector2(0.65, 0.65)
+collision_layer = 2
 script = ExtResource("10_svhmx")
 
 [node name="PointSprite8" type="Sprite2D" parent="Point8"]
@@ -143,6 +151,7 @@ shape = SubResource("RectangleShape2D_hj2oq")
 [node name="Point9" type="Area2D" parent="."]
 position = Vector2(119, 119)
 scale = Vector2(0.65, 0.65)
+collision_layer = 2
 script = ExtResource("11_lm87c")
 
 [node name="PointSprite9" type="Sprite2D" parent="Point9"]
