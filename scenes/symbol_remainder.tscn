@@ -1,38 +1,40 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6r4p4lxsya4"]
+[gd_scene load_steps=7 format=3 uid="uid://c6r4p4lxsya4"]
 
-[ext_resource type="Texture2D" uid="uid://bkod6espe68u2" path="res://assets/remainder_sprite/p1_remainder.png" id="1_ov0nu"]
+[ext_resource type="Script" path="res://scenes/symbol_remainder.gd" id="1_bgljs"]
 [ext_resource type="PackedScene" uid="uid://bnqo2wl5b7ayh" path="res://scenes/box_border.tscn" id="1_tvrkk"]
-[ext_resource type="Texture2D" uid="uid://cagjfusseindt" path="res://assets/border_sprite/border_remainder_on.png" id="2_tgwe0"]
-[ext_resource type="Texture2D" uid="uid://dg30nrjixu08x" path="res://assets/remainder_sprite/p2_remainder.png" id="4_oc20h"]
-[ext_resource type="Texture2D" uid="uid://cporpekseyoy2" path="res://assets/remainder_sprite/p3_remainder.png" id="5_feia8"]
+[ext_resource type="Texture2D" uid="uid://8nxqh0u0mtjo" path="res://assets/border_sprite/border_remainder_off.png" id="2_xfupo"]
+[ext_resource type="Texture2D" uid="uid://bdnaw6cuk52fv" path="res://assets/remainder_sprite/p1_remainder_off.png" id="3_tojyr"]
+[ext_resource type="Texture2D" uid="uid://dy6110k5qxj6y" path="res://assets/remainder_sprite/p2_remainder_off.png" id="4_b1bee"]
+[ext_resource type="Texture2D" uid="uid://bqx2glm30yxuw" path="res://assets/remainder_sprite/p3_remainder_off.png" id="5_w7v2t"]
 
 [node name="SymbolRemainder" type="Area2D"]
+script = ExtResource("1_bgljs")
 
 [node name="Symbol1" type="Area2D" parent="."]
 position = Vector2(-69, 0)
 
-[node name="Border1" parent="Symbol1" instance=ExtResource("1_tvrkk")]
-texture = ExtResource("2_tgwe0")
+[node name="Border" parent="Symbol1" instance=ExtResource("1_tvrkk")]
+texture = ExtResource("2_xfupo")
 frame = 17
 
-[node name="Sprite1" type="Sprite2D" parent="Symbol1"]
-texture = ExtResource("1_ov0nu")
+[node name="Sprite" type="Sprite2D" parent="Symbol1"]
+texture = ExtResource("3_tojyr")
 
 [node name="Symbol2" type="Area2D" parent="."]
 
-[node name="Border2" parent="Symbol2" instance=ExtResource("1_tvrkk")]
-texture = ExtResource("2_tgwe0")
+[node name="Border" parent="Symbol2" instance=ExtResource("1_tvrkk")]
+texture = ExtResource("2_xfupo")
 frame = 17
 
-[node name="Sprite2" type="Sprite2D" parent="Symbol2"]
-texture = ExtResource("4_oc20h")
+[node name="Sprite" type="Sprite2D" parent="Symbol2"]
+texture = ExtResource("4_b1bee")
 
 [node name="Symbol3" type="Area2D" parent="."]
 position = Vector2(69, 0)
 
-[node name="Border3" parent="Symbol3" instance=ExtResource("1_tvrkk")]
-texture = ExtResource("2_tgwe0")
+[node name="Border" parent="Symbol3" instance=ExtResource("1_tvrkk")]
+texture = ExtResource("2_xfupo")
 frame = 17
 
-[node name="Sprite3" type="Sprite2D" parent="Symbol3"]
-texture = ExtResource("5_feia8")
+[node name="Sprite" type="Sprite2D" parent="Symbol3"]
+texture = ExtResource("5_w7v2t")

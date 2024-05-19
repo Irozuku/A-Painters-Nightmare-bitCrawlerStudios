@@ -6,6 +6,7 @@ var loaded_paints = []
 var active_paint
 
 @onready var text = $Label
+@onready var remainder = $SymbolRemainder
 
 @onready var sprite1 = $Point1/PointSprite1
 @onready var sprite2 = $Point2/PointSprite2
@@ -26,6 +27,8 @@ func load_power(power: String, paint: int):
 	if (power not in loaded_powers):
 		loaded_powers.append(power)
 		loaded_paints.append(paint)
+		remainder.hold(power)
+		
 
 # ONLY FOR DEBUG - CUT FROM MAIN
 func show_powers():

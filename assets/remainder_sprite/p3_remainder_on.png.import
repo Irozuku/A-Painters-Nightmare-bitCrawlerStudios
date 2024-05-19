@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg30nrjixu08x"
-path="res://.godot/imported/p2_remainder.png-4df0c81868d8b91bcea1572547b85701.ctex"
+uid="uid://smaqtscyvdqc"
+path="res://.godot/imported/p3_remainder_on.png-f17a034aa7032026b50f7ee5ef0b6d40.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/remainder_sprite/p2_remainder.png"
-dest_files=["res://.godot/imported/p2_remainder.png-4df0c81868d8b91bcea1572547b85701.ctex"]
+source_file="res://assets/remainder_sprite/p3_remainder_on.png"
+dest_files=["res://.godot/imported/p3_remainder_on.png-f17a034aa7032026b50f7ee5ef0b6d40.ctex"]
 
 [params]
 
