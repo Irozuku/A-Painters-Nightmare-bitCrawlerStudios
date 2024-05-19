@@ -18,6 +18,7 @@ texture = ExtResource("2_xfupo")
 frame = 17
 
 [node name="Sprite" type="Sprite2D" parent="Symbol1"]
+texture_filter = 1
 texture = ExtResource("3_tojyr")
 
 [node name="Symbol2" type="Area2D" parent="."]
@@ -27,6 +28,7 @@ texture = ExtResource("2_xfupo")
 frame = 17
 
 [node name="Sprite" type="Sprite2D" parent="Symbol2"]
+texture_filter = 1
 texture = ExtResource("4_b1bee")
 
 [node name="Symbol3" type="Area2D" parent="."]
@@ -37,4 +39,5 @@ texture = ExtResource("2_xfupo")
 frame = 17
 
 [node name="Sprite" type="Sprite2D" parent="Symbol3"]
+texture_filter = 1
 texture = ExtResource("5_w7v2t")
