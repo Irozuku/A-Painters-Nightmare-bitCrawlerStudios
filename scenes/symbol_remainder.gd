@@ -38,6 +38,14 @@ func hold(poder: String):
 		border3.texture = border_active
 		p3.texture = p3_active
 
+func release():
+	border1.texture = border_inactive
+	border2.texture = border_inactive
+	border3.texture = border_inactive
+	p1.texture = p1_inactive
+	p2.texture = p2_inactive
+	p3.texture = p3_inactive
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

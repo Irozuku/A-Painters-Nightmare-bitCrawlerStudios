@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://fnn02amhlkdd"]
+
+[node name="PowerHandler" type="Node2D"]
+
+[node name="Power1" type="Node2D" parent="."]
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="Power1"]

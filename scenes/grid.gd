@@ -63,3 +63,4 @@ func _process(delta):
 	if (Input.is_action_just_pressed("release_power")):
 		#Envia la orden de que poder realizar a ...
 		loaded_powers.clear()
+		remainder.release()
