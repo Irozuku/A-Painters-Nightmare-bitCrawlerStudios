@@ -54,6 +54,7 @@ collision_layer = 2
 script = ExtResource("3_uskx1")
 
 [node name="PointSprite1" type="Sprite2D" parent="Point1"]
+visible = false
 texture = ExtResource("1_tntsb")
 
 [node name="Coll1" type="CollisionShape2D" parent="Point1"]
@@ -67,6 +68,7 @@ collision_layer = 2
 script = ExtResource("4_ltwip")
 
 [node name="PointSprite2" type="Sprite2D" parent="Point2"]
+visible = false
 texture = ExtResource("1_tntsb")
 
 [node name="Coll2" type="CollisionShape2D" parent="Point2"]
@@ -80,6 +82,7 @@ collision_layer = 2
 script = ExtResource("5_awcnf")
 
 [node name="PointSprite3" type="Sprite2D" parent="Point3"]
+visible = false
 texture = ExtResource("1_tntsb")
 
 [node name="Coll3" type="CollisionShape2D" parent="Point3"]
@@ -93,6 +96,7 @@ collision_layer = 2
 script = ExtResource("6_gl04j")
 
 [node name="PointSprite4" type="Sprite2D" parent="Point4"]
+visible = false
 texture = ExtResource("1_tntsb")
 
 [node name="Coll4" type="CollisionShape2D" parent="Point4"]
@@ -105,6 +109,7 @@ collision_layer = 2
 script = ExtResource("7_qstoo")
 
 [node name="PointSprite5" type="Sprite2D" parent="Point5"]
+visible = false
 texture = ExtResource("1_tntsb")
 
 [node name="Coll5" type="CollisionShape2D" parent="Point5"]
@@ -118,6 +123,7 @@ collision_layer = 2
 script = ExtResource("8_akyws")
 
 [node name="PointSprite6" type="Sprite2D" parent="Point6"]
+visible = false
 texture = ExtResource("1_tntsb")
 
 [node name="Coll6" type="CollisionShape2D" parent="Point6"]
@@ -131,6 +137,7 @@ collision_layer = 2
 script = ExtResource("9_7433d")
 
 [node name="PointSprite7" type="Sprite2D" parent="Point7"]
+visible = false
 texture = ExtResource("1_tntsb")
 
 [node name="Coll7" type="CollisionShape2D" parent="Point7"]
@@ -144,6 +151,7 @@ collision_layer = 2
 script = ExtResource("10_svhmx")
 
 [node name="PointSprite8" type="Sprite2D" parent="Point8"]
+visible = false
 texture = ExtResource("1_tntsb")
 
 [node name="Coll8" type="CollisionShape2D" parent="Point8"]
@@ -168,6 +176,11 @@ shape = SubResource("RectangleShape2D_hj2oq")
 position = Vector2(0, 300)
 scale = Vector2(2, 2)
 
+[node name="Cover" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3.3, 3.3)
+texture = ExtResource("17_at5ac")
+
 [node name="Brushstroke" type="Line2D" parent="."]
 width = 40.0
 texture = ExtResource("15_tt251")
@@ -175,11 +188,6 @@ texture_mode = 2
 joint_mode = 2
 antialiased = true
 script = ExtResource("14_nvryy")
-
-[node name="Cover" type="Sprite2D" parent="."]
-texture_filter = 1
-scale = Vector2(3.3, 3.3)
-texture = ExtResource("17_at5ac")
 
 [connection signal="input_event" from="Point1" to="Point1" method="_on_input_event"]
 [connection signal="mouse_entered" from="Point1" to="Point1" method="_on_mouse_entered"]
