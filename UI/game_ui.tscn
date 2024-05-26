@@ -82,21 +82,20 @@ text = "You died !"
 [node name="BackMenu" type="Button" parent="."]
 unique_name_in_owner = true
 process_mode = 3
-visible = false
 modulate = Color(0.631373, 0.596078, 1, 1)
 layout_mode = 2
-offset_left = 470.5
-offset_top = 373.5
-offset_right = 681.5
-offset_bottom = 412.5
+anchor_left = 0.40842
+anchor_top = 0.576389
+anchor_right = 0.59158
+anchor_bottom = 0.636574
 grow_horizontal = 2
 grow_vertical = 2
 text = "Back to Title Menu"
+metadata/_edit_use_anchors_ = true
 
 [node name="ExitButton" type="Button" parent="."]
 unique_name_in_owner = true
 process_mode = 3
-visible = false
 modulate = Color(0.631373, 0.596078, 1, 1)
 layout_mode = 1
 anchors_preset = 8
