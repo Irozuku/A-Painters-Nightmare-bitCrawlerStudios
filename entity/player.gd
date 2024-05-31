@@ -4,7 +4,7 @@ extends "res://entity/EntityBase.gd"
 @onready var basic_attack_timer = $BasicAttackTimer
 
 @onready var STATIC_CURSOR : PackedScene = preload("res://cursor/static_cursor.tscn")
-
+@onready var health_bar = %HealthBar
 
 var attack_direction
 var static_direction
@@ -14,6 +14,9 @@ var static_cursor_img = null
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _ready():
+	health_bar.max_value = self.hp_max
+	health_bar.value = self.hp
 
 func _physics_process(delta):
 	# Select direction
@@ -52,3 +55,12 @@ func basic_attack(att_direction: Vector2):
 		basic_attack_timer.start()
 
 
+func _input(event):
+	if event.is_action_pressed("remove_health"):
+		self.set_hp(self.hp-1)
+
+func _on_hp_changed(new_hp):
+	health_bar.value = new_hp
+
+func _on_died():
+	pass

@@ -11,11 +11,8 @@ func _physics_process(delta):
 	
 func destroy():
 	speed = 0
-	#get_node("CollisionShape2D").disabled = true
 	var collision = get_node("CollisionShape2D")
 	collision.call_deferred("set", "disabled", true)
-	
-	#Testing arriba
 	projectile_asset.hide()
 	playback.travel("collision")
 	await animation_tree.animation_finished

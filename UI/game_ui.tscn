@@ -1,0 +1,101 @@
+[gd_scene load_steps=2 format=3 uid="uid://5atpqa3xbsgp"]
+
+[ext_resource type="Script" path="res://UI/game_ui.gd" id="1_jqs52"]
+
+[node name="GameUI" type="Node"]
+script = ExtResource("1_jqs52")
+metadata/_edit_use_anchors_ = true
+
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 600.0
+autostart = true
+
+[node name="TimeContainer" type="PanelContainer" parent="."]
+modulate = Color(0.694118, 0, 0, 1)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -83.5
+offset_right = 83.5
+offset_bottom = 52.0
+grow_horizontal = 2
+
+[node name="GameTimeText" type="Label" parent="TimeContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 31
+text = "TIMER PLACEHOLDER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.384314, 0.141176, 0.270588, 1)
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="WinContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 51
+text = "You Win !"
+
+[node name="LoseContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.901961, 0.141176, 0.270588, 1)
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="LoseContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 51
+text = "You died !"
+
+[node name="BackMenu" type="Button" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+modulate = Color(0.631373, 0.596078, 1, 1)
+anchors_preset = -1
+anchor_left = 0.40842
+anchor_top = 0.576389
+anchor_right = 0.59158
+anchor_bottom = 0.636574
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back to Title Menu"
+metadata/_edit_use_anchors_ = true
+
+[node name="ExitButton" type="Button" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+modulate = Color(0.631373, 0.596078, 1, 1)
+anchors_preset = -1
+anchor_left = 0.40842
+anchor_top = 0.647377
+anchor_right = 0.59158
+anchor_bottom = 0.707562
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit"
+metadata/_edit_use_anchors_ = true

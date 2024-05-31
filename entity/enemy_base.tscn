@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhw8bmboer45q"]
+[gd_scene load_steps=9 format=3 uid="uid://dhw8bmboer45q"]
 
 [ext_resource type="PackedScene" uid="uid://bsctk0uoj5iav" path="res://entity/EntityBase.tscn" id="1_shacb"]
 [ext_resource type="Script" path="res://entity/enemy_base.gd" id="2_hesui"]
@@ -11,6 +11,9 @@ radius = 19.105
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o3nig"]
 radius = 21.0238
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1e8fr"]
+radius = 21.0
 
 [node name="EnemyChase" instance=ExtResource("1_shacb")]
 collision_layer = 4
@@ -35,12 +38,22 @@ script = ExtResource("4_bb474")
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource("CircleShape2D_o3nig")
 
-[node name="Timer" type="Timer" parent="Hurtbox" index="1"]
+[node name="DisableTimer" type="Timer" parent="Hurtbox" index="1"]
+wait_time = 0.5
+one_shot = true
 
-[node name="Hitbox" parent="." index="4" instance=ExtResource("5_jhevl")]
+[node name="Hitbox" parent="." index="4" groups=["attack"] instance=ExtResource("5_jhevl")]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" index="1"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_1e8fr")
 
-[node name="Timer" type="Timer" parent="Hitbox" index="2"]
+[node name="DisableTimer" type="Timer" parent="Hitbox" index="2"]
+
+[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
+[connection signal="timeout" from="Hurtbox/DisableTimer" to="Hurtbox" method="_on_disable_timer_timeout"]
+[connection signal="timeout" from="Hitbox/DisableTimer" to="Hitbox" method="_on_disable_timer_timeout"]
 
 [editable path="Hurtbox"]

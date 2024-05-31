@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dkw2thdhv131u" path="res://overlap/Hitbox.tscn" id="6_qxiu3"]
 [ext_resource type="PackedScene" uid="uid://24lw3uxpib54" path="res://map/map.tscn" id="7_27x1q"]
 [ext_resource type="PackedScene" uid="uid://b0cifmwm2dt0j" path="res://UI/pause.tscn" id="8_3s2tb"]
+[ext_resource type="PackedScene" uid="uid://5atpqa3xbsgp" path="res://UI/game_ui.tscn" id="9_0fnm6"]
+[ext_resource type="Texture2D" uid="uid://dyj8kw62uq6sf" path="res://assets/healt_bar_sprite/health meter-28.png" id="9_p78wj"]
+[ext_resource type="Texture2D" uid="uid://jelutmsvge00" path="res://assets/healt_bar_sprite/health meter-31.png" id="10_ndotq"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_adrxd"]
 blend_mode = 1
@@ -30,8 +33,10 @@ position = Vector2(2, 5)
 
 [node name="EnemyBase" parent="." instance=ExtResource("5_f366l")]
 position = Vector2(614, 142)
+SPEED = 200
 
 [node name="Enemy_Test" parent="." instance=ExtResource("5_f366l")]
+collision_mask = 22
 
 [node name="Sprite" parent="Enemy_Test" index="0"]
 material = SubResource("CanvasItemMaterial_adrxd")
@@ -54,6 +59,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="Player" parent="." instance=ExtResource("3_mpe3j")]
+unique_name_in_owner = true
 position = Vector2(574, 319)
 collision_layer = 2
 collision_mask = 21
@@ -85,8 +91,26 @@ collision_mask = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player"]
 
+[node name="GameUI" parent="Player/CanvasLayer" instance=ExtResource("9_0fnm6")]
+
+[node name="HealthBarNode" type="Node2D" parent="Player/CanvasLayer"]
+scale = Vector2(0.4, 0.4)
+
+[node name="HealthBar" type="TextureProgressBar" parent="Player/CanvasLayer/HealthBarNode"]
+unique_name_in_owner = true
+offset_right = 680.0
+offset_bottom = 192.0
+value = 26.0
+texture_under = ExtResource("9_p78wj")
+texture_progress = ExtResource("10_ndotq")
+texture_progress_offset = Vector2(145, 70)
+metadata/_edit_use_anchors_ = true
+
 [node name="Pause" parent="Player/CanvasLayer" instance=ExtResource("8_3s2tb")]
 visible = false
+
+[connection signal="died" from="Player" to="Player/CanvasLayer/GameUI" method="_on_player_died"]
+[connection signal="hp_changed" from="Player" to="Player" method="_on_hp_changed"]
 
 [editable path="Enemy_Test"]
 [editable path="Enemy_Test/Hurtbox"]

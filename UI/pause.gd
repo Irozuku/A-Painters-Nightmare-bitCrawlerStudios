@@ -10,7 +10,6 @@ func _ready():
 	resume.pressed.connect(_on_resume_pressed)
 	menu.pressed.connect(_on_menu_pressed)
 	exit.pressed.connect(_on_exit_pressed)
-	
 	hide()
 
 func _input(event: InputEvent) -> void:
