@@ -93,3 +93,5 @@ hframes = 19
 libraries = {
 "": SubResource("AnimationLibrary_2egtv")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="Power2"]
