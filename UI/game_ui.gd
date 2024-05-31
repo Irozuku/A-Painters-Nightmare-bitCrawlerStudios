@@ -1,4 +1,4 @@
-extends Control
+extends Node
 
 @onready var game_timer = $GameTimer
 @onready var game_time_text = %GameTimeText
@@ -16,7 +16,15 @@ func _ready():
 	exit.pressed.connect(_on_exit_pressed)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	game_time_text.text = str(int(game_timer.get_time_left())/60) + ":" + str(int(game_timer.get_time_left())%60)
+	var min = int(game_timer.get_time_left())/60
+	var sec = int(game_timer.get_time_left())%60
+	game_time_text.text = str(min) + ":" + str(sec)
+	if min == 0:
+		game_time_text.text = str(sec)
+
+func _input(event):
+	if event.is_action_pressed("cheat_time"):
+		game_timer.start(10)
 
 func _on_timeout():
 	win_container.show()
