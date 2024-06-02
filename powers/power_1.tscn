@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdx64lrtif80i"]
+
+[ext_resource type="Script" path="res://powers/Power1.gd" id="1_a6rcv"]
+[ext_resource type="Texture2D" uid="uid://24vemvv2k22t" path="res://assets/stroke_sprite/stroke1.png" id="2_yy68a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ef47"]
+
+[node name="Power1" type="Node2D"]
+script = ExtResource("1_a6rcv")
+
+[node name="Line1" type="Line2D" parent="."]
+width = 20.0
+texture = ExtResource("2_yy68a")
+texture_mode = 2
+
+[node name="Line2" type="Line2D" parent="."]
+width = 20.0
+texture = ExtResource("2_yy68a")
+texture_mode = 2
+
+[node name="Line3" type="Line2D" parent="."]
+width = 20.0
+texture = ExtResource("2_yy68a")
+texture_mode = 2
+
+[node name="Line4" type="Line2D" parent="."]
+width = 20.0
+texture = ExtResource("2_yy68a")
+texture_mode = 2
+
+[node name="Ray1" type="ShapeCast2D" parent="."]
+shape = SubResource("RectangleShape2D_0ef47")
+target_position = Vector2(0, 0)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Ray2" type="ShapeCast2D" parent="."]
+shape = SubResource("RectangleShape2D_0ef47")
+target_position = Vector2(0, 0)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Ray3" type="ShapeCast2D" parent="."]
+shape = SubResource("RectangleShape2D_0ef47")
+target_position = Vector2(0, 0)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Ray4" type="ShapeCast2D" parent="."]
+shape = SubResource("RectangleShape2D_0ef47")
+target_position = Vector2(0, 0)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false

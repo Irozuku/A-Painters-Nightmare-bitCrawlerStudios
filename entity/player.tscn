@@ -1,14 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://2mn76wqfxvq2"]
+[gd_scene load_steps=5 format=3 uid="uid://2mn76wqfxvq2"]
 
 [ext_resource type="PackedScene" uid="uid://bsctk0uoj5iav" path="res://entity/EntityBase.tscn" id="1_626d7"]
 [ext_resource type="Script" path="res://entity/player.gd" id="2_ubl2o"]
 [ext_resource type="PackedScene" uid="uid://cawqpc185ey8c" path="res://projectiles/basic_attack.tscn" id="3_ida7b"]
+[ext_resource type="Script" path="res://entity/power_handler.gd" id="4_060sj"]
 
 [node name="Player" instance=ExtResource("1_626d7")]
 script = ExtResource("2_ubl2o")
 BASIC_ATTACK = ExtResource("3_ida7b")
 
-[node name="Hurtbox" parent="." index="3"]
+[node name="PowerHandler" type="Node2D" parent="." index="0"]
+script = ExtResource("4_060sj")
+
+[node name="Hurtbox" parent="." index="4"]
 collision_layer = 2
 collision_mask = 4
 

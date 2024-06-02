@@ -61,6 +61,7 @@ func _process(delta):
 		sprite9.modulate = Color("ffffff")
 		points.clear()
 	if (Input.is_action_just_pressed("release_power")):
-		#Envia la orden de que poder realizar a ...
+		print("Sending powers to controler")
+		SignalManager.send_power(loaded_powers, loaded_paints)
 		loaded_powers.clear()
 		remainder.release()
