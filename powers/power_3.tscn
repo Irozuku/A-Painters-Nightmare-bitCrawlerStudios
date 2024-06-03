@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cr8nkpbrqk5dy"]
 
-[ext_resource type="Script" path="res://powers/Power1.gd" id="1_kmn6i"]
+[ext_resource type="Script" path="res://powers/Power3.gd" id="1_poqhn"]
 
 [node name="Power3" type="Node2D"]
-script = ExtResource("1_kmn6i")
+script = ExtResource("1_poqhn")
