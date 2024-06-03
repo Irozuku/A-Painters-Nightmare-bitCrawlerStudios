@@ -49,6 +49,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="Grid" parent="Player" instance=ExtResource("2_phdx0")]
+z_index = 1
 position = Vector2(404, -81)
 scale = Vector2(0.8, 0.8)
 collision_layer = 0

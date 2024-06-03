@@ -1,6 +1,8 @@
-extends "res://overlap/Hitbox.gd"
+extends Area2D
 
-@onready var ColPolygon = $Hitbox/CollisionPolygon2D
+@export var damage = 20
+
+@onready var ColPolygon = $CollisionPolygon2D
 @onready var sprite = $Sprite2D
 
 var speed: float = 400
@@ -40,3 +42,10 @@ func _update_sprite(delta):
 
 func _on_timeout():
 	queue_free()  # Auto eliminar el nodo
+
+func _on_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_body_entered(body):
+	pass # Replace with function body.
