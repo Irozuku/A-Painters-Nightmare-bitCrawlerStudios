@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://2mn76wqfxvq2"]
+[gd_scene load_steps=6 format=3 uid="uid://2mn76wqfxvq2"]
 
 [ext_resource type="PackedScene" uid="uid://bsctk0uoj5iav" path="res://entity/EntityBase.tscn" id="1_626d7"]
 [ext_resource type="Script" path="res://entity/player.gd" id="2_ubl2o"]
 [ext_resource type="PackedScene" uid="uid://cawqpc185ey8c" path="res://projectiles/basic_attack.tscn" id="3_ida7b"]
 [ext_resource type="Script" path="res://entity/power_handler.gd" id="4_060sj"]
+[ext_resource type="PackedScene" uid="uid://cjikt021ms80n" path="res://overlap/Hurtbox.tscn" id="5_7pviy"]
 
 [node name="Player" instance=ExtResource("1_626d7")]
 script = ExtResource("2_ubl2o")
@@ -16,4 +17,11 @@ script = ExtResource("4_060sj")
 collision_layer = 2
 collision_mask = 4
 
+[node name="Hurtbox" parent="Hurtbox" index="1" instance=ExtResource("5_7pviy")]
+collision_layer = 2
+collision_mask = 4
+
+[connection signal="area_entered" from="Hurtbox/Hurtbox" to="." method="_on_hurtbox_area_entered"]
+
 [editable path="Hurtbox"]
+[editable path="Hurtbox/Hurtbox"]

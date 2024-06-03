@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dk6ah3031lbj5"]
+[gd_scene load_steps=5 format=3 uid="uid://dk6ah3031lbj5"]
 
 [ext_resource type="Script" path="res://powers/power_2.gd" id="1_xutds"]
 [ext_resource type="Texture2D" uid="uid://dtruad4j6hamd" path="res://assets/ability_sprite/p2.png" id="1_y1qrk"]
 [ext_resource type="PackedScene" uid="uid://dkw2thdhv131u" path="res://overlap/Hitbox.tscn" id="3_3j1j8"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_s1xr6"]
+radius = 45.0
+
 [node name="Power2" type="Node2D"]
-position = Vector2(117, 83)
 script = ExtResource("1_xutds")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -15,5 +17,5 @@ frame = 9
 
 [node name="Hitbox" parent="." instance=ExtResource("3_3j1j8")]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
-build_mode = 1
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_s1xr6")

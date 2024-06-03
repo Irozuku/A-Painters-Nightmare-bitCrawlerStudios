@@ -20,5 +20,11 @@ func _on_power_released(powers, paints):
 			add_child(power_node)
 		elif (power == "Poder 2"):
 			print("Lanzando poder 2")
+			var power_scene = load("res://powers/power_2.tscn")
+			var power_node = power_scene.instantiate()
+			add_child(power_node)
 		elif (power == "Poder 3"):
 			print("Lanzando poder 3")
+			var power_scene = load("res://powers/power_3.tscn")
+			var power_node = power_scene.instantiate()
+			add_child(power_node)
