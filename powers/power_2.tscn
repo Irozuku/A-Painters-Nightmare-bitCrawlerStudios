@@ -1,17 +1,84 @@
-[gd_scene load_steps=3 format=3 uid="uid://dk6ah3031lbj5"]
+[gd_scene load_steps=11 format=3 uid="uid://l30pdd3rikt4"]
 
-[ext_resource type="Script" path="res://powers/power_2.gd" id="1_xutds"]
 [ext_resource type="Texture2D" uid="uid://dtruad4j6hamd" path="res://assets/ability_sprite/p2.png" id="1_y1qrk"]
+[ext_resource type="Script" path="res://powers/Power2.gd" id="2_rmn7a"]
+[ext_resource type="PackedScene" uid="uid://dkw2thdhv131u" path="res://overlap/Hitbox.tscn" id="3_20eoy"]
 
-[node name="Power2" type="Area2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_1yxde"]
+radius = 116.039
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u17px"]
+animation = &"new_animation"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pr0ne"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_x846x"]
+states/Start/position = Vector2(190, 100)
+states/new_animation/node = SubResource("AnimationNodeAnimation_u17px")
+states/new_animation/position = Vector2(457, 105)
+transitions = ["Start", "new_animation", SubResource("AnimationNodeStateMachineTransition_pr0ne")]
+graph_offset = Vector2(58, -9)
+
+[sub_resource type="Animation" id="Animation_3ydjx"]
+resource_name = "new_animation"
+length = 2.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18]
+}
+
+[sub_resource type="Animation" id="Animation_w752k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oi5oi"]
+_data = {
+"RESET": SubResource("Animation_w752k"),
+"new_animation": SubResource("Animation_3ydjx")
+}
+
+[node name="Power2" instance=ExtResource("3_20eoy")]
 collision_layer = 8
-collision_mask = 5
-script = ExtResource("1_xutds")
+collision_mask = 4
+monitoring = true
+script = ExtResource("2_rmn7a")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_1yxde")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+texture_filter = 1
+scale = Vector2(3.36719, 3.43743)
 texture = ExtResource("1_y1qrk")
 hframes = 19
-frame = 9
+frame = 1
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-build_mode = 1
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeStateMachine_x846x")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_oi5oi")
+}

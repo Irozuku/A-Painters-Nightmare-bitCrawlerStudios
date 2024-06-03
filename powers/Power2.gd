@@ -1,6 +1,6 @@
 extends "res://overlap/Hitbox.gd"
 
-@onready var ColPolygon = $Hitbox/CollisionPolygon2D
+@onready var ColPolygon = $CollisionShape2D
 @onready var sprite = $Sprite2D
 
 var speed: float = 400
@@ -18,14 +18,14 @@ func _ready():
 	timer.connect("timeout", Callable(self, "_on_timeout"))
 	timer.start()
 	radio_actual = radio_inicial
-	_update_collision_polygon()
+	#_update_collision_polygon()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	radio_actual += speed * delta
-	_update_collision_polygon()
-	_update_sprite(delta)
+	#_update_collision_polygon()
+	#_update_sprite(delta)
 
 func _update_collision_polygon():
 	var points = []
@@ -33,7 +33,9 @@ func _update_collision_polygon():
 	for i in range(num_segments):
 		var angle = i * PI * 2 / num_segments
 		points.append(Vector2(cos(angle), sin(angle)) * (radio_actual/2))
-	ColPolygon.polygon = PackedVector2Array(points)
+	var polygon_shape = ConvexPolygonShape2D.new()
+	polygon_shape.set_points(points)
+	ColPolygon.shape = polygon_shape
 
 func _update_sprite(delta):
 	sprite.scale += Vector2(sprite_speed, sprite_speed) * delta

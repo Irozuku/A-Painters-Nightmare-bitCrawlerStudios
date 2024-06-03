@@ -45,6 +45,7 @@ func receive_damage(base_damage: int):
 
 func _on_hurtbox_area_entered(hitbox):
 	receive_damage(hitbox.damage)
+	print(hitbox)
 	
 	if hitbox.is_in_group("Projectile"):
 		hitbox.destroy()
