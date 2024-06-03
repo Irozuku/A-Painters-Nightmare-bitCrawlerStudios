@@ -5,6 +5,7 @@ class_name Enemy
 var type
 var target = Vector2()
 var acceleration = 1000
+@onready var hurtbox = $Hurtbox
 
 func _ready():
 	target = get_node("/root/Main/Player")
@@ -18,9 +19,11 @@ func _physics_process(delta):
 	velocity.y = move_toward(velocity.y, direction_y * SPEED, acceleration * delta)
 	move_and_slide()
 
-func _on_power1_collision():
+func _on_power1_collision(obj):
 	# Emitir la señal de daño (o manejar el daño directamente)
-	receive_damage(10)
+	if hurtbox == obj:
+		print("He sido colisionado")
+		receive_damage(20)
 
 func die():
 	queue_free()

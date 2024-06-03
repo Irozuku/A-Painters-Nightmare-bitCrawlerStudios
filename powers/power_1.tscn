@@ -33,27 +33,27 @@ texture_mode = 2
 [node name="Ray1" type="ShapeCast2D" parent="."]
 shape = SubResource("RectangleShape2D_0ef47")
 target_position = Vector2(0, 0)
-collision_mask = 4
+collision_mask = 5
 collide_with_areas = true
 collide_with_bodies = false
 
 [node name="Ray2" type="ShapeCast2D" parent="."]
 shape = SubResource("RectangleShape2D_0ef47")
 target_position = Vector2(0, 0)
-collision_mask = 4
+collision_mask = 5
 collide_with_areas = true
 collide_with_bodies = false
 
 [node name="Ray3" type="ShapeCast2D" parent="."]
 shape = SubResource("RectangleShape2D_0ef47")
 target_position = Vector2(0, 0)
-collision_mask = 4
+collision_mask = 5
 collide_with_areas = true
 collide_with_bodies = false
 
 [node name="Ray4" type="ShapeCast2D" parent="."]
 shape = SubResource("RectangleShape2D_0ef47")
 target_position = Vector2(0, 0)
-collision_mask = 4
+collision_mask = 5
 collide_with_areas = true
 collide_with_bodies = false

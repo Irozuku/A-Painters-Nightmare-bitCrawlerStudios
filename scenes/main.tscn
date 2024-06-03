@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://drp4ge6v2l5uv" path="res://icon.svg" id="4_pkqpc"]
 [ext_resource type="PackedScene" uid="uid://24lw3uxpib54" path="res://map/map.tscn" id="7_27x1q"]
 [ext_resource type="PackedScene" uid="uid://b0cifmwm2dt0j" path="res://UI/pause.tscn" id="8_3s2tb"]
-[ext_resource type="PackedScene" uid="uid://5atpqa3xbsgp" path="res://UI/game_ui.tscn" id="9_0fnm6"]
+[ext_resource type="PackedScene" path="res://UI/game_ui.tscn" id="9_0fnm6"]
 [ext_resource type="Texture2D" uid="uid://dyj8kw62uq6sf" path="res://assets/healt_bar_sprite/health meter-28.png" id="9_p78wj"]
 [ext_resource type="Texture2D" uid="uid://jelutmsvge00" path="res://assets/healt_bar_sprite/health meter-31.png" id="10_ndotq"]
 

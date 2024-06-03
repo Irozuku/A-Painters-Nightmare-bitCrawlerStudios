@@ -47,7 +47,11 @@ func _process(delta):
 
 func check_collision(ray):
 	if ray.is_colliding():
-		SignalManager.power1()
+		var col_int = ray.get_collision_count()
+		for i in col_int:
+			print("Rayo ha colisionado")
+			var collider = ray.get_collider(i)
+			SignalManager.power1(collider)
 
 
 
