@@ -43,7 +43,6 @@ func receive_damage(base_damage: int):
 	self.hp -= actual_damage
 	print(name + " received " + str(actual_damage) + " damage" + ", current hp: " + str(hp))
 
-
 func _on_hurtbox_area_entered(hitbox):
 	receive_damage(hitbox.damage)
 	

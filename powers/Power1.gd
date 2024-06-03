@@ -40,6 +40,14 @@ func _process(delta):
 	sprite2.add_point(ray2.target_position)
 	sprite3.add_point(ray3.target_position)
 	sprite4.add_point(ray4.target_position)
+	check_collision(ray1)
+	check_collision(ray2)
+	check_collision(ray3)
+	check_collision(ray4)
+
+func check_collision(ray):
+	if ray.is_colliding():
+		SignalManager.power1()
 
 
 

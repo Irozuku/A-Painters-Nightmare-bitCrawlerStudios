@@ -5,7 +5,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ef47"]
 
-[node name="Power1" type="Node2D"]
+[node name="Power1" type="Area2D"]
+collision_layer = 8
+collision_mask = 5
 script = ExtResource("1_a6rcv")
 
 [node name="Line1" type="Line2D" parent="."]
