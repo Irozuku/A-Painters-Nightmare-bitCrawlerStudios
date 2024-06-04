@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://l30pdd3rikt4"]
+[gd_scene load_steps=11 format=3 uid="uid://dk6ah3031lbj5"]
 
 [ext_resource type="Texture2D" uid="uid://dtruad4j6hamd" path="res://assets/ability_sprite/p2.png" id="1_y1qrk"]
 [ext_resource type="Script" path="res://powers/Power2.gd" id="2_rmn7a"]
@@ -6,19 +6,6 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1yxde"]
 radius = 116.039
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u17px"]
-animation = &"new_animation"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pr0ne"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_x846x"]
-states/Start/position = Vector2(190, 100)
-states/new_animation/node = SubResource("AnimationNodeAnimation_u17px")
-states/new_animation/position = Vector2(457, 105)
-transitions = ["Start", "new_animation", SubResource("AnimationNodeStateMachineTransition_pr0ne")]
-graph_offset = Vector2(58, -9)
 
 [sub_resource type="Animation" id="Animation_w752k"]
 length = 0.001
@@ -58,11 +45,25 @@ _data = {
 "new_animation": SubResource("Animation_3ydjx")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u17px"]
+animation = &"new_animation"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pr0ne"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_x846x"]
+states/Start/position = Vector2(190, 100)
+states/new_animation/node = SubResource("AnimationNodeAnimation_u17px")
+states/new_animation/position = Vector2(457, 105)
+transitions = ["Start", "new_animation", SubResource("AnimationNodeStateMachineTransition_pr0ne")]
+graph_offset = Vector2(58, -9)
+
 [node name="Power2" instance=ExtResource("3_20eoy")]
 collision_layer = 8
 collision_mask = 4
 monitoring = true
 script = ExtResource("2_rmn7a")
+damage = 20
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_1yxde")
@@ -75,6 +76,9 @@ hframes = 19
 frame = 1
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_oi5oi")
+}
 tree_root = SubResource("AnimationNodeStateMachine_x846x")
 anim_player = NodePath("../AnimationPlayer")
 
