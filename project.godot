@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Autoshooter"
+config/name="A Painter's Nightmare"
 run/main_scene="res://UI/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
