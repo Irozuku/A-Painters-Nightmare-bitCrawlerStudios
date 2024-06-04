@@ -1,4 +1,4 @@
-extends Area2D
+extends "res://overlap/Hitbox.gd"
 
 @onready var ColPolygon = $CollisionShape2D
 @onready var sprite = $Sprite2D
