@@ -19,11 +19,11 @@ func _physics_process(delta):
 	velocity.y = move_toward(velocity.y, direction_y * SPEED, acceleration * delta)
 	move_and_slide()
 
-func _on_power1_collision(obj):
+func _on_power1_collision(obj, damage):
 	# Emitir la señal de daño (o manejar el daño directamente)
 	if hurtbox == obj:
 		print("He sido colisionado")
-		receive_damage(20)
+		receive_damage(damage)
 
 func die():
 	queue_free()

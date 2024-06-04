@@ -1,7 +1,8 @@
-extends Node2D
+extends Area2D
 
-var speed: int = 200
-@export var damage = 10
+var speed: int = 250
+
+var damage = 20
 
 @onready var ray1 = $Ray1
 @onready var sprite1 = $Line1
@@ -16,7 +17,7 @@ var speed: int = 200
 func _ready():
 	# Crear un temporizador para eliminar el nodo después de 2 segundos
 	var timer = Timer.new()
-	timer.wait_time = 2.0
+	timer.wait_time = 2.5
 	timer.one_shot = true
 	add_child(timer)
 	timer.connect("timeout", Callable(self, "_on_timeout"))
@@ -51,7 +52,7 @@ func check_collision(ray):
 		for i in col_int:
 			print("Rayo ha colisionado")
 			var collider = ray.get_collider(i)
-			SignalManager.power1(collider)
+			SignalManager.power1(collider, damage)
 
 
 
