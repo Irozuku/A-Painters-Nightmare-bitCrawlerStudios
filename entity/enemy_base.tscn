@@ -1,42 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhw8bmboer45q"]
+[gd_scene load_steps=7 format=3 uid="uid://dhw8bmboer45q"]
 
 [ext_resource type="PackedScene" uid="uid://bsctk0uoj5iav" path="res://entity/EntityBase.tscn" id="1_shacb"]
 [ext_resource type="Script" path="res://entity/enemy_base.gd" id="2_hesui"]
 [ext_resource type="Texture2D" uid="uid://crqkn6et8giq8" path="res://assets/basic_attack_sprite/explosion/explosions.png" id="3_fo1tw"]
 [ext_resource type="PackedScene" uid="uid://dkw2thdhv131u" path="res://overlap/Hitbox.tscn" id="5_jhevl"]
-
-[sub_resource type="GDScript" id="GDScript_ot2lt"]
-script/source = "extends Area2D
-
-
-@export_enum(\"Cooldown\", \"HitOnce\", \"DisableHitbox\") var HurtboxType = 0
-
-@onready var collision = $CollisionShape2D
-@onready var disableTimer = $DisableTimer
-
-signal hurt(damage)
-
-
-
-func _on_area_entered(area):
-	if area.is_in_group(\"attack\"):
-		if not area.get(\"damage\") == null :
-			match HurtboxType:
-				0: #Cooldown
-					collision.call_deferred(\"set\", \"disabled\", true)
-					disableTimer.start()
-				1: #Hitonce
-					pass
-				2: #Disable Hitbox
-					if area.has_method(\"tempdisable\"):
-						area.tempdisable()
-			var damage = area.damage
-			emit_signal(\"hurt\", damage)
-
-
-func _on_disable_timer_timeout():
-	collision.call_deferred(\"set\", \"disabled\", false)
-"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o3nig"]
 radius = 21.0238
@@ -65,7 +32,6 @@ position = Vector2(-1, 0)
 visible = false
 collision_layer = 4
 collision_mask = 8
-script = SubResource("GDScript_ot2lt")
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource("CircleShape2D_o3nig")
