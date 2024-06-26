@@ -9,6 +9,7 @@ extends Control
 func _ready():
 	start.pressed.connect(_on_start_pressed)
 	exit.pressed.connect(_on_exit_pressed)
+	credits.pressed.connect(_on_credits_pressed)
 
 
 func _on_start_pressed():
@@ -16,3 +17,6 @@ func _on_start_pressed():
 	
 func _on_exit_pressed():
 	get_tree().quit()
+
+func _on_credits_pressed():
+	get_tree().change_scene_to_file("res://credits/GodotCredits.tscn")
