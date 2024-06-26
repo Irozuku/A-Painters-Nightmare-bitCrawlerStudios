@@ -83,4 +83,3 @@ autostart = true
 
 [editable path="Player"]
 [editable path="Player/Hurtbox"]
-[editable path="Player/Hurtbox/Hurtbox"]
