@@ -16,11 +16,19 @@ func _ready():
 	exit.pressed.connect(_on_exit_pressed)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var min = int(game_timer.get_time_left())/60
-	var sec = int(game_timer.get_time_left())%60
-	game_time_text.text = str(min) + ":" + str(sec)
+	var time_left = int(game_timer.get_time_left())
+	var min = int(time_left) / 60
+	var sec = int(time_left) % 60
+	var sec_str = ""
+	if sec < 10:
+		sec_str = "0" + str(sec)
+	else:
+		sec_str = str(sec)
+	
 	if min == 0:
-		game_time_text.text = str(sec)
+		game_time_text.text = sec_str
+	else:
+		game_time_text.text = str(min) + ":" + sec_str
 
 func _input(event):
 	if event.is_action_pressed("cheat_time"):
