@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://c8olmiexu2b7p"]
 
-[ext_resource type="Script" path="res://music/main_menu/main_menu_bgm.gd" id="1_u6eam"]
+[ext_resource type="Script" path="res://music/main_menu/audio_player.gd" id="1_875dw"]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
 volume_db = -15.5
-script = ExtResource("1_u6eam")
+script = ExtResource("1_875dw")

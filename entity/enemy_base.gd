@@ -5,6 +5,7 @@ var type
 var target = Vector2()
 var acceleration = 1000
 @onready var animation_tree = $AnimationTree
+@onready var animation_player = $AnimationPlayer
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var hurtbox = $Hurtbox
 @onready var hitbox_collision_shape = $Hitbox/CollisionShape2D2
@@ -43,12 +44,12 @@ func die():
 	hurtbox_collision_shape.set_deferred("disabled", true)
 	var timer = Timer.new()
 	add_child(timer)
-	timer.wait_time = 1
+	timer.wait_time = animation_player.current_animation_length
 	timer.one_shot = true
-	timer.connect("timeout", _on_animation_finished)
+	timer.connect("timeout", _on_dead_animation_finished)
 	timer.start()
 
-func _on_animation_finished():
+func _on_dead_animation_finished():
 	queue_free()
 
 func _on_body_entered(body:Node2D):
