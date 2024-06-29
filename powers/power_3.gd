@@ -2,6 +2,8 @@ extends Node2D
 
 @export var damage = 10
 
+var colors
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Crear un temporizador para eliminar el nodo después de 2 segundos
@@ -16,5 +18,9 @@ func _ready():
 func _process(delta):
 	pass
 
+func assing_colors(paints):
+	colors = paints
+
 func _on_timeout():
+	colors.clear()
 	queue_free()  # Auto eliminar el nodo

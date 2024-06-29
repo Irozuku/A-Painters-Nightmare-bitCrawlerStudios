@@ -20,6 +20,10 @@ config/icon="res://icon/icon.svg"
 SignalManager="*res://scenes/SignalManager.tscn"
 AudioPlayer="*res://music/main_menu/audio_player.tscn"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 left={

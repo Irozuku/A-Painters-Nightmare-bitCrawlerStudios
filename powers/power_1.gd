@@ -2,7 +2,11 @@ extends Area2D
 
 var speed: int = 250
 
-var damage = 20
+var BASE_DAMAGE = 10
+
+@export var damage = BASE_DAMAGE
+
+var colors
 
 @onready var ray1 = $Ray1
 @onready var sprite1 = $Line1
@@ -16,6 +20,8 @@ var damage = 20
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Crear un temporizador para eliminar el nodo después de 2 segundos
+	if 0 in colors:
+		damage = int(damage*0.1)
 	var timer = Timer.new()
 	timer.wait_time = 2.5
 	timer.one_shot = true
@@ -54,7 +60,10 @@ func check_collision(ray):
 			var collider = ray.get_collider(i)
 			SignalManager.power1(collider, damage)
 
-
+func assing_colors(paints):
+	colors = paints
 
 func _on_timeout():
+	colors.clear()
+	damage = BASE_DAMAGE
 	queue_free()  # Auto eliminar el nodo

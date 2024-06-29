@@ -12,7 +12,7 @@ BASIC_ATTACK = ExtResource("3_ida7b")
 [node name="PowerHandler" type="Node2D" parent="." index="0"]
 script = ExtResource("4_060sj")
 
-[node name="Hurtbox" parent="." index="5"]
+[node name="Hurtbox" parent="." index="4"]
 collision_layer = 2
 collision_mask = 4
 
