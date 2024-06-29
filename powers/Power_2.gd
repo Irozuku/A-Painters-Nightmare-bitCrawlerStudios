@@ -3,7 +3,9 @@ extends Area2D
 @onready var ColPolygon = $CollisionShape2D
 @onready var sprite = $Sprite2D
 
-@export var damage = 20
+var BASE_DAMAGE = 10
+
+@export var damage = BASE_DAMAGE
 
 var colors
 
@@ -14,6 +16,8 @@ var radio_actual: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if 0 in colors:
+		damage += int(damage*0.1)
 	# Crear un temporizador para eliminar el nodo después de 2 segundos
 	var timer = Timer.new()
 	timer.wait_time = 2.0
@@ -49,4 +53,5 @@ func assing_colors(paints):
 
 func _on_timeout():
 	colors.clear()
+	damage = BASE_DAMAGE
 	queue_free()  # Auto eliminar el nodo
