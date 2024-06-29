@@ -15,6 +15,7 @@ var static_cursor_img = null
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
+	SignalManager.connect("gain_life", Callable(self, "_on_gain_life"))
 	health_bar.max_value = self.hp_max
 	health_bar.value = self.hp
 
@@ -58,6 +59,9 @@ func basic_attack(att_direction: Vector2):
 func _input(event):
 	if event.is_action_pressed("remove_health"):
 		self.set_hp(self.hp-1)
+
+func _on_gain_life(hp):
+	heal(hp)
 
 func _on_hp_changed(new_hp):
 	health_bar.value = new_hp

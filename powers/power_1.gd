@@ -21,7 +21,7 @@ var colors
 func _ready():
 	# Crear un temporizador para eliminar el nodo después de 2 segundos
 	if 0 in colors:
-		damage = int(damage*0.1)
+		damage += int(damage*0.1)
 	var timer = Timer.new()
 	timer.wait_time = 2.5
 	timer.one_shot = true
@@ -59,6 +59,8 @@ func check_collision(ray):
 			print("Rayo ha colisionado")
 			var collider = ray.get_collider(i)
 			SignalManager.power1(collider, damage)
+			if 2 in colors:
+				SignalManager.lifesteal(int(damage*0.1))
 
 func assing_colors(paints):
 	colors = paints

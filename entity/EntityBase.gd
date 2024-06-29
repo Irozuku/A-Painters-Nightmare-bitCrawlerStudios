@@ -40,6 +40,14 @@ func receive_damage(base_damage: int):
 	
 	print(name + " received " + str(actual_damage) + " damage" + ", current hp: " + str(self.hp))
 
+func heal(hp_gained: int):
+	if self.hp + hp_gained > self.hp_max:
+		self.hp = self.hp_max
+	else:
+		self.hp += hp_gained
+	
+	print(name + " healed " + str(hp_gained) + " hp" + ", current hp: " + str(self.hp))
+
 func _on_hurtbox_area_entered(hitbox):
 	receive_damage(hitbox.damage)
 	
