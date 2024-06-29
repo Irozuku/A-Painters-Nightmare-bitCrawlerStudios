@@ -12,6 +12,8 @@ script = ExtResource("1_p2tdv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
+[node name="AnimationTree" type="AnimationTree" parent="."]
+
 [node name="Hurtbox" parent="." instance=ExtResource("2_fg6kv")]
 
 [connection signal="died" from="." to="." method="_on_died"]

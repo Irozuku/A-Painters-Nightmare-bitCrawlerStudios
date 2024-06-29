@@ -105,7 +105,7 @@ collision_layer = 8
 collision_mask = 5
 monitoring = true
 script = ExtResource("2_pronk")
-speed = 400
+speed = 500
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(-1, 0)
