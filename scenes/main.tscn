@@ -21,6 +21,7 @@ position = Vector2(2, 5)
 script = ExtResource("1_y4qkv")
 
 [node name="Map" parent="." instance=ExtResource("7_27x1q")]
+modulate = Color(0.537255, 1, 1, 1)
 
 [node name="Player" parent="." instance=ExtResource("3_mpe3j")]
 unique_name_in_owner = true
