@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dk6ah3031lbj5"]
 
 [ext_resource type="Texture2D" uid="uid://dtruad4j6hamd" path="res://assets/ability_sprite/p2.png" id="1_y1qrk"]
-[ext_resource type="Script" path="res://powers/Power2.gd" id="2_rmn7a"]
+[ext_resource type="Script" path="res://powers/power_2.gd" id="2_3htol"]
 [ext_resource type="PackedScene" uid="uid://dkw2thdhv131u" path="res://overlap/Hitbox.tscn" id="3_20eoy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1yxde"]
@@ -58,12 +58,11 @@ states/new_animation/position = Vector2(457, 105)
 transitions = ["Start", "new_animation", SubResource("AnimationNodeStateMachineTransition_pr0ne")]
 graph_offset = Vector2(58, -9)
 
-[node name="Power2" instance=ExtResource("3_20eoy")]
+[node name="Power2" groups=["Power2"] instance=ExtResource("3_20eoy")]
 collision_layer = 8
 collision_mask = 4
 monitoring = true
-script = ExtResource("2_rmn7a")
-damage = 20
+script = ExtResource("2_3htol")
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_1yxde")
@@ -86,3 +85,5 @@ anim_player = NodePath("../AnimationPlayer")
 libraries = {
 "": SubResource("AnimationLibrary_oi5oi")
 }
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

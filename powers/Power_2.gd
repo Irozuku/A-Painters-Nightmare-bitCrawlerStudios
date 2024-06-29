@@ -1,11 +1,9 @@
-extends Area2D
+extends "res://overlap/Hitbox.gd"
 
 @onready var ColPolygon = $CollisionShape2D
 @onready var sprite = $Sprite2D
 
 var BASE_DAMAGE = 10
-
-@export var damage = BASE_DAMAGE
 
 var colors
 
@@ -16,6 +14,7 @@ var radio_actual: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	damage = BASE_DAMAGE
 	if 0 in colors:
 		damage += int(damage*0.1)
 	# Crear un temporizador para eliminar el nodo después de 2 segundos
@@ -47,6 +46,10 @@ func _update_collision_polygon():
 
 func _update_sprite(delta):
 	sprite.scale += Vector2(sprite_speed, sprite_speed) * delta
+
+func _on_area_entered(area):
+	if 2 in colors:
+		SignalManager.lifesteal(int(damage*0.1))
 
 func assing_colors(paints):
 	colors = paints
