@@ -21,6 +21,7 @@ position = Vector2(2, 5)
 script = ExtResource("1_y4qkv")
 
 [node name="Map" parent="." instance=ExtResource("7_27x1q")]
+modulate = Color(0.537255, 1, 1, 1)
 
 [node name="Player" parent="." instance=ExtResource("3_mpe3j")]
 unique_name_in_owner = true
@@ -28,6 +29,7 @@ position = Vector2(574, 319)
 collision_layer = 2
 collision_mask = 21
 hp_max = 20
+SPEED = 350
 
 [node name="Sprite" parent="Player" index="1"]
 modulate = Color(1, 0.443137, 0.301961, 1)

@@ -18,6 +18,7 @@ config/icon="res://icon/icon.svg"
 [autoload]
 
 SignalManager="*res://scenes/SignalManager.tscn"
+AudioPlayer="*res://music/main_menu/audio_player.tscn"
 
 [input]
 

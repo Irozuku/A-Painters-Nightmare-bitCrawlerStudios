@@ -10,7 +10,6 @@ signal died
 
 @export var SPEED: int = 300
 
-@onready var sprite = $Sprite
 @onready var collShape = $CollisionShape2D
 @onready var animPlayer = $AnimationPlayer
 
@@ -21,11 +20,10 @@ func set_hp_max(value):
 		self.hp = hp
 
 func set_hp(value):
-	if value != hp:
-		hp = clamp(value, 0, hp_max)
-		emit_signal("hp_changed", hp)
-		if hp == 0:
-			emit_signal("died")
+	hp = clamp(value, 0, hp_max)
+	emit_signal("hp_changed", hp)
+	if hp == 0:
+		emit_signal("died")
 	
 func get_hp():
 	return hp
@@ -37,15 +35,13 @@ func die():
 	queue_free()
 
 func receive_damage(base_damage: int):
-	var actual_damage = base_damage
-	actual_damage -= defense
-	
+	var actual_damage = base_damage - defense
 	self.hp -= actual_damage
-	print(name + " received " + str(actual_damage) + " damage" + ", current hp: " + str(hp))
+	
+	print(name + " received " + str(actual_damage) + " damage" + ", current hp: " + str(self.hp))
 
 func _on_hurtbox_area_entered(hitbox):
 	receive_damage(hitbox.damage)
-	print(hitbox)
 	
 	if hitbox.is_in_group("Power2"):
 		print("Me dio el circulo")

@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://plqb5fwku2uc"]
+[gd_scene load_steps=4 format=3 uid="uid://plqb5fwku2uc"]
 
 [ext_resource type="Theme" uid="uid://dk5jyyo81hdwi" path="res://resources/theme.tres" id="1_jmqlm"]
 [ext_resource type="Script" path="res://UI/main_menu.gd" id="2_i387w"]
 [ext_resource type="Texture2D" uid="uid://ptwb8l3rpkln" path="res://assets/main_menu_bg/ruins version  (1) variant 07.png" id="2_th8o1"]
-[ext_resource type="AudioStream" uid="uid://dm5haoffweufa" path="res://music/main_menu/11 - Sergio V. Quintero - Sorrows Embrace (Loop).mp3" id="4_6l88b"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -74,7 +73,3 @@ text = "Credits"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Exit"
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_6l88b")
-autoplay = true

@@ -71,6 +71,7 @@ var credits = [
 func _ready():
 	colorrect.color = bg_color
 	videoplayer.set_stream(Video)
+	AudioPlayer.play_bgm_music()
 	if !Use_Video_Audio:
 		var stream = AudioStreamPlayer.new()
 		stream.set_stream(Music)
