@@ -9,6 +9,6 @@ func _play_music(music: AudioStream, volume):
 	volume_db = volume
 	play()
 	
-func play_bgm_music(volume = 0.0):
+func play_bgm_music(volume = volume_db):
 	_play_music(bgm_music, volume)
 	

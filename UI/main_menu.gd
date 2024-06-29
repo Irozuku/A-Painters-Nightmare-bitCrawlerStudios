@@ -10,7 +10,7 @@ func _ready():
 	start.pressed.connect(_on_start_pressed)
 	exit.pressed.connect(_on_exit_pressed)
 	credits.pressed.connect(_on_credits_pressed)
-	MainMenuBgm.play_bgm_music(-15.5)
+	MainMenuBgm.play_bgm_music()
 
 
 func _on_start_pressed():
