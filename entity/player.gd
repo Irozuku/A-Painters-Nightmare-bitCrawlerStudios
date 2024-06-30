@@ -1,4 +1,4 @@
-extends "res://entity/EntityBase.gd"
+extends EntityBase
 
 @export var BASIC_ATTACK: PackedScene = preload("res://projectiles/basic_attack.tscn")
 @onready var basic_attack_timer = $BasicAttackTimer

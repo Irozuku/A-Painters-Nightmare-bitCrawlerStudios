@@ -1,4 +1,4 @@
-extends "res://entity/EntityBase.gd"
+extends EntityBase
 class_name Enemy
 
 var type

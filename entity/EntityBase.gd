@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name EntityBase
 
 signal hp_max_changed(new_hp_max)
 signal hp_changed(new_hp)
