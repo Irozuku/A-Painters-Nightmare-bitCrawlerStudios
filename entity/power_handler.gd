@@ -1,6 +1,5 @@
 extends Node2D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SignalManager.connect("power_released", Callable(self, "_on_power_released"))
@@ -28,6 +27,10 @@ func _on_power_released(powers, paints):
 		elif (power == "Poder 3"):
 			print("Lanzando poder 3")
 			var power_scene = load("res://powers/power_3.tscn")
-			var power_node = power_scene.instantiate()
-			power_node.assing_colors(paints)
-			add_child(power_node)
+			for i in range(5):
+				var power_node = power_scene.instantiate()
+				var att_direction = Vector2(randf_range(250, -250),randf_range(250, -250)).normalized()
+				var att_rotation = att_direction.angle()
+				power_node.rotation = att_rotation
+				power_node.assing_colors(paints)
+				add_child(power_node)

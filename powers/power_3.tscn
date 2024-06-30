@@ -99,7 +99,9 @@ states/projectile/position = Vector2(309, 199)
 transitions = ["Start", "projectile", SubResource("AnimationNodeStateMachineTransition_bmm2m"), "projectile", "collision", SubResource("AnimationNodeStateMachineTransition_3pp4y"), "collision", "End", SubResource("AnimationNodeStateMachineTransition_2nghh")]
 graph_offset = Vector2(-54, 108)
 
-[node name="Power3" type="Area2D" groups=["power3"]]
+[node name="Power3" type="Area2D" groups=["Power", "Projectile"]]
+collision_layer = 8
+collision_mask = 5
 script = ExtResource("1_yebvo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -124,7 +126,7 @@ tree_root = SubResource("AnimationNodeStateMachine_nhg4r")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="ProjectileAsset" type="Sprite2D" parent="."]
-modulate = Color(0.865797, 0.888354, 0, 1)
+modulate = Color(0, 1, 1, 1)
 texture_filter = 1
 position = Vector2(-5, 5.96046e-08)
 rotation = 3.14159
@@ -144,3 +146,4 @@ frame = 63
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
