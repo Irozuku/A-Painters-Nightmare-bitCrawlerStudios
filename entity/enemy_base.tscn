@@ -1,158 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://dhw8bmboer45q"]
+[gd_scene load_steps=4 format=3 uid="uid://dhw8bmboer45q"]
 
 [ext_resource type="PackedScene" uid="uid://bsctk0uoj5iav" path="res://entity/EntityBase.tscn" id="1_shacb"]
 [ext_resource type="Script" path="res://entity/enemy_base.gd" id="2_hesui"]
-[ext_resource type="Texture2D" uid="uid://b100r2d5js4w5" path="res://assets/enemy_sprites/satiro-Sheet v1.1.png" id="3_5aedr"]
 [ext_resource type="PackedScene" uid="uid://dkw2thdhv131u" path="res://overlap/Hitbox.tscn" id="5_jhevl"]
-
-[sub_resource type="Animation" id="Animation_0xju3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_v3mx0"]
-resource_name = "damage_taken"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [60, 61, 62, 63]
-}
-
-[sub_resource type="Animation" id="Animation_grh1v"]
-resource_name = "dead"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [50, 51, 52, 53, 54, 55, 56, 57, 58, 59]
-}
-
-[sub_resource type="Animation" id="Animation_v2hsv"]
-resource_name = "idle"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-
-[sub_resource type="Animation" id="Animation_82m12"]
-resource_name = "run"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [10, 11, 12, 13, 14, 15, 16, 17]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_nklvm"]
-_data = {
-"RESET": SubResource("Animation_0xju3"),
-"damage_taken": SubResource("Animation_v3mx0"),
-"dead": SubResource("Animation_grh1v"),
-"idle": SubResource("Animation_v2hsv"),
-"run": SubResource("Animation_82m12")
-}
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vb47q"]
-animation = &"damage_taken"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yjcwl"]
-animation = &"dead"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ysm8t"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xru5r"]
-animation = &"run"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lq8k2"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_odnuv"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_780n2"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_82yoa"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ypeqn"]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1blm0"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lxjl1"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dnllx"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ckwr6"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1iluy"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_barfw"]
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ju3ws"]
-states/End/position = Vector2(651, 310)
-states/Start/position = Vector2(197, 100)
-states/damage_taken/node = SubResource("AnimationNodeAnimation_vb47q")
-states/damage_taken/position = Vector2(646, 100)
-states/dead/node = SubResource("AnimationNodeAnimation_yjcwl")
-states/dead/position = Vector2(488, 310)
-states/idle/node = SubResource("AnimationNodeAnimation_ysm8t")
-states/idle/position = Vector2(348, 100)
-states/run/node = SubResource("AnimationNodeAnimation_xru5r")
-states/run/position = Vector2(488, 172)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_lq8k2"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_odnuv"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_780n2"), "run", "damage_taken", SubResource("AnimationNodeStateMachineTransition_82yoa"), "dead", "End", SubResource("AnimationNodeStateMachineTransition_ypeqn"), "idle", "damage_taken", SubResource("AnimationNodeStateMachineTransition_1blm0"), "damage_taken", "run", SubResource("AnimationNodeStateMachineTransition_lxjl1"), "damage_taken", "idle", SubResource("AnimationNodeStateMachineTransition_dnllx"), "damage_taken", "dead", SubResource("AnimationNodeStateMachineTransition_ckwr6"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_1iluy"), "run", "dead", SubResource("AnimationNodeStateMachineTransition_barfw")]
-graph_offset = Vector2(-88, 63.4672)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_46qe8"]
-size = Vector2(35, 63)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhepb"]
-size = Vector2(35, 63)
 
 [node name="EnemyBase" instance=ExtResource("1_shacb")]
 collision_layer = 4
@@ -164,18 +14,11 @@ SPEED = 100
 [node name="Sprite" parent="." index="0"]
 texture_filter = 1
 scale = Vector2(3.006, 3.063)
-texture = ExtResource("3_5aedr")
 hframes = 10
 vframes = 8
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(-1, 0)
-
-[node name="AnimationTree" parent="." index="3"]
-libraries = {
-"": SubResource("AnimationLibrary_nklvm")
-}
-tree_root = SubResource("AnimationNodeStateMachine_ju3ws")
 
 [node name="Hitbox" parent="." index="4" groups=["attack"] instance=ExtResource("5_jhevl")]
 collision_layer = 4
@@ -184,7 +27,6 @@ collision_mask = 2
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" index="1"]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(4.5, 2.5)
-shape = SubResource("RectangleShape2D_46qe8")
 
 [node name="Hurtbox" parent="." index="5"]
 collision_layer = 4
@@ -193,7 +35,6 @@ collision_mask = 8
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(4.5, 2.5)
-shape = SubResource("RectangleShape2D_jhepb")
 
 [connection signal="hp_changed" from="." to="." method="_on_hp_changed"]
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
