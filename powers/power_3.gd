@@ -6,6 +6,7 @@ extends "res://overlap/Hitbox.gd"
 @onready var projectile_asset = $ProjectileAsset
 
 var BASE_DAMAGE = 10
+var freeze_time = 4
 
 var colors
 
@@ -34,8 +35,12 @@ func assing_colors(paints):
 	colors = paints
 
 func _on_area_entered(area):
+	if 1 in colors:
+		SignalManager.freeze(area, freeze_time)
+		print("Freezing")
 	if 2 in colors:
 		SignalManager.lifesteal(int(damage*0.1))
+		print("Gaining life")
 	destroy()
 
 func _on_body_entered(body):

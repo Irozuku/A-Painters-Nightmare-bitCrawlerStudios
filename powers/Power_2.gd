@@ -4,13 +4,9 @@ extends "res://overlap/Hitbox.gd"
 @onready var sprite = $Sprite2D
 
 var BASE_DAMAGE = 10
+var freeze_time = 4
 
 var colors
-
-var speed: float = 400
-var sprite_speed: float = 5.0
-var radio_inicial: float = 20.0
-var radio_actual: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,8 +22,12 @@ func _ready():
 	timer.start()
 
 func _on_area_entered(area):
+	if 1 in colors:
+		SignalManager.freeze(area, freeze_time)
+		print("Freezing")
 	if 2 in colors:
 		SignalManager.lifesteal(int(damage*0.1))
+		print("Gaining life")
 
 func assing_colors(paints):
 	colors = paints

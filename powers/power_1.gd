@@ -3,6 +3,7 @@ extends Area2D
 var speed: int = 250
 
 var BASE_DAMAGE = 10
+var freeze_time = 4
 
 @export var damage = BASE_DAMAGE
 
@@ -59,8 +60,12 @@ func check_collision(ray):
 			print("Rayo ha colisionado")
 			var collider = ray.get_collider(i)
 			SignalManager.power1(collider, damage)
+			if 1 in colors:
+				SignalManager.freeze(collider, freeze_time)
+				print("Freezing")
 			if 2 in colors:
 				SignalManager.lifesteal(int(damage*0.1))
+				print("Gaining life")
 
 func assing_colors(paints):
 	colors = paints

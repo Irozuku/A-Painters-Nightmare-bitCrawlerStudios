@@ -4,10 +4,12 @@ class_name Enemy
 var type
 var target = Vector2()
 var acceleration = 1000
+var frozen = false
 @onready var animation_tree = $AnimationTree
 @onready var animation_player = $AnimationPlayer
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var hurtbox = $Hurtbox
+@onready var hitbox = $Hitbox
 @onready var hitbox_collision_shape = $Hitbox/CollisionShape2D2
 @onready var hurtbox_collision_shape = $Hurtbox/CollisionShape2D
 @onready var sprite = $Sprite
@@ -16,8 +18,11 @@ var acceleration = 1000
 func _ready():
 	target = get_node("/root/Main/Player")
 	SignalManager.connect("power1_collision", Callable(self, "_on_power1_collision"))
+	SignalManager.connect("blue_freeze", Callable(self, "_on_blue_freeze"))
 
 func _physics_process(delta):
+	if frozen:
+		return
 	var direction_x = global_position.direction_to(target.global_position).x
 	var direction_y = global_position.direction_to(target.global_position).y
 	velocity.x = move_toward(velocity.x, direction_x * SPEED, acceleration * delta)
@@ -35,6 +40,13 @@ func _on_power1_collision(obj, damage):
 	if hurtbox == obj:
 		print("He sido colisionado")
 		receive_damage(damage)
+
+func _on_blue_freeze(obj, time):
+	if hitbox == obj:
+		print(name + ": Me congelo")
+		self.frozen = true
+		await get_tree().create_timer(time).timeout
+		self.frozen = false
 
 func die():
 	print("DEAD")

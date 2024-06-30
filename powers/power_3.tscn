@@ -99,7 +99,7 @@ states/projectile/position = Vector2(309, 199)
 transitions = ["Start", "projectile", SubResource("AnimationNodeStateMachineTransition_bmm2m"), "projectile", "collision", SubResource("AnimationNodeStateMachineTransition_3pp4y"), "collision", "End", SubResource("AnimationNodeStateMachineTransition_2nghh")]
 graph_offset = Vector2(-54, 108)
 
-[node name="Power3" type="Area2D" groups=["Power", "Projectile"]]
+[node name="Power3" type="Area2D" groups=["Power"]]
 collision_layer = 8
 collision_mask = 5
 script = ExtResource("1_yebvo")
