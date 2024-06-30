@@ -3,6 +3,9 @@ extends "res://overlap/Hitbox.gd"
 @onready var ColPolygon = $CollisionShape2D
 @onready var sprite = $Sprite2D
 
+@onready var animation_tree = $AnimationTree
+@onready var playback = animation_tree.get("parameters/playback")
+
 var BASE_DAMAGE = 10
 var freeze_time = 4
 
@@ -20,6 +23,7 @@ func _ready():
 	add_child(timer)
 	timer.connect("timeout", Callable(self, "_on_timeout"))
 	timer.start()
+	playback.travel("active")
 
 func _on_area_entered(area):
 	if 1 in colors:
@@ -33,6 +37,10 @@ func assing_colors(paints):
 	colors = paints
 
 func _on_timeout():
+	var collision = get_node("CollisionShape2D")
+	collision.call_deferred("set", "disabled", true)
+	playback.travel("End")
+	await animation_tree.animation_finished
 	colors.clear()
 	damage = BASE_DAMAGE
-	queue_free()  # Auto eliminar el nodo
+	queue_free()
