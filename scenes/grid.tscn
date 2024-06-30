@@ -15,7 +15,6 @@
 [ext_resource type="Script" path="res://scenes/Point9.gd" id="11_lm87c"]
 [ext_resource type="PackedScene" uid="uid://c6r4p4lxsya4" path="res://scenes/symbol_remainder.tscn" id="13_12nfd"]
 [ext_resource type="Script" path="res://scenes/Brushstroke.gd" id="14_nvryy"]
-[ext_resource type="Texture2D" uid="uid://chdeoi52oom46" path="res://assets/stroke_sprite/stroke3.png" id="15_tt251"]
 [ext_resource type="Texture2D" uid="uid://c6emcmhqs3fpd" path="res://assets/border_sprite/grid_cover.png" id="17_at5ac"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djerg"]
@@ -23,6 +22,9 @@ size = Vector2(26, 25.6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hj2oq"]
 size = Vector2(128, 130)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4c4q7"]
+load_path = "res://.godot/imported/stroke3.png-9c0dfae4c4bb5909ea7632f3117b8d02.ctex"
 
 [node name="Grid" type="Area2D"]
 script = ExtResource("1_42ppi")
@@ -183,7 +185,7 @@ texture = ExtResource("17_at5ac")
 
 [node name="Brushstroke" type="Line2D" parent="."]
 width = 40.0
-texture = ExtResource("15_tt251")
+texture = SubResource("CompressedTexture2D_4c4q7")
 texture_mode = 2
 joint_mode = 2
 antialiased = true
