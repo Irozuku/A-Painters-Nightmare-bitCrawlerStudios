@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var ENEMY: PackedScene = preload("res://entity/enemy_base.tscn")
+@onready var ENEMY: PackedScene = preload("res://entity/enemies/satyr.tscn")
 @onready var player = $Player
 @onready var spawn_timer = $SpawnTimer
 

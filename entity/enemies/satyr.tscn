@@ -1,0 +1,141 @@
+[gd_scene load_steps=21 format=3 uid="uid://ctw11c1vjhdji"]
+
+[ext_resource type="PackedScene" uid="uid://dhw8bmboer45q" path="res://entity/enemy_base.tscn" id="1_j7hh7"]
+[ext_resource type="Script" path="res://entity/enemies/satyr.gd" id="2_flk0f"]
+[ext_resource type="Texture2D" uid="uid://b100r2d5js4w5" path="res://assets/enemy_sprites/satiro-Sheet v1.1.png" id="3_1tuxi"]
+
+[sub_resource type="Animation" id="Animation_k51sq"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_7aiy3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dg7ao"]
+resource_name = "damage_taken"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [60, 61, 62, 63]
+}
+
+[sub_resource type="Animation" id="Animation_bjqlv"]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [50, 51, 52, 53, 54, 55, 56, 57, 58, 59]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sd0h5"]
+_data = {
+"RESET": SubResource("Animation_7aiy3"),
+"damage_taken": SubResource("Animation_dg7ao"),
+"dead": SubResource("Animation_bjqlv"),
+"idle": SubResource("Animation_k51sq")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_il2hf"]
+animation = &"damage_taken"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s7l6b"]
+animation = &"dead"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fgc3c"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_352mk"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yfcr3"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i2jte"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7xx38"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7csdm"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7utl0"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fun6j"]
+states/End/position = Vector2(656, 205)
+states/damage_taken/node = SubResource("AnimationNodeAnimation_il2hf")
+states/damage_taken/position = Vector2(518, 100)
+states/dead/node = SubResource("AnimationNodeAnimation_s7l6b")
+states/dead/position = Vector2(428, 205)
+states/idle/node = SubResource("AnimationNodeAnimation_fgc3c")
+states/idle/position = Vector2(346, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_352mk"), "damage_taken", "idle", SubResource("AnimationNodeStateMachineTransition_yfcr3"), "idle", "damage_taken", SubResource("AnimationNodeStateMachineTransition_i2jte"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_7xx38"), "damage_taken", "dead", SubResource("AnimationNodeStateMachineTransition_7csdm"), "dead", "End", SubResource("AnimationNodeStateMachineTransition_7utl0")]
+graph_offset = Vector2(-86, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c15fc"]
+size = Vector2(33, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sg4fb"]
+size = Vector2(33, 50)
+
+[node name="Enemy" instance=ExtResource("1_j7hh7")]
+script = ExtResource("2_flk0f")
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2(3, 3)
+texture = ExtResource("3_1tuxi")
+
+[node name="AnimationTree" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_sd0h5")
+}
+tree_root = SubResource("AnimationNodeStateMachine_fun6j")
+
+[node name="CollisionShape2D2" parent="Hitbox" index="1"]
+position = Vector2(4.5, 8)
+shape = SubResource("RectangleShape2D_c15fc")
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(4.5, 8)
+shape = SubResource("RectangleShape2D_sg4fb")
+
+[editable path="Hurtbox"]

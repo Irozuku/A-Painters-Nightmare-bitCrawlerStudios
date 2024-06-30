@@ -18,14 +18,13 @@ func set_hp_max(value):
 	if value != hp_max:
 		hp_max = max(0, value)
 		emit_signal("hp_max_changed", hp_max)
-		self.hp = hp
+		self.hp = hp_max
 
 func set_hp(value):
-	if value != hp_max:
-		hp = clamp(value, 0, hp_max)
-		emit_signal("hp_changed", hp)
-		if hp == 0:
-			emit_signal("died")
+	hp = clamp(value, 0, hp_max)
+	emit_signal("hp_changed", hp)
+	if hp == 0:
+		emit_signal("died")
 	
 func get_hp():
 	return hp
