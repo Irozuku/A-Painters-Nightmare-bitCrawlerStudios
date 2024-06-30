@@ -10,9 +10,11 @@ var BASE_DAMAGE = 10
 var freeze_time = 4
 
 var colors
+var sprite_color
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	sprite.modulate = sprite_color
 	damage = BASE_DAMAGE
 	if 0 in colors:
 		damage += int(damage*0.1)
@@ -35,6 +37,23 @@ func _on_area_entered(area):
 
 func assing_colors(paints):
 	colors = paints
+	if 0 in colors:
+		if 1 in colors:
+			if 2 in colors:
+				sprite_color = Color("262626")
+			else:
+				sprite_color = Color("6300e6")
+		elif 2 in colors:
+			sprite_color = Color("ffaf47")
+		else:
+			sprite_color = Color("ff4747")
+	elif 1 in colors:
+		if 2 in colors:
+			sprite_color = Color("4aff47")
+		else:
+			sprite_color = Color("4747ff")
+	elif 2 in colors:
+		sprite_color = Color("f9ff47")
 
 func _on_timeout():
 	var collision = get_node("CollisionShape2D")
