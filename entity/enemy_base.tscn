@@ -163,7 +163,7 @@ SPEED = 100
 
 [node name="Sprite" parent="." index="0"]
 texture_filter = 1
-scale = Vector2(3.09375, 3.0625)
+scale = Vector2(3.006, 3.063)
 texture = ExtResource("3_5aedr")
 hframes = 10
 vframes = 8
