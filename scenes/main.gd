@@ -4,8 +4,6 @@ extends Node2D
 @onready var player = $Player
 @onready var spawn_timer = $SpawnTimer
 
-var time = 0
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)

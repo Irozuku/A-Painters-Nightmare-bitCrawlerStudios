@@ -5,7 +5,7 @@ signal hp_max_changed(new_hp_max)
 signal hp_changed(new_hp)
 signal died
 
-@export var hp_max: int = 2000: set = set_hp_max
+@export var hp_max: int = 100: set = set_hp_max
 @export var hp: int = hp_max: set = set_hp, get = get_hp
 @export var defense: int = 0
 
@@ -21,10 +21,11 @@ func set_hp_max(value):
 		self.hp = hp
 
 func set_hp(value):
-	hp = clamp(value, 0, hp_max)
-	emit_signal("hp_changed", hp)
-	if hp == 0:
-		emit_signal("died")
+	if value != hp_max:
+		hp = clamp(value, 0, hp_max)
+		emit_signal("hp_changed", hp)
+		if hp == 0:
+			emit_signal("died")
 	
 func get_hp():
 	return hp
