@@ -8,6 +8,7 @@ var freeze_time = 4
 @export var damage = BASE_DAMAGE
 
 var colors
+var sprite_color
 
 @onready var ray1 = $Ray1
 @onready var sprite1 = $Line1
@@ -20,6 +21,10 @@ var colors
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	sprite1.modulate = self.sprite_color
+	sprite2.modulate = self.sprite_color
+	sprite3.modulate = self.sprite_color
+	sprite4.modulate = self.sprite_color
 	if 0 in colors:
 		damage += int(damage*0.1)
 	# Crear un temporizador para eliminar el nodo después de 2 segundos
@@ -69,8 +74,26 @@ func check_collision(ray):
 
 func assing_colors(paints):
 	colors = paints
+	if 0 in colors:
+		if 1 in colors:
+			if 2 in colors:
+				self.sprite_color = Color("262626")
+			else:
+				self.sprite_color = Color("aa00ff")
+		elif 2 in colors:
+			self.sprite_color = Color("ffa200")
+		else:
+			self.sprite_color = Color("ff0000")
+	elif 1 in colors:
+		if 2 in colors:
+			self.sprite_color = Color("0dff00")
+		else:
+			self.sprite_color = Color("1100ff")
+	elif 2 in colors:
+		self.sprite_color = Color("fbff00")
 
 func _on_timeout():
 	colors.clear()
+	self.sprite_color = Color("ffffff")
 	damage = BASE_DAMAGE
 	queue_free()  # Auto eliminar el nodo

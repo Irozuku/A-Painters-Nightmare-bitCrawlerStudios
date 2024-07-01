@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cdx64lrtif80i"]
 
 [ext_resource type="Script" path="res://powers/power_1.gd" id="1_qmnvm"]
-[ext_resource type="Texture2D" uid="uid://24vemvv2k22t" path="res://assets/stroke_sprite/stroke1.png" id="2_yy68a"]
+[ext_resource type="Texture2D" uid="uid://db4jm8f6ttd7k" path="res://assets/ability_sprite/power1.png" id="2_lira3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ef47"]
 
@@ -12,22 +12,23 @@ script = ExtResource("1_qmnvm")
 
 [node name="Line1" type="Line2D" parent="."]
 width = 20.0
-texture = ExtResource("2_yy68a")
+texture = ExtResource("2_lira3")
 texture_mode = 2
 
 [node name="Line2" type="Line2D" parent="."]
 width = 20.0
-texture = ExtResource("2_yy68a")
+texture = ExtResource("2_lira3")
 texture_mode = 2
 
 [node name="Line3" type="Line2D" parent="."]
 width = 20.0
-texture = ExtResource("2_yy68a")
+texture = ExtResource("2_lira3")
 texture_mode = 2
 
 [node name="Line4" type="Line2D" parent="."]
+modulate = Color(0.14902, 0.14902, 0.14902, 1)
 width = 20.0
-texture = ExtResource("2_yy68a")
+texture = ExtResource("2_lira3")
 texture_mode = 2
 
 [node name="Ray1" type="ShapeCast2D" parent="."]
@@ -57,5 +58,3 @@ target_position = Vector2(0, 0)
 collision_mask = 5
 collide_with_areas = true
 collide_with_bodies = false
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
