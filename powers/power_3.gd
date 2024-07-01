@@ -13,6 +13,7 @@ var sprite_color
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	projectile_asset.modulate = self.sprite_color
 	damage = BASE_DAMAGE
 	if 0 in colors:
 		damage += int(damage*0.1)
@@ -23,6 +24,7 @@ func _physics_process(delta):
 	
 func destroy():
 	colors.clear()
+	self.sprite_color = Color("ffffff")
 	damage = BASE_DAMAGE
 	speed = 0
 	var collision = get_node("CollisionShape2D")
@@ -37,20 +39,20 @@ func assing_colors(paints):
 	if 0 in colors:
 		if 1 in colors:
 			if 2 in colors:
-				sprite_color = Color("262626")
+				self.sprite_color = Color("262626")
 			else:
-				sprite_color = Color("6300e6")
+				self.sprite_color = Color("7c00c9")
 		elif 2 in colors:
-			sprite_color = Color("ffaf47")
+			self.sprite_color = Color("ffad5c")
 		else:
-			sprite_color = Color("ff4747")
+			self.sprite_color = Color("ff5c5c")
 	elif 1 in colors:
 		if 2 in colors:
-			sprite_color = Color("4aff47")
+			self.sprite_color = Color("15ff00")
 		else:
-			sprite_color = Color("4747ff")
+			self.sprite_color = Color("3023de")
 	elif 2 in colors:
-		sprite_color = Color("f9ff47")
+		self.sprite_color = Color("ddff00")
 
 func _on_area_entered(area):
 	if 1 in colors:
