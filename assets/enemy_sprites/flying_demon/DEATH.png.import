@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b100r2d5js4w5"
-path="res://.godot/imported/satiro-Sheet v1.1.png-f889449cd3bd96a1ac9323100dc3c0c4.ctex"
+uid="uid://ctrioki5p8a2a"
+path="res://.godot/imported/DEATH.png-02fe7312730ba1f69334ed43762a28d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy_sprites/satiro-Sheet v1.1.png"
-dest_files=["res://.godot/imported/satiro-Sheet v1.1.png-f889449cd3bd96a1ac9323100dc3c0c4.ctex"]
+source_file="res://assets/enemy_sprites/flying_demon/DEATH.png"
+dest_files=["res://.godot/imported/DEATH.png-02fe7312730ba1f69334ed43762a28d2.ctex"]
 
 [params]
 
