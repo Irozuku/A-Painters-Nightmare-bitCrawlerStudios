@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var SATYR: PackedScene = preload("res://entity/enemies/satyr.tscn")
 @onready var FLYING_DEMON: PackedScene = preload("res://entity/enemies/flying_demon.tscn")
+@onready var RED_SLIME: PackedScene = preload("res://entity/enemies/red_slime.tscn")
 @onready var player = $Player
 @onready var spawn_timer = $SpawnTimer
 @onready var game_timer = $Player/CanvasLayer/GameUI/GameTimer
@@ -12,11 +13,17 @@ func _ready():
 
 # Called when the spawn timer times out
 func _on_spawn_timer_timeout():
-	var e = SATYR
 	# At 8:30 min left spawn flying demons
 	if game_timer.time_left <= 510:
-		e = FLYING_DEMON
-	spawn_enemy(e)
+		spawn_enemy(FLYING_DEMON)
+	# At 6:30 min left spawn red slimes with satyres
+	elif game_timer.time_left <= 390:
+		var e = [SATYR, RED_SLIME].pick_random()
+		spawn_enemy(e)
+	# Up until 8:30 spawn satyr
+	else:
+		spawn_enemy(SATYR)
+	
 	
 	## At 7 min spawn the boss and reduce the normal enemy spawn rate
 	#if game_timer.time_left <= 420:

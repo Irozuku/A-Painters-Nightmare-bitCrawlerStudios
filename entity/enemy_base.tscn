@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhw8bmboer45q"]
+[gd_scene load_steps=5 format=3 uid="uid://dhw8bmboer45q"]
 
 [ext_resource type="PackedScene" uid="uid://bsctk0uoj5iav" path="res://entity/EntityBase.tscn" id="1_shacb"]
 [ext_resource type="Script" path="res://entity/enemy_base.gd" id="2_hesui"]
@@ -8,12 +8,6 @@
 states/End/position = Vector2(414, 100)
 states/Start/position = Vector2(197, 100)
 graph_offset = Vector2(-72, 18.8078)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_46qe8"]
-size = Vector2(35, 63)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhepb"]
-size = Vector2(35, 63)
 
 [node name="EnemyBase" instance=ExtResource("1_shacb")]
 collision_layer = 4
@@ -25,9 +19,6 @@ SPEED = 100
 [node name="Sprite" parent="." index="0"]
 texture_filter = 1
 
-[node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(-1, 0)
-
 [node name="AnimationTree" parent="." index="3"]
 tree_root = SubResource("AnimationNodeStateMachine_ju3ws")
 
@@ -37,8 +28,6 @@ collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" index="1"]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(4.5, 2.5)
-shape = SubResource("RectangleShape2D_46qe8")
 
 [node name="Hurtbox" parent="." index="5"]
 collision_layer = 4
@@ -46,8 +35,6 @@ collision_mask = 8
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 modulate = Color(1, 0, 0, 1)
-position = Vector2(4.5, 2.5)
-shape = SubResource("RectangleShape2D_jhepb")
 
 [connection signal="hp_changed" from="." to="." method="_on_hp_changed"]
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
