@@ -1,7 +1,6 @@
 extends EntityBase
 class_name Enemy
 
-var type
 var target = Vector2()
 var acceleration = 1000
 var frozen = false

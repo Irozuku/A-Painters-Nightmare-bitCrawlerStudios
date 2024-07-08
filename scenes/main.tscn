@@ -67,10 +67,10 @@ scale = Vector2(0.4, 0.4)
 unique_name_in_owner = true
 offset_right = 680.0
 offset_bottom = 192.0
-value = 26.0
+value = 30.0
 texture_under = ExtResource("9_p78wj")
 texture_progress = ExtResource("10_ndotq")
-texture_progress_offset = Vector2(145, 70)
+texture_progress_offset = Vector2(150, 70)
 metadata/_edit_use_anchors_ = true
 
 [node name="Pause" parent="Player/CanvasLayer" instance=ExtResource("8_3s2tb")]
@@ -84,3 +84,4 @@ autostart = true
 
 [editable path="Player"]
 [editable path="Player/Hurtbox"]
+[editable path="Player/CanvasLayer/GameUI"]
