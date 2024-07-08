@@ -38,6 +38,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_0oanr"]
 resource_name = "collision"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -45,10 +46,10 @@ tracks/0/path = NodePath("ExplosionAsset:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 56, 57, 58, 59, 60, 61]
+"values": [0, 1, 59, 60, 61]
 }
 
 [sub_resource type="Animation" id="Animation_7gyq7"]
@@ -122,9 +123,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="3"]
-libraries = {
-"": SubResource("AnimationLibrary_t73i2")
-}
 tree_root = SubResource("AnimationNodeStateMachine_60143")
 anim_player = NodePath("../AnimationPlayer")
 
