@@ -42,7 +42,7 @@ func _on_spawn_timer_timeout():
 		spawn_enemy(e)
 	# From the start to 8:30 spawn satyr
 	else:
-		spawn_enemy(BLUE_SLIME)
+		spawn_enemy(SATYR)
 	
 	
 	## At 5 min left spawn the boss and reduce the normal enemy spawn rate
