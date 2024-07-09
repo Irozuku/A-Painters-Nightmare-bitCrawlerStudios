@@ -160,6 +160,7 @@ hframes = 7
 [node name="DamageTakenSprite" type="Sprite2D" parent="." index="1"]
 visible = false
 texture_filter = 1
+position = Vector2(0, -4.5)
 scale = Vector2(1, 1.35)
 texture = ExtResource("4_8w2rd")
 hframes = 11
@@ -167,6 +168,7 @@ hframes = 11
 [node name="DeadSprite" type="Sprite2D" parent="." index="2"]
 visible = false
 texture_filter = 1
+position = Vector2(0, -4.5)
 scale = Vector2(1, 1.35)
 texture = ExtResource("5_l00dl")
 hframes = 14
