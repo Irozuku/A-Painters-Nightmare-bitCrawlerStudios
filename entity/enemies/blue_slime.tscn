@@ -113,8 +113,7 @@ size = Vector2(34, 26)
 
 [node name="BlueSlime" instance=ExtResource("1_k7l03")]
 script = ExtResource("2_o3piu")
-hp_max = 100
-SPEED = 300.0
+hp_max = 45
 
 [node name="Sprite" parent="." index="0"]
 visible = false
