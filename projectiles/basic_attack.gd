@@ -4,6 +4,7 @@ extends "res://overlap/Hitbox.gd"
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var projectile_asset = $ProjectileAsset
+@onready var explosion_asset = $ExplosionAsset
 
 func _physics_process(delta):
 	var direction = Vector2.RIGHT.rotated(rotation)
@@ -11,6 +12,8 @@ func _physics_process(delta):
 	
 func destroy():
 	speed = 0
+	projectile_asset.hide()
+	explosion_asset.show()
 	var collision = get_node("CollisionShape2D")
 	collision.call_deferred("set", "disabled", true)
 	projectile_asset.hide()
