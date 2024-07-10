@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://qhuhr43664m0"]
+
+[ext_resource type="Texture2D" uid="uid://xc4mkgm6071d" path="res://assets/effects/Neon Icons Effect Pack 2 A.png" id="2_0kko4"]
+
+[sub_resource type="GDScript" id="GDScript_nf3vv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xj3r"]
+atlas = ExtResource("2_0kko4")
+region = Rect2(0, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmc5k"]
+atlas = ExtResource("2_0kko4")
+region = Rect2(48, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7p5n"]
+atlas = ExtResource("2_0kko4")
+region = Rect2(96, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hev7"]
+atlas = ExtResource("2_0kko4")
+region = Rect2(144, 288, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1l41x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xj3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmc5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7p5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hev7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="RedSlimeSummonEffect" type="Node2D"]
+script = SubResource("GDScript_nf3vv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_1l41x")
+autoplay = "default"
+frame_progress = 0.477267

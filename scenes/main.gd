@@ -4,15 +4,23 @@ extends Node2D
 @onready var FLYING_DEMON: PackedScene = preload("res://entity/enemies/flying_demon.tscn")
 @onready var RED_SLIME: PackedScene = preload("res://entity/enemies/red_slime.tscn")
 @onready var BLUE_SLIME: PackedScene = preload("res://entity/enemies/blue_slime.tscn")
+@onready var NECROMANCER_BOSS: PackedScene = preload("res://entity/enemies/necromancer_boss.tscn")
 @onready var player = $Player
 @onready var spawn_timer = $SpawnTimer
 @onready var game_timer = $Player/CanvasLayer/GameUI/GameTimer
+@onready var boss_timer = $BossTimer
 
 var spawn_rate_changed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
+	boss_timer.timeout.connect(_on_boss_spawn)
+
+# Spawn the boss at 5:00 and reduce the spawn rate
+func _on_boss_spawn():
+	spawn_timer.set_wait_time(1.2)
+	spawn_enemy(NECROMANCER_BOSS)
 
 # Called when the spawn timer times out
 func _on_spawn_timer_timeout():
@@ -24,15 +32,15 @@ func _on_spawn_timer_timeout():
 		var e = [SATYR, RED_SLIME].pick_random()
 		spawn_enemy(e)
 	# At 3:30 min left spawn blue slimes, red slimes
+	# At 3:30 min left put the normal enemy spawn rate at 1 again (default
 	elif game_timer.time_left <= 210:
 		var e = [RED_SLIME, BLUE_SLIME].pick_random()
+		spawn_timer.set_wait_time(1)
 		spawn_enemy(e)
-	
 	# At 2:00 min left spawn blue, slimes, flying demons
 	elif game_timer.time_left <= 120:
 		var e = [BLUE_SLIME, FLYING_DEMON].pick_random()
 		spawn_enemy(e)
-	
 	# At 1:00 min left spawn all enemies and increase spawn rate by 1.1x
 	elif game_timer.time_left <= 60:
 		if not spawn_rate_changed:
@@ -43,14 +51,6 @@ func _on_spawn_timer_timeout():
 	# From the start to 8:30 spawn satyr
 	else:
 		spawn_enemy(SATYR)
-	
-	
-	## At 5 min left spawn the boss and reduce the normal enemy spawn rate
-	#if game_timer.time_left <= 420:
-		#spawn_timer.set_wait_time(3)
-	## At 3:30 min left or when the boss is dead put the normal enemy spawn rate at 1 again (default)
-	#if game_timer.time_left <= 330 or not is_boss_alive:
-		#spawn_timer.set_wait_time(1)
 
 func spawn_enemy(e):
 	var enemy_instance = e.instantiate()

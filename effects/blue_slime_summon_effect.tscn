@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://m8dybiw8gwle"]
+
+[ext_resource type="Texture2D" uid="uid://8bsyq7n2l4nk" path="res://assets/effects/Neon Icons Effect Pack 2 C.png" id="1_c2mnv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwsbh"]
+atlas = ExtResource("1_c2mnv")
+region = Rect2(0, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhkc7"]
+atlas = ExtResource("1_c2mnv")
+region = Rect2(48, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdguk"]
+atlas = ExtResource("1_c2mnv")
+region = Rect2(96, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l11jx"]
+atlas = ExtResource("1_c2mnv")
+region = Rect2(144, 288, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sagiv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwsbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhkc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdguk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l11jx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BlueSlimeSummonEffect" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sagiv")
+frame_progress = 0.697781

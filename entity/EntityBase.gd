@@ -52,8 +52,8 @@ func heal(hp_gained: int):
 func _on_hurtbox_area_entered(hitbox):
 	receive_damage(hitbox.damage)
 	
-	if hitbox.is_in_group("Power"):
-		pass
+	#if hitbox.is_in_group("Power"):
+		#pass
 	
 	if hitbox.is_in_group("Projectile"):
 		hitbox.destroy()

@@ -39,6 +39,9 @@ texture = ExtResource("4_pkqpc")
 shape = SubResource("RectangleShape2D_yywdo")
 debug_color = Color(0.843137, 0.247059, 0.72549, 0.419608)
 
+[node name="Hurtbox" parent="Player" index="5"]
+collision_mask = 20
+
 [node name="CollisionShape2D" parent="Player/Hurtbox" index="0"]
 shape = SubResource("RectangleShape2D_ty07w")
 debug_color = Color(0, 0.647059, 0.235294, 0.419608)
@@ -79,8 +82,14 @@ visible = false
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="BossTimer" type="Timer" parent="."]
+wait_time = 300.0
+one_shot = true
+autostart = true
+
 [connection signal="died" from="Player" to="Player/CanvasLayer/GameUI" method="_on_player_died"]
 [connection signal="hp_changed" from="Player" to="Player" method="_on_hp_changed"]
+[connection signal="timeout" from="BossTimer" to="." method="_on_boss_timer_timeout"]
 
 [editable path="Player"]
 [editable path="Player/Hurtbox"]

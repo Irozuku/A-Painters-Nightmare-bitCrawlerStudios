@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://mqwm2n6dw20k"]
+
+[ext_resource type="Texture2D" uid="uid://bssc8qev00ddh" path="res://assets/effects/Neon Icons Effect Pack 2 F.png" id="1_x3jng"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sgd8"]
+atlas = ExtResource("1_x3jng")
+region = Rect2(480, 528, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3u4ke"]
+atlas = ExtResource("1_x3jng")
+region = Rect2(528, 528, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sceg"]
+atlas = ExtResource("1_x3jng")
+region = Rect2(576, 528, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_la5cc"]
+atlas = ExtResource("1_x3jng")
+region = Rect2(624, 528, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5hjy4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sgd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3u4ke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0sceg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_la5cc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="WarningEffect" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_5hjy4")
+autoplay = "default"
+frame_progress = 0.0853058
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-49, 0)
+sprite_frames = SubResource("SpriteFrames_5hjy4")
+autoplay = "default"
+frame_progress = 0.0958699
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(49, 0)
+sprite_frames = SubResource("SpriteFrames_5hjy4")
+autoplay = "default"
+frame_progress = 0.263963
