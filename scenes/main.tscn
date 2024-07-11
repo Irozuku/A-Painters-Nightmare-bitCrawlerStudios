@@ -52,14 +52,22 @@ debug_color = Color(0, 0.647059, 0.235294, 0.419608)
 wait_time = 0.5
 one_shot = true
 
-[node name="Grid" parent="Player" instance=ExtResource("2_phdx0")]
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+
+[node name="GridControl" type="Control" parent="Player/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -333.0
+grow_horizontal = 0
+
+[node name="Grid" parent="Player/CanvasLayer/GridControl" instance=ExtResource("2_phdx0")]
 z_index = 1
-position = Vector2(420, -120)
+position = Vector2(168, 227)
 scale = Vector2(0.7, 0.7)
 collision_layer = 0
 collision_mask = 0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
 
 [node name="GameUI" parent="Player/CanvasLayer" instance=ExtResource("9_0fnm6")]
 
