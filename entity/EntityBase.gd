@@ -13,6 +13,8 @@ signal died
 
 @onready var collShape = $CollisionShape2D
 @onready var animPlayer = $AnimationPlayer
+@onready var inv_frame = $InvFrame
+
 
 func set_hp_max(value):
 	if value != hp_max:
@@ -36,10 +38,13 @@ func die():
 	queue_free()
 
 func receive_damage(base_damage: int):
-	var actual_damage = base_damage - defense
-	self.hp -= actual_damage
+	if inv_frame.is_stopped():
+		inv_frame.start()
+		
+		var actual_damage = base_damage - defense
+		self.hp -= actual_damage
 	
-	print(name + " received " + str(actual_damage) + " damage" + ", current hp: " + str(self.hp))
+		print(name + " received " + str(actual_damage) + " damage" + ", current hp: " + str(self.hp))
 
 func heal(hp_gained: int):
 	if self.hp + hp_gained > self.hp_max:

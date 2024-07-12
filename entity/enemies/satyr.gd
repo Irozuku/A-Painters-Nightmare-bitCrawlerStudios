@@ -7,7 +7,7 @@ func die():
 	hurtbox_collision_shape.set_deferred("disabled", true)
 	var timer = Timer.new()
 	add_child(timer)
-	timer.wait_time = animation_player.current_animation_length
+	timer.wait_time = 0.46
 	timer.one_shot = true
 	timer.connect("timeout", _on_dead_animation_finished)
 	timer.start()

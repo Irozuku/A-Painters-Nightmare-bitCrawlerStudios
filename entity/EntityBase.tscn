@@ -16,6 +16,10 @@ script = ExtResource("1_p2tdv")
 
 [node name="Hurtbox" parent="." instance=ExtResource("2_fg6kv")]
 
+[node name="InvFrame" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
 [connection signal="died" from="." to="." method="_on_died"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 
