@@ -1,0 +1,197 @@
+[gd_scene load_steps=24 format=3 uid="uid://ces04ruv5msgs"]
+
+[ext_resource type="PackedScene" uid="uid://dhw8bmboer45q" path="res://entity/enemy_base.tscn" id="1_vw511"]
+[ext_resource type="Script" path="res://entity/enemies/green_slime.gd" id="2_a3cir"]
+[ext_resource type="Texture2D" uid="uid://ci5ad18d7bmap" path="res://assets/enemy_sprites/green_slime/Sprite Sheet - Green Idle.png" id="2_klfwj"]
+[ext_resource type="Texture2D" uid="uid://bij8j5md1xn2w" path="res://assets/enemy_sprites/green_slime/Sprite Sheet - Green Hurt.png" id="4_sskbe"]
+[ext_resource type="Texture2D" uid="uid://brxxvd65w312w" path="res://assets/enemy_sprites/green_slime/Sprite Sheet - Green Death.png" id="5_4ywe8"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wud44"]
+
+[sub_resource type="Animation" id="Animation_mjppn"]
+resource_name = "idle"
+length = 0.69
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_v7cq2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DamageTakenSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeadSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_k3mqy"]
+resource_name = "damage_taken"
+length = 0.327
+step = 0.03
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DamageTakenSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21, 0.24, 0.27, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_b3rgk"]
+resource_name = "dead"
+length = 0.677
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeadSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5bhda"]
+_data = {
+"RESET": SubResource("Animation_v7cq2"),
+"damage_taken": SubResource("Animation_k3mqy"),
+"dead": SubResource("Animation_b3rgk"),
+"idle": SubResource("Animation_mjppn")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cha58"]
+animation = &"damage_taken"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_umf5s"]
+animation = &"dead"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sc8co"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3f840"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0lrgv"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_01wr6"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hpk8l"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u1ihg"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_djsxg"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_75gu8"]
+states/End/position = Vector2(608, 219)
+states/damage_taken/node = SubResource("AnimationNodeAnimation_cha58")
+states/damage_taken/position = Vector2(608, 100)
+states/dead/node = SubResource("AnimationNodeAnimation_umf5s")
+states/dead/position = Vector2(477, 219)
+states/idle/node = SubResource("AnimationNodeAnimation_sc8co")
+states/idle/position = Vector2(384, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_3f840"), "idle", "damage_taken", SubResource("AnimationNodeStateMachineTransition_0lrgv"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_01wr6"), "damage_taken", "dead", SubResource("AnimationNodeStateMachineTransition_hpk8l"), "dead", "End", SubResource("AnimationNodeStateMachineTransition_u1ihg"), "damage_taken", "idle", SubResource("AnimationNodeStateMachineTransition_djsxg")]
+graph_offset = Vector2(-100, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_re03w"]
+size = Vector2(34, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhs6x"]
+size = Vector2(34, 26)
+
+[node name="GreenSlime" instance=ExtResource("1_vw511")]
+script = ExtResource("2_a3cir")
+hp_max = 100
+SPEED = 300.0
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2(0, -4.5)
+scale = Vector2(1, 1.35)
+texture = ExtResource("2_klfwj")
+hframes = 7
+
+[node name="DamageTakenSprite" type="Sprite2D" parent="." index="1"]
+visible = false
+texture_filter = 1
+position = Vector2(0, -4.5)
+scale = Vector2(1, 1.35)
+texture = ExtResource("4_sskbe")
+hframes = 11
+
+[node name="DeadSprite" type="Sprite2D" parent="." index="2"]
+visible = false
+texture_filter = 1
+position = Vector2(0, -4.5)
+scale = Vector2(1, 1.35)
+texture = ExtResource("5_4ywe8")
+hframes = 14
+
+[node name="AnimationPlayer" parent="." index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_wud44")
+}
+
+[node name="AnimationTree" parent="." index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_5bhda")
+}
+tree_root = SubResource("AnimationNodeStateMachine_75gu8")
+
+[node name="CollisionShape2D2" parent="Hitbox" index="1"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_re03w")
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_uhs6x")
+
+[editable path="Hurtbox"]

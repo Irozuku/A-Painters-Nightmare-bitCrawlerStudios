@@ -4,6 +4,7 @@ extends Node2D
 @onready var FLYING_DEMON: PackedScene = preload("res://entity/enemies/flying_demon.tscn")
 @onready var RED_SLIME: PackedScene = preload("res://entity/enemies/red_slime.tscn")
 @onready var BLUE_SLIME: PackedScene = preload("res://entity/enemies/blue_slime.tscn")
+@onready var GREEN_SLIME: PackedScene = preload("res://entity/enemies/green_slime.tscn")
 @onready var NECROMANCER_BOSS: PackedScene = preload("res://entity/enemies/necromancer_boss.tscn")
 @onready var player = $Player
 @onready var spawn_timer = $SpawnTimer
@@ -46,7 +47,7 @@ func _on_spawn_timer_timeout():
 		if not spawn_rate_changed:
 			spawn_rate_changed = true
 			spawn_timer.set_wait_time(0.9)
-		var e = [SATYR, FLYING_DEMON, RED_SLIME, BLUE_SLIME].pick_random()
+		var e = [SATYR, FLYING_DEMON, RED_SLIME, BLUE_SLIME, GREEN_SLIME].pick_random()
 		spawn_enemy(e)
 	# From the start to 8:30 spawn satyr
 	else:
