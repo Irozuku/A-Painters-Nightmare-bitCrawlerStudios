@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cd1nndfdodm00"]
+[gd_scene load_steps=15 format=3 uid="uid://cd1nndfdodm00"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_y4qkv"]
 [ext_resource type="PackedScene" uid="uid://ipscaqabriwe" path="res://scenes/grid.tscn" id="2_phdx0"]
@@ -10,6 +10,25 @@
 [ext_resource type="Texture2D" uid="uid://dyj8kw62uq6sf" path="res://assets/healt_bar_sprite/health meter-28.png" id="9_p78wj"]
 [ext_resource type="Texture2D" uid="uid://jelutmsvge00" path="res://assets/healt_bar_sprite/health meter-31.png" id="10_ndotq"]
 
+[sub_resource type="Gradient" id="Gradient_nqcf6"]
+offsets = PackedFloat32Array(0, 0.997573)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0.901961, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fo5bw"]
+gradient = SubResource("Gradient_nqcf6")
+
+[sub_resource type="Environment" id="Environment_egmfe"]
+background_mode = 3
+glow_enabled = true
+glow_levels/1 = 1.38
+glow_levels/5 = 1.53
+glow_intensity = 2.02
+glow_blend_mode = 1
+glow_hdr_threshold = 0.1
+volumetric_fog_density = 0.4194
+adjustment_enabled = true
+adjustment_color_correction = SubResource("GradientTexture1D_fo5bw")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yywdo"]
 size = Vector2(30, 30)
 
@@ -19,6 +38,9 @@ size = Vector2(40, 40)
 [node name="Main" type="Node2D"]
 position = Vector2(2, 5)
 script = ExtResource("1_y4qkv")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_egmfe")
 
 [node name="Map" parent="." instance=ExtResource("7_27x1q")]
 position = Vector2(578, 1775)

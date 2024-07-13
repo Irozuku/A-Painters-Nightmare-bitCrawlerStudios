@@ -10,13 +10,11 @@ script = ExtResource("1_785ha")
 
 [node name="OnScreenCursor" type="Sprite2D" parent="."]
 modulate = Color(0, 1, 0, 0.54902)
-scale = Vector2(1, 1)
 texture = ExtResource("2_0ow5j")
 
 [node name="OffScreenCursor" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(1, 0, 0, 0.54902)
-scale = Vector2(1, 1)
 texture = ExtResource("2_0ow5j")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
