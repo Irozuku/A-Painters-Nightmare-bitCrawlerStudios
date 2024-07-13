@@ -1,19 +1,27 @@
 [gd_scene load_steps=3 format=3 uid="uid://rd3mejsi5rps"]
 
 [ext_resource type="Script" path="res://cursor/static_cursor.gd" id="1_785ha"]
-[ext_resource type="Texture2D" uid="uid://drp4ge6v2l5uv" path="res://icon.svg" id="2_oehi3"]
+[ext_resource type="Texture2D" uid="uid://cb3lqw5xuej01" path="res://assets/cursors/384_160.png" id="2_0ow5j"]
 
-[node name="StaticCursor" type="Area2D"]
-collision_layer = 16
-collision_mask = 0
+[node name="StaticCursor" type="Node2D"]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_785ha")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0.686275, 0, 0.8)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_oehi3")
+[node name="OnScreenCursor" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 0, 0.54902)
+scale = Vector2(1, 1)
+texture = ExtResource("2_0ow5j")
+
+[node name="OffScreenCursor" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 0, 0, 0.54902)
+scale = Vector2(1, 1)
+texture = ExtResource("2_0ow5j")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(8.71718e-07, -8.56817e-07)
+scale = Vector2(1.3, 1.3)
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

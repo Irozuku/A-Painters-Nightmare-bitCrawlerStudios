@@ -20,6 +20,10 @@ config/icon="res://icon/icon.svg"
 SignalManager="*res://scenes/SignalManager.tscn"
 AudioPlayer="*res://music/audio_player.tscn"
 
+[display]
+
+mouse_cursor/custom_image="res://assets/cursors/192_0.png"
+
 [input]
 
 left={
