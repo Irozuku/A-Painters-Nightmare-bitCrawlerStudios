@@ -22,13 +22,11 @@ func _ready():
 func _physics_process(delta):
 	if frozen:
 		return
-	var direction_x = global_position.direction_to(target.global_position).x
-	var direction_y = global_position.direction_to(target.global_position).y
-	velocity.x = move_toward(velocity.x, direction_x * SPEED, acceleration * delta)
-	velocity.y = move_toward(velocity.y, direction_y * SPEED, acceleration * delta)
+	var direction = global_position.direction_to(target.global_position)
+	velocity = direction * SPEED
 	move_and_slide()
 	
-	flip_sprite(direction_x)
+	flip_sprite(direction.x)
 	
 func flip_sprite(direction_x):
 	pass
