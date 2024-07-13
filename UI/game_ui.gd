@@ -5,7 +5,6 @@ extends Node
 @onready var win_container = %WinContainer
 @onready var back_menu = %BackMenu
 @onready var exit = %ExitButton
-@onready var player = %Player
 @onready var lose_container = %LoseContainer
 
 
