@@ -36,6 +36,9 @@ collision_mask = 8
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 modulate = Color(1, 0, 0, 1)
 
+[node name="InvFrame" parent="." index="6"]
+wait_time = 0.3
+
 [connection signal="hp_changed" from="." to="." method="_on_hp_changed"]
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
 

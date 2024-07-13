@@ -60,8 +60,8 @@ func _on_hurtbox_area_entered(hitbox):
 	#if hitbox.is_in_group("Power"):
 		#pass
 	
-	if hitbox.is_in_group("Projectile"):
-		hitbox.destroy()
+	#if hitbox.is_in_group("Projectile"):
+		#hitbox.destroy()
 		
 
 func _on_died():
