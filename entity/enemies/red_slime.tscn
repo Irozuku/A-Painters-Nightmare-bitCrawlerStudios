@@ -149,7 +149,7 @@ size = Vector2(34, 26)
 [node name="RedSlime" instance=ExtResource("1_ejlc3")]
 script = ExtResource("2_88nkk")
 hp_max = 30
-SPEED = 125
+SPEED = 150
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2(0, -4.5)

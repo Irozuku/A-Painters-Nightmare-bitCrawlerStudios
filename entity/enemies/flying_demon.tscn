@@ -147,7 +147,7 @@ radius = 15.0
 [node name="FlyingDemon" instance=ExtResource("1_btfbh")]
 script = ExtResource("2_2xlvw")
 hp_max = 30
-SPEED = 120
+SPEED = 155
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource("2_it0eh")

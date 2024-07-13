@@ -151,7 +151,7 @@ size = Vector2(34, 26)
 [node name="GreenSlime" instance=ExtResource("1_vw511")]
 script = ExtResource("2_a3cir")
 hp_max = 100
-SPEED = 300
+SPEED = 150
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2(0, -4.5)

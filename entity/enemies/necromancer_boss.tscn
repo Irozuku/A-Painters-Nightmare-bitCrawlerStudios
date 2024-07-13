@@ -157,7 +157,7 @@ size = Vector2(41, 92)
 [node name="NecromancerBoss" instance=ExtResource("1_wm54g")]
 script = ExtResource("2_xwf2t")
 hp_max = 3000
-SPEED = 120
+SPEED = 140
 
 [node name="Sprite" parent="." index="0"]
 scale = Vector2(2, 2)
