@@ -2,7 +2,6 @@ extends EntityBase
 class_name Enemy
 
 var target = Vector2()
-var acceleration = 1000
 var frozen = false
 @onready var animation_tree = $AnimationTree
 @onready var animation_player = $AnimationPlayer
