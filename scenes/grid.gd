@@ -41,7 +41,7 @@ func load_power(power: String, paint: int):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	show_powers()
+	#show_powers()
 	if (Input.is_action_just_released("left_click")):
 		active_paint = $PaintBar.current_index
 		if (points == [1, 5, 9, 6, 3, 7] or points == [7, 5, 3, 6, 9, 1]):
