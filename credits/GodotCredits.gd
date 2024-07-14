@@ -61,7 +61,8 @@ var credits = [
 		"MiDe-S",
 		"FantasyLandscapes",
 		"Valiegraphie",
-		"GabrielaTot"
+		"GabrielaTot",
+		"Crusenho"
 	],[
 		"Music",
 		"Sergio Quintero"
