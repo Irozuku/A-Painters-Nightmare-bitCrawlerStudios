@@ -40,31 +40,40 @@ var credits = [
 		"Sebastián Saez",
 		"Emilio Díaz"
 	],[
-		"Art",
-		"Artist Name"
+		"Enemies Art",
+		"Luck",
+		"Mattz Art",
+		"War",
+		"CreativeKind"
+		
+	],[
+		"Map Art",
+		"Xenophero",
+		"poong.gif",
+	],[
+		"Effects Art",
+		"CodeManu",
+		"Stealthix",
+		"BDragon1727",
+	],[
+		"Miscellaneous Art",
+		"Kab Games",
+		"MiDe-S",
+		"FantasyLandscapes",
+		"Valiegraphie",
+		"GabrielaTot"
 	],[
 		"Music",
-		"Musician Name"
+		"Sergio Quintero"
 	],[
 		"Sound Effects",
 		"SFX Name"
 	],[
 		"Testers",
-		"Name 1",
-		"Name 2",
-		"Name 3"
-	],[
-		"Tools used",
-		"Developed with Godot Engine",
-		"https://godotengine.org/license",
-		"",
-		"Art created with My Favourite Art Program",
-		"https://myfavouriteartprogram.com"
+		"Toto",
 	],[
 		"Special thanks",
-		"My parents",
-		"My friends",
-		"My pet rabbit"
+		"Acople",
 	]
 ]
 
