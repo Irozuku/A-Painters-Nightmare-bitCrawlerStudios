@@ -12,7 +12,6 @@ var frozen = false
 @onready var hurtbox_collision_shape = $Hurtbox/CollisionShape2D
 @onready var sprite = $Sprite
 
-
 func _ready():
 	target = get_node("/root/Main/Player")
 	SignalManager.connect("power1_collision", Callable(self, "_on_power1_collision"))

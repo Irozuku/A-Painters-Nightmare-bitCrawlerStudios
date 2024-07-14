@@ -1,19 +1,219 @@
-[gd_scene load_steps=5 format=3 uid="uid://2mn76wqfxvq2"]
+[gd_scene load_steps=27 format=3 uid="uid://2mn76wqfxvq2"]
 
 [ext_resource type="PackedScene" uid="uid://bsctk0uoj5iav" path="res://entity/EntityBase.tscn" id="1_626d7"]
 [ext_resource type="Script" path="res://entity/player.gd" id="2_ubl2o"]
 [ext_resource type="PackedScene" uid="uid://cawqpc185ey8c" path="res://projectiles/basic_attack.tscn" id="3_ida7b"]
 [ext_resource type="Script" path="res://entity/power_handler.gd" id="4_060sj"]
+[ext_resource type="Texture2D" uid="uid://bvmqwog716l06" path="res://assets/character_sprite/AnimationSheet_Character.png" id="5_8fmxc"]
+[ext_resource type="PackedScene" uid="uid://ipscaqabriwe" path="res://scenes/grid.tscn" id="6_332g4"]
+[ext_resource type="PackedScene" uid="uid://5atpqa3xbsgp" path="res://UI/game_ui.tscn" id="7_4vilk"]
+[ext_resource type="Texture2D" uid="uid://dyj8kw62uq6sf" path="res://assets/healt_bar_sprite/health meter-28.png" id="8_0u2gj"]
+[ext_resource type="Texture2D" uid="uid://jelutmsvge00" path="res://assets/healt_bar_sprite/health meter-31.png" id="9_1vxkv"]
+[ext_resource type="PackedScene" uid="uid://b0cifmwm2dt0j" path="res://UI/pause.tscn" id="10_5kp3o"]
+
+[sub_resource type="Animation" id="Animation_rmqe7"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [20, 21, 22, 23, 24, 25]
+}
+
+[sub_resource type="Animation" id="Animation_r5xst"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
+}
+
+[sub_resource type="Animation" id="Animation_peofo"]
+resource_name = "damage_taken"
+length = 0.32
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.04, 0.06, 0.08, 0.1, 0.12, 0.14, 0.16, 0.18, 0.2, 0.22, 0.24, 0.26, 0.28, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [50, 51, 52, 53, 54, 55, 56, 57, 50, 51, 52, 53, 54, 55, 56, 57]
+}
+
+[sub_resource type="Animation" id="Animation_hmj6e"]
+resource_name = "dead"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [50, 51, 52, 53, 54, 58]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ic1db"]
+_data = {
+"RESET": SubResource("Animation_r5xst"),
+"damage_taken": SubResource("Animation_peofo"),
+"dead": SubResource("Animation_hmj6e"),
+"idle": SubResource("Animation_rmqe7")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ewjmu"]
+animation = &"damage_taken"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_psth5"]
+animation = &"dead"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_laetv"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k3gd1"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7kfcm"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ysotw"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gti25"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h1pxt"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tg3gc"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_mvsrv"]
+states/End/position = Vector2(647, 214)
+states/damage_taken/node = SubResource("AnimationNodeAnimation_ewjmu")
+states/damage_taken/position = Vector2(544, 100)
+states/dead/node = SubResource("AnimationNodeAnimation_psth5")
+states/dead/position = Vector2(445, 214)
+states/idle/node = SubResource("AnimationNodeAnimation_laetv")
+states/idle/position = Vector2(375, 100)
+transitions = ["idle", "damage_taken", SubResource("AnimationNodeStateMachineTransition_k3gd1"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_7kfcm"), "damage_taken", "idle", SubResource("AnimationNodeStateMachineTransition_ysotw"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_gti25"), "damage_taken", "dead", SubResource("AnimationNodeStateMachineTransition_h1pxt"), "dead", "End", SubResource("AnimationNodeStateMachineTransition_tg3gc")]
+graph_offset = Vector2(-50, 53)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ri0h7"]
+radius = 15.0
 
 [node name="Player" instance=ExtResource("1_626d7")]
+position = Vector2(576, 324)
 script = ExtResource("2_ubl2o")
 BASIC_ATTACK = ExtResource("3_ida7b")
 
 [node name="PowerHandler" type="Node2D" parent="." index="0"]
 script = ExtResource("4_060sj")
 
+[node name="Sprite" parent="." index="1"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("5_8fmxc")
+hframes = 10
+vframes = 8
+frame = 20
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_ic1db")
+}
+
+[node name="AnimationTree" parent="." index="4"]
+tree_root = SubResource("AnimationNodeStateMachine_mvsrv")
+anim_player = NodePath("../AnimationPlayer")
+
 [node name="Hurtbox" parent="." index="5"]
 collision_layer = 2
-collision_mask = 4
+collision_mask = 20
+monitorable = true
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(4, 4)
+shape = SubResource("CircleShape2D_ri0h7")
+
+[node name="InvFrame" parent="." index="6"]
+wait_time = 0.32
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="7"]
+
+[node name="GridControl" type="Control" parent="CanvasLayer" index="0"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -331.0
+offset_top = 5.0
+offset_right = 2.0
+offset_bottom = 5.0
+grow_horizontal = 0
+
+[node name="Grid" parent="CanvasLayer/GridControl" index="0" instance=ExtResource("6_332g4")]
+z_index = 1
+position = Vector2(168, 227)
+scale = Vector2(0.7, 0.7)
+collision_layer = 0
+collision_mask = 0
+
+[node name="GameUI" parent="CanvasLayer" index="1" instance=ExtResource("7_4vilk")]
+
+[node name="TimeContainer" parent="CanvasLayer/GameUI" index="1"]
+offset_left = -58.0
+offset_right = 58.0
+
+[node name="GameTimeText" parent="CanvasLayer/GameUI/TimeContainer" index="0"]
+text = "TIMER"
+
+[node name="HealthBarNode" type="Node2D" parent="CanvasLayer" index="2"]
+position = Vector2(2, 5)
+scale = Vector2(0.4, 0.4)
+
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer/HealthBarNode" index="0"]
+unique_name_in_owner = true
+offset_left = -5.0
+offset_top = -12.5
+offset_right = 675.0
+offset_bottom = 179.5
+value = 30.0
+texture_under = ExtResource("8_0u2gj")
+texture_progress = ExtResource("9_1vxkv")
+texture_progress_offset = Vector2(150, 70)
+
+[node name="Pause" parent="CanvasLayer" index="3" instance=ExtResource("10_5kp3o")]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="." index="8"]
+
+[node name="BasicAttackTimer" type="Timer" parent="." index="9"]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="dead_animation_finished" from="." to="CanvasLayer/GameUI" method="_on_player_dead_animation_finished"]
 
 [editable path="Hurtbox"]
+[editable path="CanvasLayer/GameUI"]

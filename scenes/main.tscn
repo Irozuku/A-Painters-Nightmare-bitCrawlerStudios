@@ -1,14 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://cd1nndfdodm00"]
+[gd_scene load_steps=7 format=3 uid="uid://cd1nndfdodm00"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_y4qkv"]
-[ext_resource type="PackedScene" uid="uid://ipscaqabriwe" path="res://scenes/grid.tscn" id="2_phdx0"]
 [ext_resource type="PackedScene" uid="uid://2mn76wqfxvq2" path="res://entity/player.tscn" id="3_mpe3j"]
-[ext_resource type="Texture2D" uid="uid://drp4ge6v2l5uv" path="res://icon.svg" id="4_pkqpc"]
 [ext_resource type="PackedScene" uid="uid://24lw3uxpib54" path="res://map/map.tscn" id="7_27x1q"]
-[ext_resource type="PackedScene" uid="uid://b0cifmwm2dt0j" path="res://UI/pause.tscn" id="8_3s2tb"]
-[ext_resource type="PackedScene" uid="uid://5atpqa3xbsgp" path="res://UI/game_ui.tscn" id="9_0fnm6"]
-[ext_resource type="Texture2D" uid="uid://dyj8kw62uq6sf" path="res://assets/healt_bar_sprite/health meter-28.png" id="9_p78wj"]
-[ext_resource type="Texture2D" uid="uid://jelutmsvge00" path="res://assets/healt_bar_sprite/health meter-31.png" id="10_ndotq"]
 
 [sub_resource type="Gradient" id="Gradient_nqcf6"]
 offsets = PackedFloat32Array(0, 0.997573)
@@ -20,8 +14,10 @@ gradient = SubResource("Gradient_nqcf6")
 [sub_resource type="Environment" id="Environment_egmfe"]
 background_mode = 3
 glow_enabled = true
-glow_levels/1 = 1.38
-glow_levels/5 = 1.53
+glow_levels/1 = 1.13
+glow_levels/2 = 0.17
+glow_levels/3 = 1.33
+glow_levels/5 = 0.61
 glow_intensity = 2.02
 glow_blend_mode = 1
 glow_hdr_threshold = 0.1
@@ -29,14 +25,7 @@ volumetric_fog_density = 0.4194
 adjustment_enabled = true
 adjustment_color_correction = SubResource("GradientTexture1D_fo5bw")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yywdo"]
-size = Vector2(30, 30)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ty07w"]
-size = Vector2(40, 40)
-
 [node name="Main" type="Node2D"]
-position = Vector2(2, 5)
 script = ExtResource("1_y4qkv")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -47,68 +36,9 @@ position = Vector2(578, 1775)
 
 [node name="Player" parent="." instance=ExtResource("3_mpe3j")]
 unique_name_in_owner = true
-position = Vector2(574, 319)
 collision_layer = 2
 collision_mask = 21
 hp_max = 30
-
-[node name="Sprite" parent="Player" index="1"]
-modulate = Color(1, 0.443137, 0.301961, 1)
-scale = Vector2(0.31, 0.31)
-texture = ExtResource("4_pkqpc")
-
-[node name="CollisionShape2D" parent="Player" index="2"]
-shape = SubResource("RectangleShape2D_yywdo")
-debug_color = Color(0.843137, 0.247059, 0.72549, 0.419608)
-
-[node name="Hurtbox" parent="Player" index="5"]
-collision_mask = 20
-monitorable = true
-
-[node name="CollisionShape2D" parent="Player/Hurtbox" index="0"]
-shape = SubResource("RectangleShape2D_ty07w")
-debug_color = Color(0, 0.647059, 0.235294, 0.419608)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-
-[node name="BasicAttackTimer" type="Timer" parent="Player"]
-wait_time = 0.5
-one_shot = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
-
-[node name="GridControl" type="Control" parent="Player/CanvasLayer"]
-layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -333.0
-grow_horizontal = 0
-
-[node name="Grid" parent="Player/CanvasLayer/GridControl" instance=ExtResource("2_phdx0")]
-z_index = 1
-position = Vector2(168, 227)
-scale = Vector2(0.7, 0.7)
-collision_layer = 0
-collision_mask = 0
-
-[node name="GameUI" parent="Player/CanvasLayer" instance=ExtResource("9_0fnm6")]
-
-[node name="HealthBarNode" type="Node2D" parent="Player/CanvasLayer"]
-scale = Vector2(0.4, 0.4)
-
-[node name="HealthBar" type="TextureProgressBar" parent="Player/CanvasLayer/HealthBarNode"]
-unique_name_in_owner = true
-offset_right = 680.0
-offset_bottom = 192.0
-value = 30.0
-texture_under = ExtResource("9_p78wj")
-texture_progress = ExtResource("10_ndotq")
-texture_progress_offset = Vector2(150, 70)
-metadata/_edit_use_anchors_ = true
-
-[node name="Pause" parent="Player/CanvasLayer" instance=ExtResource("8_3s2tb")]
-visible = false
 
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
@@ -118,10 +48,5 @@ wait_time = 300.0
 one_shot = true
 autostart = true
 
-[connection signal="died" from="Player" to="Player/CanvasLayer/GameUI" method="_on_player_died"]
 [connection signal="hp_changed" from="Player" to="Player" method="_on_hp_changed"]
 [connection signal="timeout" from="BossTimer" to="." method="_on_boss_timer_timeout"]
-
-[editable path="Player"]
-[editable path="Player/Hurtbox"]
-[editable path="Player/CanvasLayer/GameUI"]

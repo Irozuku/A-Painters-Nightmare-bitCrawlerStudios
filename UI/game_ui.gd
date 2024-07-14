@@ -46,9 +46,8 @@ func _on_menu_pressed():
 func _on_exit_pressed():
 	get_tree().quit()
 
-func _on_player_died():
+func _on_player_dead_animation_finished():
 	lose_container.show()
 	back_menu.show()
 	exit.show()
 	get_tree().paused = true
-

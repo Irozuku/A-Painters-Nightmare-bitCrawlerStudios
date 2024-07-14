@@ -11,6 +11,7 @@ extends Enemy
 
 var attack_timer = 4
 var enraged = false
+var prev_speed = SPEED
 
 func _physics_process(delta):
 	var direction = global_position.direction_to(target.global_position)
@@ -23,6 +24,7 @@ func _physics_process(delta):
 			sprite.self_modulate = Color("ff009a")
 			enraged = true
 			SPEED = SPEED*1.1
+			prev_speed = SPEED
 	
 	if global_position.distance_to(target.global_position) < 500 and attack_timer <= 0.0:
 		choose_attack()
@@ -34,7 +36,6 @@ func _physics_process(delta):
 
 # Spawns enemies around the boss
 func attack_1():
-	var prev_speed = SPEED
 	SPEED = 0
 	# First wave with 5 enemies at 150 radius and if less than quarter hp 8 enemies
 	var n_enemies = 5
@@ -66,7 +67,6 @@ func attack_1():
 
 # Throws projectiles 3 times
 func attack_2():
-	var prev_speed = SPEED
 	SPEED = 0
 
 	for i in range(3):
@@ -102,7 +102,6 @@ func attack_2():
 
 # Increases Speed for 3 seconds and throws projectiles to the player afterwards standing still
 func attack_3():
-	var prev_speed = SPEED
 	SPEED *= 1.5
 	if enraged:
 		SPEED *= 2

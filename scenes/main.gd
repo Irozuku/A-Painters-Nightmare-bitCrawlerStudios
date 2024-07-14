@@ -15,6 +15,7 @@ var spawn_rate_changed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	AudioPlayer._play_music(null, 0)
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
 	boss_timer.timeout.connect(_on_boss_spawn)
 

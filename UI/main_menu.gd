@@ -14,7 +14,6 @@ func _ready():
 
 
 func _on_start_pressed():
-	AudioPlayer._play_music(null, 0)
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 	
 func _on_exit_pressed():
