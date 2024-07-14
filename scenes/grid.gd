@@ -30,14 +30,14 @@ func load_power(power: String, paint: int):
 		remainder.hold(power)
 		
 
-# ONLY FOR DEBUG - CUT FROM MAIN
-func show_powers():
-	text.text = ""
-	var i = 0
-	while i < loaded_powers.size():
-		text.text += loaded_powers[i]
-		text.text += ": "+ str(loaded_paints[i])
-		i += 1
+## ONLY FOR DEBUG - CUT FROM MAIN
+#func show_powers():
+	#text.text = ""
+	#var i = 0
+	#while i < loaded_powers.size():
+		#text.text += loaded_powers[i]
+		#text.text += ": "+ str(loaded_paints[i])
+		#i += 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
