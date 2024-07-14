@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://2mn76wqfxvq2"]
+[gd_scene load_steps=28 format=3 uid="uid://2mn76wqfxvq2"]
 
 [ext_resource type="PackedScene" uid="uid://bsctk0uoj5iav" path="res://entity/EntityBase.tscn" id="1_626d7"]
 [ext_resource type="Script" path="res://entity/player.gd" id="2_ubl2o"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ipscaqabriwe" path="res://scenes/grid.tscn" id="6_332g4"]
 [ext_resource type="PackedScene" uid="uid://5atpqa3xbsgp" path="res://UI/game_ui.tscn" id="7_4vilk"]
 [ext_resource type="Texture2D" uid="uid://dyj8kw62uq6sf" path="res://assets/healt_bar_sprite/health meter-28.png" id="8_0u2gj"]
+[ext_resource type="Texture2D" uid="uid://cjxltuj608o2m" path="res://assets/UI_sprite/UI_Flat_Banner_01_Upward.png" id="8_pmild"]
 [ext_resource type="Texture2D" uid="uid://jelutmsvge00" path="res://assets/healt_bar_sprite/health meter-31.png" id="9_1vxkv"]
 [ext_resource type="PackedScene" uid="uid://b0cifmwm2dt0j" path="res://UI/pause.tscn" id="10_5kp3o"]
 
@@ -183,11 +184,20 @@ collision_mask = 0
 [node name="GameUI" parent="CanvasLayer" index="1" instance=ExtResource("7_4vilk")]
 
 [node name="TimeContainer" parent="CanvasLayer/GameUI" index="1"]
-offset_left = -58.0
-offset_right = 58.0
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -104.5
+offset_right = 104.5
+offset_bottom = 89.0
 
-[node name="GameTimeText" parent="CanvasLayer/GameUI/TimeContainer" index="0"]
-text = "TIMER"
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GameUI/TimeContainer" index="0"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("8_pmild")
+
+[node name="GameTimeText" parent="CanvasLayer/GameUI/TimeContainer" index="1"]
+self_modulate = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "10:00"
 
 [node name="HealthBarNode" type="Node2D" parent="CanvasLayer" index="2"]
 position = Vector2(2, 5)
