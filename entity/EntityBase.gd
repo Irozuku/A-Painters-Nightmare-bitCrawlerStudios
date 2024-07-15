@@ -67,6 +67,5 @@ func _on_hurtbox_area_entered(hitbox):
 func _on_died():
 	die()
 
-
 func _on_hp_changed(new_hp):
 	pass
