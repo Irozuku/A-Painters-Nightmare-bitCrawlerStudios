@@ -1,6 +1,6 @@
 extends "res://entity/enemies/satyr.gd"
 
-const DISTANCE_TUTORIAL = 200
+const DISTANCE_TUTORIAL = 270
 var startPosition: Vector2
 var targetPosition: Vector2
 var movingRight = true

@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://cjxltuj608o2m" path="res://assets/UI_sprite/UI_Flat_Banner_01_Upward.png" id="8_pmild"]
 [ext_resource type="Texture2D" uid="uid://jelutmsvge00" path="res://assets/healt_bar_sprite/health meter-31.png" id="9_1vxkv"]
 [ext_resource type="PackedScene" uid="uid://b0cifmwm2dt0j" path="res://UI/pause.tscn" id="10_5kp3o"]
-[ext_resource type="AudioStream" uid="uid://bu4bdr2xpdx4u" path="res://Audio/Basic_attack.wav" id="12_01gd5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5cw1d"]
+radius = 15.0
 
 [sub_resource type="Animation" id="Animation_r5xst"]
 length = 0.001
@@ -229,13 +231,6 @@ visible = false
 [node name="BasicAttackTimer" type="Timer" parent="." index="9"]
 wait_time = 0.5
 one_shot = true
-
-[node name="Basic_attack_sound" type="AudioStreamPlayer2D" parent="." index="10"]
-stream = ExtResource("12_01gd5")
-volume_db = -35.428
-pitch_scale = 2.9
-attenuation = 13.4543
-max_polyphony = 4
 
 [connection signal="dead_animation_finished" from="." to="CanvasLayer/GameUI" method="_on_player_dead_animation_finished"]
 
