@@ -73,7 +73,8 @@ func _on_gain_life(hp):
 	heal(hp)
 
 func _on_hp_changed(new_hp):
-	health_bar.value = new_hp
+	if health_bar:
+		health_bar.value = new_hp
 	if playback:
 		playback.travel("damage_taken")
 

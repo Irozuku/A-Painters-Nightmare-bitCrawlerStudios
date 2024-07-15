@@ -32,7 +32,7 @@ func get_hp():
 	return hp
 
 func _physics_process(delta):
-	move_and_slide()
+	pass
 
 func die():
 	queue_free()
@@ -66,3 +66,7 @@ func _on_hurtbox_area_entered(hitbox):
 
 func _on_died():
 	die()
+
+
+func _on_hp_changed(new_hp):
+	pass

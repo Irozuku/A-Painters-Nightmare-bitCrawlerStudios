@@ -62,7 +62,9 @@ var credits = [
 		"FantasyLandscapes",
 		"Valiegraphie",
 		"GabrielaTot",
-		"Crusenho"
+		"Crusenho",
+		"Robert Brooks",
+		"Dream Mix"
 	],[
 		"Music",
 		"Sergio Quintero"

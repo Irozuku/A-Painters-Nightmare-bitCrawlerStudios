@@ -122,12 +122,11 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nn2yc"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gdt84"]
-switch_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0lqdl"]
 switch_mode = 2
 advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_420ti"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_cipa8"]
 states/End/position = Vector2(632, 223)
@@ -137,7 +136,7 @@ states/dead/node = SubResource("AnimationNodeAnimation_iui23")
 states/dead/position = Vector2(493, 223)
 states/idle/node = SubResource("AnimationNodeAnimation_e1f26")
 states/idle/position = Vector2(399, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_rm2p6"), "idle", "damage_taken", SubResource("AnimationNodeStateMachineTransition_fo7oq"), "damage_taken", "dead", SubResource("AnimationNodeStateMachineTransition_i5s40"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_nn2yc"), "dead", "End", SubResource("AnimationNodeStateMachineTransition_gdt84"), "damage_taken", "idle", SubResource("AnimationNodeStateMachineTransition_0lqdl")]
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_rm2p6"), "idle", "damage_taken", SubResource("AnimationNodeStateMachineTransition_fo7oq"), "damage_taken", "dead", SubResource("AnimationNodeStateMachineTransition_i5s40"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_nn2yc"), "damage_taken", "idle", SubResource("AnimationNodeStateMachineTransition_0lqdl"), "dead", "idle", SubResource("AnimationNodeStateMachineTransition_420ti")]
 graph_offset = Vector2(-20, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ts7f"]
