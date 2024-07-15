@@ -64,7 +64,8 @@ var credits = [
 		"GabrielaTot",
 		"Crusenho",
 		"Robert Brooks",
-		"Dream Mix"
+		"Dream Mix",
+		"greenpixels_"
 	],[
 		"Music",
 		"Sergio Quintero"
