@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/grid.gd" id="1_42ppi"]
 [ext_resource type="Texture2D" uid="uid://drp4ge6v2l5uv" path="res://icon.svg" id="1_tntsb"]
-[ext_resource type="Texture2D" uid="uid://cgos2br6123df" path="res://assets/border_sprite/border_off.png" id="2_2gkvj"]
+[ext_resource type="Texture2D" uid="uid://b8iciakqnouip" path="res://assets/border_sprite/Grid.png" id="2_bxcgb"]
 [ext_resource type="PackedScene" uid="uid://chyt1wxxoph5v" path="res://scenes/paint_bar.tscn" id="3_l6slk"]
 [ext_resource type="Script" path="res://scenes/Point1.gd" id="3_uskx1"]
 [ext_resource type="Script" path="res://scenes/Point2.gd" id="4_ltwip"]
@@ -31,11 +31,8 @@ script = ExtResource("1_42ppi")
 
 [node name="GridSprite" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(6.8, 6.8)
-texture = ExtResource("2_2gkvj")
-hframes = 10
-vframes = 8
-frame = 5
+scale = Vector2(4.3, 4.3)
+texture = ExtResource("2_bxcgb")
 
 [node name="Label" type="Label" parent="."]
 visible = false
@@ -46,7 +43,7 @@ offset_bottom = 221.0
 text = "NADA"
 
 [node name="PaintBar" parent="." instance=ExtResource("3_l6slk")]
-position = Vector2(-1, -241)
+position = Vector2(-1, -251)
 scale = Vector2(0.6, 0.6)
 
 [node name="Point1" type="Area2D" parent="."]
@@ -175,10 +172,11 @@ position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_hj2oq")
 
 [node name="SymbolRemainder" parent="." instance=ExtResource("13_12nfd")]
-position = Vector2(0, 300)
+position = Vector2(0, 281)
 scale = Vector2(2, 2)
 
 [node name="Cover" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.27451)
 texture_filter = 1
 scale = Vector2(3.3, 3.3)
 texture = ExtResource("17_at5ac")
