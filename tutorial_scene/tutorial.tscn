@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bgoe2jfry8gvf"]
+[gd_scene load_steps=40 format=3 uid="uid://bgoe2jfry8gvf"]
 
 [ext_resource type="PackedScene" uid="uid://2mn76wqfxvq2" path="res://entity/player.tscn" id="1_a82mu"]
 [ext_resource type="PackedScene" uid="uid://24lw3uxpib54" path="res://map/map.tscn" id="1_cwxq7"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dmtsyhr7w3ok4" path="res://assets/UI_sprite/Keyboard Letters and Symbols.png" id="6_g3uyj"]
 [ext_resource type="Texture2D" uid="uid://dg56idgdqkj32" path="res://assets/UI_sprite/tall.png" id="6_k613p"]
 [ext_resource type="PackedScene" uid="uid://dvh7qb0hkinx6" path="res://entity/enemies/red_slime.tscn" id="9_1dakm"]
+[ext_resource type="Texture2D" uid="uid://do02fqinxpgqa" path="res://assets/UI_sprite/MOUSE.png" id="9_i576v"]
 [ext_resource type="Script" path="res://tutorial_scene/red_slime_tutorial.gd" id="10_7rsji"]
 [ext_resource type="PackedScene" uid="uid://jayuar52q0je" path="res://entity/enemies/blue_slime.tscn" id="10_vk6x1"]
 [ext_resource type="PackedScene" uid="uid://ctw11c1vjhdji" path="res://entity/enemies/satyr.tscn" id="11_701ib"]
@@ -147,6 +148,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcfye"]
+atlas = ExtResource("9_i576v")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_64gmk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcfye")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_j0r2v"]
 atlas = ExtResource("3_3rwbv")
 region = Rect2(64, 32, 32, 16)
@@ -240,6 +256,12 @@ position = Vector2(872, 1160.33)
 scale = Vector2(9, 9)
 sprite_frames = SubResource("SpriteFrames_oqdk6")
 autoplay = "default"
+
+[node name="MouseSprite" type="AnimatedSprite2D" parent="TutorialScroll1"]
+texture_filter = 1
+position = Vector2(820, 1403.33)
+scale = Vector2(11.9479, 10.0208)
+sprite_frames = SubResource("SpriteFrames_64gmk")
 
 [node name="TextureRect" type="TextureRect" parent="TutorialScroll1"]
 modulate = Color(1, 1, 1, 0.368627)
