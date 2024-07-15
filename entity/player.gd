@@ -12,6 +12,7 @@ signal dead_animation_finished
 @onready var animation_tree = $AnimationTree
 @onready var animation_player = $AnimationPlayer
 @onready var playback = animation_tree.get("parameters/playback")
+@onready var basic_attack_sound = $Basic_attack_sound
 
 var attack_direction
 var static_direction
@@ -55,6 +56,7 @@ func _physics_process(delta):
 
 func basic_attack(att_direction: Vector2):
 	if BASIC_ATTACK:
+		basic_attack_sound.play()
 		var att = BASIC_ATTACK.instantiate()
 		get_tree().current_scene.add_child(att)
 		att.global_position = self.global_position
