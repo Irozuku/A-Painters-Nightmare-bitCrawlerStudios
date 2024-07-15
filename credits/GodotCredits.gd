@@ -55,6 +55,7 @@ var credits = [
 		"CodeManu",
 		"Stealthix",
 		"BDragon1727",
+		"pimen",
 	],[
 		"Miscellaneous Art",
 		"Kab Games",
@@ -66,6 +67,12 @@ var credits = [
 		"Robert Brooks",
 		"Dream Mix",
 		"greenpixels_"
+	],[
+		"Paints and Canvas",
+		"DINO♥JAM",
+		"BDragon1727",
+		"Ravenmore",
+		"Kenney (Assets)",
 	],[
 		"Music",
 		"Sergio Quintero"
