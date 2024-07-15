@@ -1,7 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://ipscaqabriwe"]
+[gd_scene load_steps=19 format=3 uid="uid://ipscaqabriwe"]
 
 [ext_resource type="Script" path="res://scenes/grid.gd" id="1_42ppi"]
-[ext_resource type="Texture2D" uid="uid://drp4ge6v2l5uv" path="res://icon.svg" id="1_tntsb"]
 [ext_resource type="Texture2D" uid="uid://b8iciakqnouip" path="res://assets/border_sprite/Grid.png" id="2_bxcgb"]
 [ext_resource type="PackedScene" uid="uid://chyt1wxxoph5v" path="res://scenes/paint_bar.tscn" id="3_l6slk"]
 [ext_resource type="Script" path="res://scenes/Point1.gd" id="3_uskx1"]
@@ -52,10 +51,6 @@ scale = Vector2(0.65, 0.65)
 collision_layer = 2
 script = ExtResource("3_uskx1")
 
-[node name="PointSprite1" type="Sprite2D" parent="Point1"]
-visible = false
-texture = ExtResource("1_tntsb")
-
 [node name="Coll1" type="CollisionShape2D" parent="Point1"]
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_djerg")
@@ -65,10 +60,6 @@ position = Vector2(0, -119)
 scale = Vector2(0.65, 0.65)
 collision_layer = 2
 script = ExtResource("4_ltwip")
-
-[node name="PointSprite2" type="Sprite2D" parent="Point2"]
-visible = false
-texture = ExtResource("1_tntsb")
 
 [node name="Coll2" type="CollisionShape2D" parent="Point2"]
 position = Vector2(2, 1)
@@ -80,10 +71,6 @@ scale = Vector2(0.65, 0.65)
 collision_layer = 2
 script = ExtResource("5_awcnf")
 
-[node name="PointSprite3" type="Sprite2D" parent="Point3"]
-visible = false
-texture = ExtResource("1_tntsb")
-
 [node name="Coll3" type="CollisionShape2D" parent="Point3"]
 position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_hj2oq")
@@ -94,10 +81,6 @@ scale = Vector2(0.65, 0.65)
 collision_layer = 2
 script = ExtResource("6_gl04j")
 
-[node name="PointSprite4" type="Sprite2D" parent="Point4"]
-visible = false
-texture = ExtResource("1_tntsb")
-
 [node name="Coll4" type="CollisionShape2D" parent="Point4"]
 position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_hj2oq")
@@ -106,10 +89,6 @@ shape = SubResource("RectangleShape2D_hj2oq")
 scale = Vector2(0.65, 0.65)
 collision_layer = 2
 script = ExtResource("7_qstoo")
-
-[node name="PointSprite5" type="Sprite2D" parent="Point5"]
-visible = false
-texture = ExtResource("1_tntsb")
 
 [node name="Coll5" type="CollisionShape2D" parent="Point5"]
 position = Vector2(2, 1)
@@ -121,10 +100,6 @@ scale = Vector2(0.65, 0.65)
 collision_layer = 2
 script = ExtResource("8_akyws")
 
-[node name="PointSprite6" type="Sprite2D" parent="Point6"]
-visible = false
-texture = ExtResource("1_tntsb")
-
 [node name="Coll6" type="CollisionShape2D" parent="Point6"]
 position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_hj2oq")
@@ -134,10 +109,6 @@ position = Vector2(-119, 119)
 scale = Vector2(0.65, 0.65)
 collision_layer = 2
 script = ExtResource("9_7433d")
-
-[node name="PointSprite7" type="Sprite2D" parent="Point7"]
-visible = false
-texture = ExtResource("1_tntsb")
 
 [node name="Coll7" type="CollisionShape2D" parent="Point7"]
 position = Vector2(2, 1)
@@ -149,10 +120,6 @@ scale = Vector2(0.65, 0.65)
 collision_layer = 2
 script = ExtResource("10_svhmx")
 
-[node name="PointSprite8" type="Sprite2D" parent="Point8"]
-visible = false
-texture = ExtResource("1_tntsb")
-
 [node name="Coll8" type="CollisionShape2D" parent="Point8"]
 position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_hj2oq")
@@ -162,10 +129,6 @@ position = Vector2(119, 119)
 scale = Vector2(0.65, 0.65)
 collision_layer = 2
 script = ExtResource("11_lm87c")
-
-[node name="PointSprite9" type="Sprite2D" parent="Point9"]
-visible = false
-texture = ExtResource("1_tntsb")
 
 [node name="Coll9" type="CollisionShape2D" parent="Point9"]
 position = Vector2(2, 1)
