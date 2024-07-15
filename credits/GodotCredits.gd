@@ -51,6 +51,13 @@ var credits = [
 		"Xenophero",
 		"poong.gif",
 	],[
+		"Paints and Canvas",
+		"DINO♥JAM",
+		"BDragon1727",
+		"Ravenmore",
+		"Kenney (Assets)",
+		"srtoasty",
+	],[
 		"Effects Art",
 		"CodeManu",
 		"Stealthix",
@@ -67,12 +74,6 @@ var credits = [
 		"Robert Brooks",
 		"Dream Mix",
 		"greenpixels_"
-	],[
-		"Paints and Canvas",
-		"DINO♥JAM",
-		"BDragon1727",
-		"Ravenmore",
-		"Kenney (Assets)",
 	],[
 		"Music",
 		"Sergio Quintero"
