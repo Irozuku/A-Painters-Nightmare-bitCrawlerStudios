@@ -4,7 +4,7 @@ extends Node2D
 @onready var FLYING_DEMON: PackedScene = preload("res://entity/enemies/flying_demon.tscn")
 @onready var RED_SLIME: PackedScene = preload("res://entity/enemies/red_slime.tscn")
 @onready var BLUE_SLIME: PackedScene = preload("res://entity/enemies/blue_slime.tscn")
-@onready var GREEN_SLIME: PackedScene = preload("res://entity/enemies/green_slime.tscn")
+@onready var WHITE_SLIME: PackedScene = preload("res://entity/enemies/white_slime.tscn")
 @onready var NECROMANCER_BOSS: PackedScene = preload("res://entity/enemies/necromancer_boss.tscn")
 @onready var player = $Player
 @onready var spawn_timer = $SpawnTimer
@@ -26,12 +26,16 @@ func _on_boss_spawn():
 
 # Called when the spawn timer times out
 func _on_spawn_timer_timeout():
-	# At 8:30 min left spawn flying demons
-	if game_timer.time_left <= 510:
-		spawn_enemy(FLYING_DEMON)
-	# At 6:30 min left spawn red slimes with satyres
-	elif game_timer.time_left <= 390:
-		var e = [SATYR, RED_SLIME].pick_random()
+	# At 1:00 min left spawn all enemies and increase spawn rate by 1.1x
+	if game_timer.time_left <= 60:
+		if not spawn_rate_changed:
+			spawn_rate_changed = true
+			spawn_timer.set_wait_time(0.9)
+		var e = [SATYR, FLYING_DEMON, RED_SLIME, BLUE_SLIME, WHITE_SLIME].pick_random()
+		spawn_enemy(e)
+	# At 2:00 min left spawn blue, slimes, flying demons
+	elif game_timer.time_left <= 120:
+		var e = [BLUE_SLIME, FLYING_DEMON].pick_random()
 		spawn_enemy(e)
 	# At 3:30 min left spawn blue slimes, red slimes
 	# At 3:30 min left put the normal enemy spawn rate at 1 again (default
@@ -39,17 +43,13 @@ func _on_spawn_timer_timeout():
 		var e = [RED_SLIME, BLUE_SLIME].pick_random()
 		spawn_timer.set_wait_time(1)
 		spawn_enemy(e)
-	# At 2:00 min left spawn blue, slimes, flying demons
-	elif game_timer.time_left <= 120:
-		var e = [BLUE_SLIME, FLYING_DEMON].pick_random()
+	# At 6:30 min left spawn white slimes with satyres
+	elif game_timer.time_left <= 390:
+		var e = [SATYR, WHITE_SLIME].pick_random()
 		spawn_enemy(e)
-	# At 1:00 min left spawn all enemies and increase spawn rate by 1.1x
-	elif game_timer.time_left <= 60:
-		if not spawn_rate_changed:
-			spawn_rate_changed = true
-			spawn_timer.set_wait_time(0.9)
-		var e = [SATYR, FLYING_DEMON, RED_SLIME, BLUE_SLIME, GREEN_SLIME].pick_random()
-		spawn_enemy(e)
+	# At 8:30 min left spawn flying demons
+	elif game_timer.time_left <= 510:
+		spawn_enemy(FLYING_DEMON)
 	# From the start to 8:30 spawn satyr
 	else:
 		spawn_enemy(SATYR)
