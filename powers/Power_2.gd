@@ -19,7 +19,7 @@ func _ready():
 	sprite.modulate = self.sprite_color
 	damage = BASE_DAMAGE
 	if 0 in colors:
-		damage += int(damage*0.1)
+		damage += int(damage*Global.DAMAGE_BONUS)
 	# Crear un temporizador para eliminar el nodo después de 2 segundos
 	var timer = Timer.new()
 	timer.wait_time = 3.0
