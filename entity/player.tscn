@@ -1,13 +1,17 @@
-[gd_scene load_steps=30 format=3 uid="uid://2mn76wqfxvq2"]
+[gd_scene load_steps=34 format=3 uid="uid://2mn76wqfxvq2"]
 
 [ext_resource type="PackedScene" uid="uid://bsctk0uoj5iav" path="res://entity/EntityBase.tscn" id="1_626d7"]
 [ext_resource type="Script" path="res://entity/player.gd" id="2_ubl2o"]
 [ext_resource type="PackedScene" uid="uid://cawqpc185ey8c" path="res://projectiles/basic_attack.tscn" id="3_ida7b"]
 [ext_resource type="Script" path="res://entity/power_handler.gd" id="4_060sj"]
 [ext_resource type="Texture2D" uid="uid://bvmqwog716l06" path="res://assets/character_sprite/AnimationSheet_Character.png" id="5_8fmxc"]
+[ext_resource type="AudioStream" uid="uid://c105xsd6a6sf4" path="res://Audio/Cross.wav" id="5_sa8tj"]
 [ext_resource type="PackedScene" uid="uid://ipscaqabriwe" path="res://scenes/grid.tscn" id="6_332g4"]
+[ext_resource type="AudioStream" uid="uid://c2tgedg8ax2rk" path="res://Audio/Explosion.wav" id="6_eis6q"]
 [ext_resource type="PackedScene" uid="uid://5atpqa3xbsgp" path="res://UI/game_ui.tscn" id="7_4vilk"]
+[ext_resource type="AudioStream" uid="uid://dal3kd3h1qcb7" path="res://Audio/Dispercion.wav" id="7_u2ml8"]
 [ext_resource type="Texture2D" uid="uid://dyj8kw62uq6sf" path="res://assets/healt_bar_sprite/health meter-28.png" id="8_0u2gj"]
+[ext_resource type="AudioStream" uid="uid://dmo1yiuoldgsy" path="res://Audio/Final_blow.mp3" id="8_dbkt2"]
 [ext_resource type="Texture2D" uid="uid://cjxltuj608o2m" path="res://assets/UI_sprite/UI_Flat_Banner_01_Upward.png" id="8_pmild"]
 [ext_resource type="Texture2D" uid="uid://jelutmsvge00" path="res://assets/healt_bar_sprite/health meter-31.png" id="9_1vxkv"]
 [ext_resource type="PackedScene" uid="uid://b0cifmwm2dt0j" path="res://UI/pause.tscn" id="10_5kp3o"]
@@ -137,6 +141,29 @@ BASIC_ATTACK = ExtResource("3_ida7b")
 
 [node name="PowerHandler" type="Node2D" parent="." index="0"]
 script = ExtResource("4_060sj")
+
+[node name="Sound_P1" type="AudioStreamPlayer" parent="PowerHandler" index="0"]
+stream = ExtResource("5_sa8tj")
+pitch_scale = 0.43
+
+[node name="Sound_P2" type="AudioStreamPlayer2D" parent="PowerHandler" index="1"]
+position = Vector2(-576, -324)
+stream = ExtResource("6_eis6q")
+pitch_scale = 0.56
+attenuation = 0.420449
+
+[node name="Sound_P3" type="AudioStreamPlayer2D" parent="PowerHandler" index="2"]
+position = Vector2(-576, -324)
+stream = ExtResource("7_u2ml8")
+volume_db = -5.143
+pitch_scale = 2.52
+attenuation = 0.353554
+
+[node name="Sound_PF" type="AudioStreamPlayer2D" parent="PowerHandler" index="3"]
+stream = ExtResource("8_dbkt2")
+volume_db = -3.429
+pitch_scale = 1.56
+attenuation = 0.594604
 
 [node name="Sprite" parent="." index="1"]
 texture_filter = 1
