@@ -147,8 +147,8 @@ size = Vector2(34, 26)
 
 [node name="BlueSlime" instance=ExtResource("1_k7l03")]
 script = ExtResource("2_o3piu")
-hp_max = 45
-SPEED = 150
+hp_max = 420
+SPEED = 185
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2(0, -4.5)
@@ -177,6 +177,9 @@ libraries = {
 "": SubResource("AnimationLibrary_hkrrf")
 }
 tree_root = SubResource("AnimationNodeStateMachine_fpegr")
+
+[node name="Hitbox" parent="." index="6"]
+damage = 400
 
 [node name="CollisionShape2D2" parent="Hitbox" index="1"]
 position = Vector2(0, 4)

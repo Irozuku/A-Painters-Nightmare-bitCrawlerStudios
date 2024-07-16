@@ -109,6 +109,7 @@ monitoring = true
 script = ExtResource("2_pronk")
 speed = 500
 piercing_enemies = 0
+damage = 100
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(-1, 0)

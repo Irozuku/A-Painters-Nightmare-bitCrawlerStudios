@@ -121,7 +121,8 @@ size = Vector2(33, 50)
 
 [node name="Satyr" instance=ExtResource("1_j7hh7")]
 script = ExtResource("2_flk0f")
-SPEED = 150
+hp_max = 200
+SPEED = 180
 
 [node name="Sprite" parent="." index="0"]
 scale = Vector2(3, 3)
@@ -134,6 +135,9 @@ libraries = {
 "": SubResource("AnimationLibrary_sd0h5")
 }
 tree_root = SubResource("AnimationNodeStateMachine_fun6j")
+
+[node name="Hitbox" parent="." index="4"]
+damage = 200
 
 [node name="CollisionShape2D2" parent="Hitbox" index="1"]
 position = Vector2(4.5, 8)

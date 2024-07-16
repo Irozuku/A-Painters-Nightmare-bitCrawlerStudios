@@ -53,13 +53,13 @@ func flip_sprite(direction_x):
 		damage_taken_sprite.flip_h = false
 		dead_sprite.flip_h = false
 
-func _on_power1_collision(obj, damage):
-	pass
-
-func _on_hurtbox_area_entered(hitbox):
-	if hitbox.is_in_group("Power"):
-		pass
-	
-	if hitbox.is_in_group("Projectile"):
-		receive_damage(hitbox.damage)
-		hitbox.destroy()
+#func _on_power1_collision(obj, damage):
+	#pass
+#
+#func _on_hurtbox_area_entered(hitbox):
+	#if hitbox.is_in_group("Power"):
+		#pass
+	#
+	#if hitbox.is_in_group("Projectile"):
+		#receive_damage(hitbox.damage)
+		#hitbox.destroy()

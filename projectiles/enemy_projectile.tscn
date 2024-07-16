@@ -64,6 +64,7 @@ monitoring = true
 script = ExtResource("2_tu2tx")
 speed = 400
 piercing_enemies = 0
+damage = 350
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 texture_filter = 1

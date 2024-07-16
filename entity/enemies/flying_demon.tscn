@@ -145,8 +145,8 @@ radius = 15.0
 
 [node name="FlyingDemon" instance=ExtResource("1_btfbh")]
 script = ExtResource("2_2xlvw")
-hp_max = 30
-SPEED = 155
+hp_max = 300
+SPEED = 190
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource("2_it0eh")
@@ -170,6 +170,9 @@ libraries = {
 "": SubResource("AnimationLibrary_wksnt")
 }
 tree_root = SubResource("AnimationNodeStateMachine_6e252")
+
+[node name="Hitbox" parent="." index="6"]
+damage = 300
 
 [node name="CollisionShape2D2" parent="Hitbox" index="1"]
 position = Vector2(-8, 3)

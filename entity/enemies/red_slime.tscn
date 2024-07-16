@@ -147,8 +147,8 @@ size = Vector2(34, 26)
 
 [node name="RedSlime" instance=ExtResource("1_ejlc3")]
 script = ExtResource("2_88nkk")
-hp_max = 30
-SPEED = 150
+hp_max = 420
+SPEED = 185
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2(0, -4.5)
@@ -177,6 +177,9 @@ libraries = {
 "": SubResource("AnimationLibrary_aw22a")
 }
 tree_root = SubResource("AnimationNodeStateMachine_cipa8")
+
+[node name="Hitbox" parent="." index="6"]
+damage = 400
 
 [node name="CollisionShape2D2" parent="Hitbox" index="1"]
 position = Vector2(0, 4)
