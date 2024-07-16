@@ -34,14 +34,13 @@ func flip_sprite(direction_x):
 func _on_power1_collision(obj, hitbox):
 	# Emitir la señal de daño (o manejar el daño directamente)
 	if hurtbox == obj:
-		print("He sido colisionado")
 		receive_damage(hitbox.damage)
 		if 1 in hitbox.colors:
 			# Freeze
 			self.freeze(hitbox.freeze_time)
 		if 2 in hitbox.colors:
 			# Lifesteal
-			SignalManager.lifesteal(int(hitbox.damage*0.1))
+			SignalManager.lifesteal(int(hitbox.damage*Global.HEALING_BONUS))
 
 func freeze(time):
 	print(name + ": Me congelo")
@@ -66,7 +65,7 @@ func _on_hurtbox_area_entered(hitbox):
 			self.freeze(hitbox.freeze_time)
 		if 2 in hitbox.colors:
 			# Lifesteal
-			SignalManager.lifesteal(int(hitbox.damage*0.1))
+			SignalManager.lifesteal(int(hitbox.damage*Global.HEALING_BONUS))
 			
 	if hitbox.is_in_group("Projectile"):
 		hitbox.destroy()

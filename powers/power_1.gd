@@ -27,7 +27,7 @@ func _ready():
 	sprite3.modulate = self.sprite_color
 	sprite4.modulate = self.sprite_color
 	if 0 in colors:
-		damage += int(damage*0.1)
+		damage += int(damage*Global.DAMAGE_BONUS)
 	# Crear un temporizador para eliminar el nodo después de 2 segundos
 	var timer = Timer.new()
 	timer.wait_time = 2.5
@@ -63,7 +63,6 @@ func check_collision(ray):
 	if ray.is_colliding():
 		var col_int = ray.get_collision_count()
 		for i in col_int:
-			print("Rayo ha colisionado")
 			var collider = ray.get_collider(i)
 			SignalManager.power1(collider, self)
 			#if 1 in colors:

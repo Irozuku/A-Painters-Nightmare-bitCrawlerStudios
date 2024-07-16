@@ -18,7 +18,7 @@ func _ready():
 	projectile_asset.modulate = self.sprite_color
 	damage = BASE_DAMAGE
 	if 0 in colors:
-		damage += int(damage*0.1)
+		damage += int(damage*Global.DAMAGE_BONUS)
 
 func _physics_process(delta):
 	var direction = Vector2.RIGHT.rotated(rotation)
