@@ -17,7 +17,7 @@ var enraged = false
 
 func _physics_process(delta):
 	var direction = global_position.direction_to(target.global_position)
-	velocity = SPEED * direction
+	velocity = velocity.move_toward(direction * SPEED, ACCELERATION * delta)
 	
 	flip_sprite(direction.x)
 	

@@ -11,6 +11,8 @@ var frozen = false
 @onready var hitbox_collision_shape = $Hitbox/CollisionShape2D2
 @onready var hurtbox_collision_shape = $Hurtbox/CollisionShape2D
 @onready var sprite = $Sprite
+@export var ACCELERATION = 1000
+
 
 func _ready():
 	target = get_node("/root/Main/Player")
@@ -21,7 +23,7 @@ func _physics_process(delta):
 	if frozen:
 		return
 	var direction = global_position.direction_to(target.global_position)
-	velocity = direction * SPEED
+	velocity = velocity.move_toward(direction * SPEED, ACCELERATION * delta)
 	move_and_slide()
 	
 	flip_sprite(direction.x)
@@ -39,9 +41,10 @@ func _on_blue_freeze(obj, time):
 	if hitbox == obj:
 		print(name + ": Me congelo")
 		self.frozen = true
-		sprite.self_modulate = Color("00e1ff")
+		var prev_color = self.modulate
+		self.modulate = Color("00e1ff")
 		await get_tree().create_timer(time).timeout
-		sprite.self_modulate = Color("ffffff")
+		self.modulate = prev_color
 		self.frozen = false
 
 func die():

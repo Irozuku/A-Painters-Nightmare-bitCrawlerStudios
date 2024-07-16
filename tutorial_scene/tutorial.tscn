@@ -431,26 +431,31 @@ autowrap_mode = 1
 [node name="RedSlime" parent="." instance=ExtResource("9_1dakm")]
 position = Vector2(196, 2016)
 script = ExtResource("10_7rsji")
+ACCELERATION = 1000
 hp_max = 500
 
 [node name="RedSlime2" parent="." instance=ExtResource("9_1dakm")]
 position = Vector2(956, 2016)
 script = ExtResource("10_7rsji")
+ACCELERATION = 1000
 hp_max = 500
 
 [node name="BlueSlime" parent="." instance=ExtResource("10_vk6x1")]
 position = Vector2(786, 2016)
 script = ExtResource("12_mqad4")
+ACCELERATION = 1000
 hp_max = 500
 
 [node name="BlueSlime2" parent="." instance=ExtResource("10_vk6x1")]
 position = Vector2(387, 2016)
 script = ExtResource("12_mqad4")
+ACCELERATION = 1000
 hp_max = 500
 
 [node name="Satyr" parent="." instance=ExtResource("11_701ib")]
 position = Vector2(438, 2201)
 script = ExtResource("13_eirje")
+ACCELERATION = 1000
 hp_max = 1000
 
 [editable path="Map"]
