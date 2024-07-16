@@ -41,10 +41,9 @@ func _on_blue_freeze(obj, time):
 	if hitbox == obj:
 		print(name + ": Me congelo")
 		self.frozen = true
-		var prev_color = self.modulate
 		self.modulate = Color("00e1ff")
 		await get_tree().create_timer(time).timeout
-		self.modulate = prev_color
+		self.modulate = Color("ffffff")
 		self.frozen = false
 
 func die():
