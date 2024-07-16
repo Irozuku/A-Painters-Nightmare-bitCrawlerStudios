@@ -17,6 +17,8 @@ config/icon="res://icon/icon.svg"
 
 [autoload]
 
+GlobalDefault="*res://scenes/global_default.gd"
+Global="*res://scenes/global.gd"
 SignalManager="*res://scenes/SignalManager.tscn"
 AudioPlayer="*res://music/audio_player.tscn"
 

@@ -7,39 +7,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_1yxde"]
 radius = 150.0
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7uk8d"]
-animation = &"active"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vwux0"]
-animation = &"begin"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v8ygf"]
-animation = &"dissipate"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v8ppr"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uknuc"]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aveuy"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1p5tu"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_x846x"]
-states/End/position = Vector2(935, 94)
-states/Start/position = Vector2(190, 100)
-states/active/node = SubResource("AnimationNodeAnimation_7uk8d")
-states/active/position = Vector2(544, 94)
-states/begin/node = SubResource("AnimationNodeAnimation_vwux0")
-states/begin/position = Vector2(367, 100)
-states/dissipate/node = SubResource("AnimationNodeAnimation_v8ygf")
-states/dissipate/position = Vector2(737, 100)
-transitions = ["Start", "begin", SubResource("AnimationNodeStateMachineTransition_v8ppr"), "begin", "active", SubResource("AnimationNodeStateMachineTransition_uknuc"), "active", "dissipate", SubResource("AnimationNodeStateMachineTransition_aveuy"), "dissipate", "End", SubResource("AnimationNodeStateMachineTransition_1p5tu")]
-graph_offset = Vector2(58, -9)
-
 [sub_resource type="Animation" id="Animation_w752k"]
 length = 0.001
 
@@ -100,6 +67,39 @@ _data = {
 "dissipate": SubResource("Animation_hmsmo")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7uk8d"]
+animation = &"active"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vwux0"]
+animation = &"begin"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v8ygf"]
+animation = &"dissipate"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v8ppr"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uknuc"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aveuy"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1p5tu"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_x846x"]
+states/End/position = Vector2(935, 94)
+states/Start/position = Vector2(190, 100)
+states/active/node = SubResource("AnimationNodeAnimation_7uk8d")
+states/active/position = Vector2(544, 94)
+states/begin/node = SubResource("AnimationNodeAnimation_vwux0")
+states/begin/position = Vector2(367, 100)
+states/dissipate/node = SubResource("AnimationNodeAnimation_v8ygf")
+states/dissipate/position = Vector2(737, 100)
+transitions = ["Start", "begin", SubResource("AnimationNodeStateMachineTransition_v8ppr"), "begin", "active", SubResource("AnimationNodeStateMachineTransition_uknuc"), "active", "dissipate", SubResource("AnimationNodeStateMachineTransition_aveuy"), "dissipate", "End", SubResource("AnimationNodeStateMachineTransition_1p5tu")]
+graph_offset = Vector2(58, -9)
+
 [node name="Power2" groups=["Power"] instance=ExtResource("3_20eoy")]
 collision_layer = 8
 collision_mask = 4
@@ -122,6 +122,9 @@ frame = 8
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 deterministic = false
+libraries = {
+"": SubResource("AnimationLibrary_oi5oi")
+}
 tree_root = SubResource("AnimationNodeStateMachine_x846x")
 anim_player = NodePath("../AnimationPlayer")
 

@@ -37,7 +37,7 @@ func _on_power_released(powers, paints):
 			for i in range(10):
 				var power_node = power_scene.instantiate()
 				var att_direction = get_parent().attack_direction
-				att_direction = att_direction.rotated(randf_range(-0.2,0.2))
+				att_direction = att_direction.rotated(randf_range(-0.25,0.25))
 				var att_rotation = att_direction.angle()
 				power_node.rotation = att_rotation
 				power_node.assing_colors(paints)

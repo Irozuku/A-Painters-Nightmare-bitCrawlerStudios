@@ -5,8 +5,8 @@ extends "res://overlap/Hitbox.gd"
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var projectile_asset = $ProjectileAsset
 
-var BASE_DAMAGE = 182
-@export var freeze_time = 4
+var BASE_DAMAGE = Global.POWER_3_DAMAGE
+var freeze_time = Global.FREEZE_TIME
 
 @export var color: String
 

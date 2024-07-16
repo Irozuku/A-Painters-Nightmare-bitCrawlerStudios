@@ -2,8 +2,8 @@ extends Area2D
 
 var speed: int = 250
 
-var BASE_DAMAGE = 10
-@export var freeze_time = 4
+var BASE_DAMAGE = Global.POWER_1_DAMAGE
+var freeze_time = Global.FREEZE_TIME
 
 @export var damage = BASE_DAMAGE
 @export var color: Color
