@@ -109,6 +109,7 @@ monitoring = true
 script = ExtResource("2_pronk")
 speed = 500
 piercing_enemies = 0
+damage = 100
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(-1, 0)
@@ -129,7 +130,7 @@ tree_root = SubResource("AnimationNodeStateMachine_60143")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="ProjectileAsset" type="Sprite2D" parent="." index="4"]
-modulate = Color(0.865797, 0.888354, 0, 1)
+modulate = Color(3.243, 11.892, 17.298, 1)
 texture_filter = 1
 position = Vector2(-5, 5.96046e-08)
 rotation = 3.14159
@@ -139,7 +140,7 @@ hframes = 10
 vframes = 6
 
 [node name="ExplosionAsset" type="Sprite2D" parent="." index="5"]
-visible = false
+modulate = Color(100, 100, 100, 1)
 texture_filter = 1
 position = Vector2(14, -2.38419e-07)
 scale = Vector2(0.228125, 0.213125)

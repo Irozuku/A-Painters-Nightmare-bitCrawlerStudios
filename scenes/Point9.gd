@@ -1,7 +1,6 @@
 extends Area2D
 
 @onready var points = $"..".points
-@onready var sprite = $PointSprite9
 @onready var stroke = $"../Brushstroke"
 
 # Called when the node enters the scene tree for the first time.
@@ -15,7 +14,6 @@ func _process(delta):
 
 func _on_mouse_entered():
 	if (Input.is_action_pressed("left_click")):
-		sprite.modulate = Color("ff00ff")
 		if (points.find(9) == -1):
 			points.append(9)
 			stroke.add_stroke(position)
@@ -24,7 +22,6 @@ func _on_mouse_entered():
 
 func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		sprite.modulate = Color("ff00ff")
 		if (points.find(9) == -1):
 			points.append(9)
 			stroke.add_stroke(position)

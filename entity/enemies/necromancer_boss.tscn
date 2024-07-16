@@ -156,8 +156,9 @@ size = Vector2(41, 92)
 
 [node name="NecromancerBoss" instance=ExtResource("1_wm54g")]
 script = ExtResource("2_xwf2t")
-hp_max = 3000
-SPEED = 140
+ACCELERATION = 1000
+hp_max = 20000
+SPEED = 150
 
 [node name="Sprite" parent="." index="0"]
 scale = Vector2(2, 2)
@@ -171,6 +172,9 @@ libraries = {
 "": SubResource("AnimationLibrary_3grv4")
 }
 tree_root = SubResource("AnimationNodeStateMachine_u071t")
+
+[node name="Hitbox" parent="." index="4"]
+damage = 500
 
 [node name="CollisionShape2D2" parent="Hitbox" index="1"]
 position = Vector2(0.5, 10)

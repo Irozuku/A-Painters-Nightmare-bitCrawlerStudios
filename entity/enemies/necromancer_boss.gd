@@ -11,11 +11,11 @@ extends Enemy
 
 var attack_timer = 4
 var enraged = false
-var prev_speed = SPEED
+@onready var prev_speed = SPEED
 
 func _physics_process(delta):
 	var direction = global_position.direction_to(target.global_position)
-	velocity = SPEED * direction
+	velocity = velocity.move_toward(direction * SPEED, ACCELERATION * delta)
 	
 	flip_sprite(direction.x)
 	
@@ -25,6 +25,7 @@ func _physics_process(delta):
 			enraged = true
 			SPEED = SPEED*1.1
 			prev_speed = SPEED
+			defense = 20
 	
 	if global_position.distance_to(target.global_position) < 500 and attack_timer <= 0.0:
 		choose_attack()
@@ -102,9 +103,9 @@ func attack_2():
 
 # Increases Speed for 3 seconds and throws projectiles to the player afterwards standing still
 func attack_3():
-	SPEED *= 1.5
+	SPEED *= 1.2
 	if enraged:
-		SPEED *= 2
+		SPEED *= 1.3
 	await get_tree().create_timer(3).timeout
 	
 	SPEED = 0
@@ -155,10 +156,10 @@ func throw_projectiles_to_player(projectile, n_projectiles):
 func spawn_wave_around(enemy, effect, n_enemies, radius):
 	for i in range(n_enemies):
 		var angle = i * (2 * PI / n_enemies)
-		var pos = Vector2(cos(angle), sin(angle)) * radius
+		var pos = Vector2(cos(angle), sin(angle)) * radius + global_position
 		var eff = effect.instantiate()
 		eff.global_position = pos
-		add_child(eff)
+		get_tree().current_scene.add_child(eff)
 		var timer = Timer.new()
 		add_child(timer)
 		timer.wait_time = 2
@@ -187,9 +188,9 @@ func _spawn_enemy(enemy, pos, effect, timer):
 func spawn_enemy(enemy, pos):
 	var enemy_instance = enemy.instantiate()
 	enemy_instance.global_position = pos
-	enemy_instance.SPEED = 50
-	enemy_instance.hp_max = 10
-	add_child(enemy_instance)
+	enemy_instance.SPEED = 160
+	enemy_instance.hp_max = 120
+	get_tree().current_scene.add_child(enemy_instance)
 
 func choose_attack():
 	var attack_number = randi() % 3
@@ -217,19 +218,19 @@ func _on_hp_changed(new_hp):
 		playback.travel("damage_taken")
 	
 
-func _on_power1_collision(obj, damage):
-	pass
+#func _on_power1_collision(obj, damage):
+	#pass
 
 func _on_blue_freeze(obj, time):
 	pass
 
-func _on_hurtbox_area_entered(hitbox):
-	if hitbox.is_in_group("Power"):
-		pass
-	
-	if hitbox.is_in_group("Projectile"):
-		receive_damage(hitbox.damage)
-		hitbox.destroy()
+#func _on_hurtbox_area_entered(hitbox):
+	#if hitbox.is_in_group("Power"):
+		#pass
+	#
+	#if hitbox.is_in_group("Projectile"):
+		#receive_damage(hitbox.damage)
+		#hitbox.destroy()
 
 func die():
 	playback.travel("dead")

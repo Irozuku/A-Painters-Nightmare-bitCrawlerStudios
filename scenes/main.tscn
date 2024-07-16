@@ -36,7 +36,6 @@ position = Vector2(578, 1775)
 
 [node name="Player" parent="." instance=ExtResource("3_mpe3j")]
 unique_name_in_owner = true
-hp_max = 30
 
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true

@@ -51,10 +51,18 @@ var credits = [
 		"Xenophero",
 		"poong.gif",
 	],[
+		"Paints and Canvas",
+		"DINO♥JAM",
+		"BDragon1727",
+		"Ravenmore",
+		"Kenney (Assets)",
+		"srtoasty",
+	],[
 		"Effects Art",
 		"CodeManu",
 		"Stealthix",
 		"BDragon1727",
+		"pimen",
 	],[
 		"Miscellaneous Art",
 		"Kab Games",
