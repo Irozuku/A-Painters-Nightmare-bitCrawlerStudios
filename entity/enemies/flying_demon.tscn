@@ -145,6 +145,7 @@ radius = 15.0
 
 [node name="FlyingDemon" instance=ExtResource("1_btfbh")]
 script = ExtResource("2_2xlvw")
+ACCELERATION = 1000
 hp_max = 300
 SPEED = 190
 

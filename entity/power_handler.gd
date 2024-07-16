@@ -1,5 +1,11 @@
 extends Node2D
 
+#Sound imports
+@onready var Sound_P1 = $Sound_P1
+@onready var Sound_P2 = $Sound_P2
+@onready var Sound_P3 = $Sound_P3
+@onready var Sound_PF = $Sound_PF
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SignalManager.connect("power_released", Callable(self, "_on_power_released"))
@@ -11,6 +17,7 @@ func _process(delta):
 	
 func _on_power_released(powers, paints):
 	print("Powers recieved")
+	power_soundboard(powers) #Sound handler
 	for power in powers:
 		if (power == "Poder 1"):
 			print("Lanzando poder 1")
@@ -35,3 +42,17 @@ func _on_power_released(powers, paints):
 				power_node.rotation = att_rotation
 				power_node.assing_colors(paints)
 				add_child(power_node)
+
+func power_soundboard(powers):
+	if powers.size() == 3:
+		Sound_PF.play()
+	else:
+		for power in powers:
+			if power=="Poder 1":
+				Sound_P1.play()
+			elif power=="Poder 2":
+				Sound_P2.play()
+			elif power=="Poder 3":
+				Sound_P3.play()
+			
+			

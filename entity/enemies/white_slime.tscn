@@ -149,6 +149,7 @@ size = Vector2(34, 26)
 
 [node name="WhiteSlime" instance=ExtResource("1_jo3s1")]
 script = ExtResource("2_4rjhb")
+ACCELERATION = 1000
 hp_max = 420
 SPEED = 185
 

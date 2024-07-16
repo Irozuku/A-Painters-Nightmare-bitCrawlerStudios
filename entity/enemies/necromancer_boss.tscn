@@ -156,6 +156,7 @@ size = Vector2(41, 92)
 
 [node name="NecromancerBoss" instance=ExtResource("1_wm54g")]
 script = ExtResource("2_xwf2t")
+ACCELERATION = 1000
 hp_max = 20000
 SPEED = 150
 
