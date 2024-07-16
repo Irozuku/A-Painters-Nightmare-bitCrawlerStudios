@@ -34,10 +34,10 @@ func _on_power_released(powers, paints):
 		elif (power == "Poder 3"):
 			print("Lanzando poder 3")
 			var power_scene = load("res://powers/power_3.tscn")
-			for i in range(5):
+			for i in range(10):
 				var power_node = power_scene.instantiate()
 				var att_direction = get_parent().attack_direction
-				att_direction = att_direction.rotated(randf_range(-1,1))
+				att_direction = att_direction.rotated(randf_range(-0.2,0.2))
 				var att_rotation = att_direction.angle()
 				power_node.rotation = att_rotation
 				power_node.assing_colors(paints)
