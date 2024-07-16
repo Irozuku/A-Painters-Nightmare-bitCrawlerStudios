@@ -3,11 +3,12 @@ extends Area2D
 var speed: int = 250
 
 var BASE_DAMAGE = 10
-var freeze_time = 4
+@export var freeze_time = 4
 
 @export var damage = BASE_DAMAGE
+@export var color: Color
 
-var colors
+@export var colors: Array
 var sprite_color
 
 @onready var ray1 = $Ray1
@@ -64,32 +65,46 @@ func check_collision(ray):
 		for i in col_int:
 			print("Rayo ha colisionado")
 			var collider = ray.get_collider(i)
-			SignalManager.power1(collider, damage)
-			if 1 in colors:
-				SignalManager.freeze(collider, freeze_time)
-				print("Freezing")
-			if 2 in colors:
-				SignalManager.lifesteal(int(damage*0.1))
-				print("Gaining life")
+			SignalManager.power1(collider, self)
+			#if 1 in colors:
+				#SignalManager.freeze(collider, freeze_time)
+				#print("Freezing")
+			#if 2 in colors:
+				#SignalManager.lifesteal(int(damage*0.1))
+				#print("Gaining life")
 
 func assing_colors(paints):
 	colors = paints
 	if 0 in colors:
 		if 1 in colors:
 			if 2 in colors:
+				# Black
+				self.color = "Black"
 				self.sprite_color = Color("262626")
 			else:
+				# Purple
+				self.color = "Purple"
 				self.sprite_color = Color("aa00ff")
 		elif 2 in colors:
+			# Orange
+			self.color = "Orange"
 			self.sprite_color = Color("ffa200")
 		else:
+			# Red
+			self.color = "Red"
 			self.sprite_color = Color("ff0000")
 	elif 1 in colors:
 		if 2 in colors:
+			# Green
+			self.color = "Green"
 			self.sprite_color = Color("0dff00")
 		else:
+			# Blue
+			self.color = "Blue"
 			self.sprite_color = Color("1100ff")
 	elif 2 in colors:
+		# Yellow
+		self.color = "Yellow"
 		self.sprite_color = Color("fbff00")
 
 func _on_timeout():

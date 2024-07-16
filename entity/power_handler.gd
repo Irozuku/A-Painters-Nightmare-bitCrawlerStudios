@@ -41,7 +41,8 @@ func _on_power_released(powers, paints):
 				var att_rotation = att_direction.angle()
 				power_node.rotation = att_rotation
 				power_node.assing_colors(paints)
-				add_child(power_node)
+				power_node.global_position = self.global_position
+				get_tree().current_scene.add_child(power_node)
 
 func power_soundboard(powers):
 	if powers.size() == 3:

@@ -13,6 +13,7 @@ signal dead_animation_finished
 @onready var animation_player = $AnimationPlayer
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var Basic_attack_sound = $Basic_attack_sound
+@onready var collision_shape_2d = $CollisionShape2D
 
 var attack_direction
 var static_direction
@@ -100,6 +101,8 @@ func flip_sprite(direction_x):
 	if direction_x < 0:
 		sprite.flip_h = true  # Voltea el sprite hacia la izquierda
 		hurtbox_collision_shape.position.x = abs(hurtbox_collision_shape.position.x) * -1
+		collision_shape_2d.position.x = abs(hurtbox_collision_shape.position.x) * -1
 	elif direction_x > 0:
 		hurtbox_collision_shape.position.x = abs(hurtbox_collision_shape.position.x)
+		collision_shape_2d.position.x = abs(hurtbox_collision_shape.position.x)
 		sprite.flip_h = false   # Deja el sprite sin voltear hacia la derecha

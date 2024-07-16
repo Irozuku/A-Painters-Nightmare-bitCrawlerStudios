@@ -52,3 +52,26 @@ func flip_sprite(direction_x):
 		sprite.flip_h = false
 		damage_taken_sprite.flip_h = false
 		dead_sprite.flip_h = false
+
+
+func _on_power1_collision(obj, hitbox):
+	# Emitir la señal de daño (o manejar el daño directamente)
+	if hurtbox == obj:
+		print("He sido colisionado")
+		if 1 in hitbox.colors:
+			# Blue
+			receive_damage(hitbox.damage)
+			# Freeze
+			self.freeze(hitbox.freeze_time)
+
+func _on_hurtbox_area_entered(hitbox):
+	if hitbox.is_in_group("Power"):
+		if 1 in hitbox.colors:
+			# Blue
+			receive_damage(hitbox.damage)
+			# Freeze
+			self.freeze(hitbox.freeze_time)
+			
+	if hitbox.is_in_group("Projectile"):
+		hitbox.destroy()
+		

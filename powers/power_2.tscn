@@ -105,6 +105,9 @@ collision_layer = 8
 collision_mask = 4
 monitoring = true
 script = ExtResource("2_3htol")
+freeze_time = 4
+color = ""
+colors = []
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_1yxde")

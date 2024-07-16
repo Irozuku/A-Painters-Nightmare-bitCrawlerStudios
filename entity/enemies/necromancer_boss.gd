@@ -216,21 +216,22 @@ func flip_sprite(direction_x):
 func _on_hp_changed(new_hp):
 	if playback:
 		playback.travel("damage_taken")
+
+func _on_power1_collision(obj, hitbox):
+	# Emitir la señal de daño (o manejar el daño directamente)
+	if hurtbox == obj:
+		print("He sido colisionado")
+		receive_damage(hitbox.damage)
+
+func _on_hurtbox_area_entered(hitbox):
+	receive_damage(hitbox.damage)
 	
+	if hitbox.is_in_group("Projectile"):
+		hitbox.destroy()
 
-#func _on_power1_collision(obj, damage):
-	#pass
 
-func _on_blue_freeze(obj, time):
+func freeze(time):
 	pass
-
-#func _on_hurtbox_area_entered(hitbox):
-	#if hitbox.is_in_group("Power"):
-		#pass
-	#
-	#if hitbox.is_in_group("Projectile"):
-		#receive_damage(hitbox.damage)
-		#hitbox.destroy()
 
 func die():
 	playback.travel("dead")

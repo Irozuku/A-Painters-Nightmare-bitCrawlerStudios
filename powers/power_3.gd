@@ -6,9 +6,11 @@ extends "res://overlap/Hitbox.gd"
 @onready var projectile_asset = $ProjectileAsset
 
 var BASE_DAMAGE = 182
-var freeze_time = 4
+@export var freeze_time = 4
 
-var colors
+@export var color: String
+
+@export var colors: Array
 var sprite_color
 
 # Called when the node enters the scene tree for the first time.
@@ -39,29 +41,43 @@ func assing_colors(paints):
 	if 0 in colors:
 		if 1 in colors:
 			if 2 in colors:
+				# Black
+				self.color = "Black"
 				self.sprite_color = Color("262626")
 			else:
+				# Purple
+				self.color = "Purple"
 				self.sprite_color = Color("7c00c9")
 		elif 2 in colors:
+			# Orange
+			self.color = "Orange"
 			self.sprite_color = Color("ffad5c")
 		else:
+			# Red
+			self.color = "Red"
 			self.sprite_color = Color("ff5c5c")
 	elif 1 in colors:
 		if 2 in colors:
+			# Green
+			self.color = "Green"
 			self.sprite_color = Color("15ff00")
 		else:
+			# Blue
+			self.color = "Blue"
 			self.sprite_color = Color("3023de")
 	elif 2 in colors:
+		# Yellow
+		self.color = "Yellow"
 		self.sprite_color = Color("ddff00")
 
-func _on_area_entered(area):
-	if 1 in colors:
-		SignalManager.freeze(area, freeze_time)
-		print("Freezing")
-	if 2 in colors:
-		SignalManager.lifesteal(int(damage*0.1))
-		print("Gaining life")
-	destroy()
+#func _on_area_entered(area):
+	#if 1 in colors:
+		#SignalManager.freeze(area, freeze_time)
+		#print("Freezing")
+	#if 2 in colors:
+		#SignalManager.lifesteal(int(damage*0.1))
+		#print("Gaining life")
+	#destroy()
 
 func _on_body_entered(body):
 	destroy()
