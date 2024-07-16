@@ -9,8 +9,6 @@ extends Enemy
 @onready var BLUE_EFFECT: PackedScene = preload("res://effects/blue_slime_summon_effect.tscn")
 @onready var WARNING_EFFECT: PackedScene = preload("res://effects/warning_effect.tscn")
 
-@onready var main_node = get_node("/root")
-
 var attack_timer = 4
 var enraged = false
 @onready var prev_speed = SPEED
@@ -161,7 +159,7 @@ func spawn_wave_around(enemy, effect, n_enemies, radius):
 		var pos = Vector2(cos(angle), sin(angle)) * radius + global_position
 		var eff = effect.instantiate()
 		eff.global_position = pos
-		main_node.add_child(eff)
+		get_tree().current_scene.add_child(eff)
 		var timer = Timer.new()
 		add_child(timer)
 		timer.wait_time = 2
@@ -192,7 +190,7 @@ func spawn_enemy(enemy, pos):
 	enemy_instance.global_position = pos
 	enemy_instance.SPEED = 160
 	enemy_instance.hp_max = 120
-	main_node.add_child(enemy_instance)
+	get_tree().current_scene.add_child(enemy_instance)
 
 func choose_attack():
 	var attack_number = randi() % 3
