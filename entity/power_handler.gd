@@ -29,7 +29,8 @@ func _on_power_released(powers, paints):
 			var power_scene = load("res://powers/power_3.tscn")
 			for i in range(5):
 				var power_node = power_scene.instantiate()
-				var att_direction = Vector2(randf_range(250, -250),randf_range(250, -250)).normalized()
+				var att_direction = get_parent().attack_direction
+				att_direction = att_direction.rotated(randf_range(-1,1))
 				var att_rotation = att_direction.angle()
 				power_node.rotation = att_rotation
 				power_node.assing_colors(paints)

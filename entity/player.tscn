@@ -157,6 +157,9 @@ libraries = {
 }
 
 [node name="AnimationTree" parent="." index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_ic1db")
+}
 tree_root = SubResource("AnimationNodeStateMachine_mvsrv")
 anim_player = NodePath("../AnimationPlayer")
 
