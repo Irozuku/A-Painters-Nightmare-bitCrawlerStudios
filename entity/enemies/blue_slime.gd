@@ -61,17 +61,16 @@ func _on_power1_collision(obj, hitbox):
 		if 1 in hitbox.colors:
 			# Blue
 			receive_damage(hitbox.damage)
-			# Freeze
-			self.freeze(hitbox.freeze_time)
+
 
 func _on_hurtbox_area_entered(hitbox):
 	if hitbox.is_in_group("Power"):
 		if 1 in hitbox.colors:
-			# Blue
-			receive_damage(hitbox.damage)
-			# Freeze
-			self.freeze(hitbox.freeze_time)
-			
+			if hitbox.is_in_group("Projectile"):
+				print(hitbox.colors, hitbox.damage)
+				receive_damage(hitbox.damage, true)
+			else:
+				print(hitbox.colors, hitbox.damage)
+				receive_damage(hitbox.damage)
 	if hitbox.is_in_group("Projectile"):
 		hitbox.destroy()
-		

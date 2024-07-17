@@ -39,7 +39,7 @@ func _ready():
 		#print("Gaining life")
 
 func add_colors(paints):
-	self.colors = paints
+	self.colors = paints.duplicate()
 
 func assign_colors(colors):
 	if 0 in colors:
@@ -80,6 +80,5 @@ func _on_timeout():
 	playback.travel("End")
 	await animation_tree.animation_finished
 	self.sprite_color = Color("ffffff")
-	colors.clear()
 	damage = BASE_DAMAGE
 	queue_free()

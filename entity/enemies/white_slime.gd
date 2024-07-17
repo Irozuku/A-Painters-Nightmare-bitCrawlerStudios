@@ -61,8 +61,7 @@ func _on_hurtbox_area_entered(hitbox):
 		pass
 	
 	if hitbox.is_in_group("Projectile") and not hitbox.is_in_group("Power"):
-		receive_damage(hitbox.damage)
-		hitbox.destroy()
+		receive_damage(hitbox.damage, true)
 		
-	if hitbox.is_in_group("Projectile") and hitbox.is_in_group("Power"):
+	if hitbox.is_in_group("Projectile"):
 		hitbox.destroy()

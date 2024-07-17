@@ -8,9 +8,10 @@ extends "res://overlap/Hitbox.gd"
 var BASE_DAMAGE = Global.POWER_3_DAMAGE
 var freeze_time = Global.FREEZE_TIME
 
+
 @export var color: String
 
-@export var colors: Array
+@export var colors: Array = Array()
 var sprite_color
 
 # Called when the node enters the scene tree for the first time.
@@ -26,7 +27,6 @@ func _physics_process(delta):
 	global_position += speed * direction * delta
 	
 func destroy():
-	colors.clear()
 	self.sprite_color = Color("ffffff")
 	damage = BASE_DAMAGE
 	speed = 0
@@ -35,10 +35,11 @@ func destroy():
 	projectile_asset.hide()
 	playback.travel("collision")
 	await animation_tree.animation_finished
+	
 	queue_free()
 
 func add_colors(paints):
-	self.colors = paints
+	self.colors = paints.duplicate()
 
 func assign_colors(colors):
 	if 0 in colors:

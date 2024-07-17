@@ -13,6 +13,7 @@ graph_offset = Vector2(-72, 18.8078)
 collision_layer = 4
 collision_mask = 23
 script = ExtResource("2_hesui")
+ACCELERATION = 1000
 hp_max = 20
 SPEED = 130
 

@@ -74,7 +74,7 @@ func check_collision(ray):
 				#print("Gaining life")
 
 func add_colors(paints):
-	self.colors = paints
+	self.colors = paints.duplicate()
 	
 func assign_colors(colors):
 	if 0 in colors:
@@ -110,7 +110,6 @@ func assign_colors(colors):
 		self.sprite_color = Color("fbff00")
 
 func _on_timeout():
-	colors.clear()
 	self.sprite_color = Color("ffffff")
 	damage = BASE_DAMAGE
 	queue_free()  # Auto eliminar el nodo

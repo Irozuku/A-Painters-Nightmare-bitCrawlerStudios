@@ -23,6 +23,7 @@ func _process(delta):
 func _on_power_released(powers, paints):
 	print("Powers recieved")
 	power_soundboard(powers) #Sound handler
+	print(powers)
 	for power in powers:
 		if (power == "Poder 1"):
 			print("Lanzando poder 1")
@@ -48,6 +49,9 @@ func _on_power_released(powers, paints):
 				power_node.add_colors(paints)
 				power_node.global_position = self.global_position
 				get_tree().current_scene.add_child(power_node)
+				await get_tree().create_timer(0.001).timeout
+	powers.clear()
+	paints.clear()
 
 func power_soundboard(powers):
 	if powers.size() == 3:

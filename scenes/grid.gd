@@ -1,8 +1,8 @@
 extends Area2D
 
 var points = []
-var loaded_powers = []
-var loaded_paints = []
+@export var loaded_powers = []
+@export var loaded_paints = []
 var active_paint
 
 @onready var text = $Label
@@ -47,5 +47,4 @@ func _process(delta):
 			if not loaded_paints.is_empty() and not loaded_powers.is_empty():
 				print("Sending powers to controler")
 				SignalManager.send_power(loaded_powers, loaded_paints)
-				loaded_powers.clear()
 				remainder.release()
