@@ -40,7 +40,7 @@ func _on_power_released(powers, paints):
 		elif (power == "Poder 3"):
 			print("Lanzando poder 3")
 			var power_scene = power_scene_3
-			for i in range(10):
+			for i in range(Global.POWER3_ROUNDS):
 				var power_node = power_scene.instantiate()
 				var att_direction = get_parent().attack_direction
 				att_direction = att_direction.rotated(randf_range(-0.25,0.25))

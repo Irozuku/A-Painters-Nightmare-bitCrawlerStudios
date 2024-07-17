@@ -7,7 +7,6 @@ var active_paint
 
 @onready var text = $Label
 @onready var remainder = $SymbolRemainder
-@onready var timer = $Lockdown
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

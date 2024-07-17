@@ -24,6 +24,7 @@ AudioPlayer="*res://music/audio_player.tscn"
 
 [display]
 
+window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="res://assets/cursors/192_0.png"
 
 [input]
