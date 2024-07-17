@@ -59,12 +59,24 @@ func _on_power1_collision(obj, hitbox):
 	if hurtbox == obj:
 		print("He sido colisionado")
 		if 0 in hitbox.colors:
+			if 1 in hitbox.colors:
+				# Freeze
+				self.freeze(hitbox.freeze_time)
+			if 2 in hitbox.colors:
+				# Lifesteal
+				SignalManager.lifesteal(int(hitbox.damage*Global.HEALING_BONUS))
 			# Red
 			receive_damage(hitbox.damage)
 
 func _on_hurtbox_area_entered(hitbox):
 	if hitbox.is_in_group("Power"):
 		if 0 in hitbox.colors:
+			if 1 in hitbox.colors:
+				# Freeze
+				self.freeze(hitbox.freeze_time)
+			if 2 in hitbox.colors:
+				# Lifesteal
+				SignalManager.lifesteal(int(hitbox.damage*Global.HEALING_BONUS))
 			if hitbox.is_in_group("Projectile"):
 				print(hitbox.colors, hitbox.damage)
 				receive_damage(hitbox.damage, true)
