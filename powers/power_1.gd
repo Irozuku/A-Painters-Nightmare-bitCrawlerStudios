@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed: int = 250
+var speed: int = Global.POWER1_SPEED
 
 var BASE_DAMAGE = Global.POWER_1_DAMAGE
 var freeze_time = Global.FREEZE_TIME
