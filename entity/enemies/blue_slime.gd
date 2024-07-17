@@ -53,7 +53,13 @@ func flip_sprite(direction_x):
 		damage_taken_sprite.flip_h = false
 		dead_sprite.flip_h = false
 
-
+func freeze(time):
+	print(name + ": Me congelo")
+	self.frozen = true
+	self.modulate = Color("0005ff")
+	await get_tree().create_timer(time).timeout
+	self.modulate = Color("ffffff")
+	self.frozen = false
 
 func _on_power1_collision(obj, hitbox):
 	# Emitir la señal de daño (o manejar el daño directamente)
