@@ -37,14 +37,19 @@ func _physics_process(delta):
 func die():
 	queue_free()
 
-func receive_damage(base_damage: int):
-	if inv_frame.is_stopped():
-		inv_frame.start()
-		
+func receive_damage(base_damage: int, ignore_inv_frame = false):
+	if not ignore_inv_frame:
+		if inv_frame.is_stopped():
+			inv_frame.start()
+			_receive_damage(base_damage)
+	else:
+		_receive_damage(base_damage)
+
+func _receive_damage(base_damage: int):
 		var actual_damage = base_damage - defense
 		self.hp -= actual_damage
-	
 		print(name + " received " + str(actual_damage) + " damage" + ", current hp: " + str(self.hp))
+	
 
 func heal(hp_gained: int):
 	if self.hp + hp_gained > self.hp_max:

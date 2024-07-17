@@ -224,11 +224,12 @@ func _on_power1_collision(obj, hitbox):
 		receive_damage(hitbox.damage)
 
 func _on_hurtbox_area_entered(hitbox):
-	receive_damage(hitbox.damage)
+	if hitbox.is_in_group("Power") and not hitbox.is_in_group("Projectile"):
+		receive_damage(hitbox.damage)
 	
 	if hitbox.is_in_group("Projectile"):
+		receive_damage(hitbox.damage, true)
 		hitbox.destroy()
-
 
 func freeze(time):
 	pass

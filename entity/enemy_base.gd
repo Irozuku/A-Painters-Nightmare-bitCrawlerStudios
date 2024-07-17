@@ -57,17 +57,26 @@ func _on_body_entered(body:Node2D):
 	queue_free()
 
 func _on_hurtbox_area_entered(hitbox):
-	receive_damage(hitbox.damage)
-	
-	if hitbox.is_in_group("Power"):
+	if hitbox.is_in_group("Power") and not hitbox.is_in_group("Projectile"):
+		receive_damage(hitbox.damage)
 		if 1 in hitbox.colors:
 			# Freeze
 			self.freeze(hitbox.freeze_time)
 		if 2 in hitbox.colors:
 			# Lifesteal
 			SignalManager.lifesteal(int(hitbox.damage*Global.HEALING_BONUS))
-			
-	if hitbox.is_in_group("Projectile"):
+	
+	if hitbox.is_in_group("Power") and hitbox.is_in_group("Projectile"):
+		receive_damage(hitbox.damage, true)
+		if 1 in hitbox.colors:
+			# Freeze
+			self.freeze(hitbox.freeze_time)
+		if 2 in hitbox.colors:
+			# Lifesteal
+			SignalManager.lifesteal(int(hitbox.damage*Global.HEALING_BONUS))
+		hitbox.destroy()
+	
+	if hitbox.is_in_group("Projectile") and not hitbox.is_in_group("Power"):
+		receive_damage(hitbox.damage, true)
 		hitbox.destroy()
 		
-
