@@ -18,6 +18,7 @@ func _ready():
 	AudioPlayer._play_music(null, 0)
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
 	boss_timer.timeout.connect(_on_boss_spawn)
+	Global.reset_globals()
 
 # Spawn the boss at 5:00 and reduce the spawn rate
 func _on_boss_spawn():
