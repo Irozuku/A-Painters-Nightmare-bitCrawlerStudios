@@ -17,19 +17,19 @@ func _ready():
 
 # Change the active paint color
 func change_active(paint: int):
+	current_index = paint
 	for border in paint_array:
 		border.texture = inactive
-	current_index = paint
 	paint_array[current_index].texture = active
 
 func shift_active_right():
-	current_index = (current_index+1)%3
+	current_index = posmod((current_index+1), 3)
 	for border in paint_array:
 		border.texture = inactive
 	paint_array[current_index].texture = active
 	
 func shift_active_left():
-	current_index = (current_index-1)%3
+	current_index = posmod((current_index-1), 3)
 	for border in paint_array:
 		border.texture = inactive
 	paint_array[current_index].texture = active
