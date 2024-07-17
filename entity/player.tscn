@@ -151,7 +151,7 @@ pitch_scale = 0.43
 position = Vector2(-576, -324)
 stream = ExtResource("6_eis6q")
 pitch_scale = 0.56
-attenuation = 0.420449
+attenuation = 2.07054
 
 [node name="Sound_P3" type="AudioStreamPlayer2D" parent="PowerHandler" index="2"]
 position = Vector2(-576, -324)
@@ -263,7 +263,7 @@ one_shot = true
 
 [node name="Basic_attack_sound" type="AudioStreamPlayer2D" parent="." index="10"]
 stream = ExtResource("12_w0h06")
-volume_db = -0.57
+volume_db = -22.284
 pitch_scale = 1.48
 attenuation = 2.54912
 max_polyphony = 4
