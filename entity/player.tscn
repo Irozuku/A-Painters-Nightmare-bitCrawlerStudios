@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://2mn76wqfxvq2"]
+[gd_scene load_steps=35 format=3 uid="uid://2mn76wqfxvq2"]
 
 [ext_resource type="PackedScene" uid="uid://bsctk0uoj5iav" path="res://entity/EntityBase.tscn" id="1_626d7"]
 [ext_resource type="Script" path="res://entity/player.gd" id="2_ubl2o"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://jelutmsvge00" path="res://assets/healt_bar_sprite/health meter-31.png" id="9_1vxkv"]
 [ext_resource type="PackedScene" uid="uid://b0cifmwm2dt0j" path="res://UI/pause.tscn" id="10_5kp3o"]
 [ext_resource type="AudioStream" uid="uid://bu4bdr2xpdx4u" path="res://Audio/Basic_attack.wav" id="12_w0h06"]
+[ext_resource type="AudioStream" uid="uid://dobn4oyudfbx2" path="res://Audio/Background_music_r.wav" id="17_iyt7m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5cw1d"]
 radius = 15.0
@@ -267,6 +268,9 @@ volume_db = -22.284
 pitch_scale = 1.48
 attenuation = 2.54912
 max_polyphony = 4
+
+[node name="Background_music" type="AudioStreamPlayer2D" parent="." index="11"]
+stream = ExtResource("17_iyt7m")
 
 [connection signal="dead_animation_finished" from="." to="CanvasLayer/GameUI" method="_on_player_dead_animation_finished"]
 

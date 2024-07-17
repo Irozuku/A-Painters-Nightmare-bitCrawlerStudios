@@ -13,7 +13,9 @@ signal dead_animation_finished
 @onready var animation_player = $AnimationPlayer
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var Basic_attack_sound = $Basic_attack_sound
+@onready var Background_music = $Background_music
 @onready var collision_shape_2d = $CollisionShape2D
+
 
 var attack_direction
 var static_direction
@@ -27,6 +29,7 @@ func _ready():
 	SignalManager.connect("gain_life", Callable(self, "_on_gain_life"))
 	health_bar.max_value = self.hp_max
 	health_bar.value = self.hp
+	Background_music.play()
 
 func _physics_process(delta):
 	# Select direction
