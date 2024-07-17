@@ -7,6 +7,7 @@ var active_paint
 
 @onready var text = $Label
 @onready var remainder = $SymbolRemainder
+@onready var timer = $Lockdown
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,7 +43,9 @@ func _process(delta):
 			load_power("Poder 3", active_paint)
 		points.clear()
 	if (Input.is_action_just_pressed("release_power")):
-		print("Sending powers to controler")
-		SignalManager.send_power(loaded_powers, loaded_paints)
-		loaded_powers.clear()
-		remainder.release()
+		if not (Input.is_action_pressed("left_click")):
+			if not loaded_paints.is_empty() and not loaded_powers.is_empty():
+				print("Sending powers to controler")
+				SignalManager.send_power(loaded_powers, loaded_paints)
+				loaded_powers.clear()
+				remainder.release()

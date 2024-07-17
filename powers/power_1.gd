@@ -22,6 +22,7 @@ var sprite_color
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	assign_colors(colors)
 	sprite1.modulate = self.sprite_color
 	sprite2.modulate = self.sprite_color
 	sprite3.modulate = self.sprite_color
@@ -72,8 +73,10 @@ func check_collision(ray):
 				#SignalManager.lifesteal(int(damage*0.1))
 				#print("Gaining life")
 
-func assing_colors(paints):
-	colors = paints
+func add_colors(paints):
+	self.colors = paints
+	
+func assign_colors(colors):
 	if 0 in colors:
 		if 1 in colors:
 			if 2 in colors:

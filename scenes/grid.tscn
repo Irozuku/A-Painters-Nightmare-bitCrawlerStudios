@@ -43,7 +43,7 @@ text = "NADA"
 
 [node name="PaintBar" parent="." instance=ExtResource("3_l6slk")]
 position = Vector2(-1, -251)
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.65, 0.65)
 
 [node name="Point1" type="Area2D" parent="."]
 position = Vector2(-119, -119)

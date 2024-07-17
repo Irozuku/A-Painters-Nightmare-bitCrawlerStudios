@@ -15,6 +15,7 @@ var sprite_color
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	assign_colors(colors)
 	projectile_asset.modulate = self.sprite_color
 	damage = BASE_DAMAGE
 	if 0 in colors:
@@ -36,8 +37,10 @@ func destroy():
 	await animation_tree.animation_finished
 	queue_free()
 
-func assing_colors(paints):
-	colors = paints
+func add_colors(paints):
+	self.colors = paints
+
+func assign_colors(colors):
 	if 0 in colors:
 		if 1 in colors:
 			if 2 in colors:
