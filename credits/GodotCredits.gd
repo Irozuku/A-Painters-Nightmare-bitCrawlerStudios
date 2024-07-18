@@ -84,6 +84,8 @@ var credits = [
 		"poulj",
 		"lucafrancini",
 		"Chimimin",
+		"StudioKolomna",
+		"Music_For_Videos",
 	],[
 		"Sound Effects",
 		"SFX Name",
