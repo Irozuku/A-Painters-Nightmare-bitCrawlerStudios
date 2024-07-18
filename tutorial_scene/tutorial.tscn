@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bgoe2jfry8gvf"]
+[gd_scene load_steps=37 format=3 uid="uid://bgoe2jfry8gvf"]
 
 [ext_resource type="PackedScene" uid="uid://2mn76wqfxvq2" path="res://entity/player.tscn" id="1_a82mu"]
 [ext_resource type="PackedScene" uid="uid://24lw3uxpib54" path="res://map/map.tscn" id="1_cwxq7"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dmtsyhr7w3ok4" path="res://assets/UI_sprite/Keyboard Letters and Symbols.png" id="6_g3uyj"]
 [ext_resource type="Texture2D" uid="uid://dg56idgdqkj32" path="res://assets/UI_sprite/tall.png" id="6_k613p"]
 [ext_resource type="PackedScene" uid="uid://dvh7qb0hkinx6" path="res://entity/enemies/red_slime.tscn" id="9_1dakm"]
+[ext_resource type="FontFile" uid="uid://cssxm08aotlcw" path="res://fonts/Uncial_WIP.ttf" id="9_eu8bc"]
 [ext_resource type="Texture2D" uid="uid://do02fqinxpgqa" path="res://assets/UI_sprite/MOUSE.png" id="9_i576v"]
 [ext_resource type="Script" path="res://tutorial_scene/red_slime_tutorial.gd" id="10_7rsji"]
 [ext_resource type="PackedScene" uid="uid://jayuar52q0je" path="res://entity/enemies/blue_slime.tscn" id="10_vk6x1"]
@@ -186,7 +187,7 @@ SPEED = 600
 [node name="GameUI" parent="Player/CanvasLayer" index="1"]
 script = ExtResource("3_io7dn")
 
-[node name="GameTimer" parent="Player/CanvasLayer/GameUI" index="0"]
+[node name="GameTimer" parent="Player/CanvasLayer/GameUI" index="1"]
 wait_time = 3600.0
 
 [node name="TutorialScroll1" type="Node2D" parent="."]
@@ -224,7 +225,7 @@ autoplay = "default"
 
 [node name="MouseSprite" type="AnimatedSprite2D" parent="TutorialScroll1"]
 texture_filter = 1
-position = Vector2(820, 1403.33)
+position = Vector2(820, 1503.33)
 scale = Vector2(11.9479, 10.0208)
 sprite_frames = SubResource("SpriteFrames_64gmk")
 
@@ -255,27 +256,35 @@ offset_right = 93.0
 offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 67
+theme_override_fonts/font = ExtResource("9_eu8bc")
+theme_override_font_sizes/font_size = 100
 text = "Welcome"
 
 [node name="Description" type="Control" parent="TutorialScroll1"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 214.0
-offset_top = 572.0
+offset_top = 503.0
 offset_right = 934.0
 offset_bottom = 1574.0
 
-[node name="Label" type="Label" parent="TutorialScroll1/Description"]
+[node name="Text" type="RichTextLabel" parent="TutorialScroll1/Description"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 40
-text = "Welcome to A Painter's Nightmare, in this game you must survive for 10 minutes to waves of enemies. For this, your character has a constant basic attack and 3 different skills you can use to defend yourself"
-horizontal_alignment = 3
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "You closed your eyes, hoping for
+respite, but instead you've fallen
+into... [font=res://fonts/Uncial_WIP.ttf]A Painter's Nightmare[/font].
+You must survive 10 minutes of
+unrelenting assault from your inner
+demons, but fear not! You have an
+unlimited amount of paints to
+conjure powerful attacks."
 autowrap_mode = 1
 
 [node name="Description2" type="Control" parent="TutorialScroll1"]
@@ -304,9 +313,9 @@ autowrap_mode = 1
 layout_mode = 3
 anchors_preset = 0
 offset_left = 214.0
-offset_top = 1323.0
+offset_top = 1253.0
 offset_right = 934.0
-offset_bottom = 1463.0
+offset_bottom = 1393.0
 
 [node name="Label" type="Label" parent="TutorialScroll1/Description3"]
 layout_mode = 1
@@ -315,9 +324,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 43
+text = "You have an automatic blast that
+follows your mouse, but can lock.
+"
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Description4" type="Control" parent="TutorialScroll1"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 214.0
+offset_top = 1423.0
+offset_right = 934.0
+offset_bottom = 1563.0
+
+[node name="Label" type="Label" parent="TutorialScroll1/Description4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 0.188235, 1)
 theme_override_font_sizes/font_size = 43
-text = "• Lock/Unlock Cursor
+text = "• Lock/Unlock Aim
 "
 vertical_alignment = 1
 autowrap_mode = 1
@@ -328,7 +359,7 @@ scale = Vector2(0.3, 0.3)
 
 [node name="SpaceBarSprite" type="AnimatedSprite2D" parent="TutorialScroll2"]
 texture_filter = 1
-position = Vector2(779.25, 1461.67)
+position = Vector2(779.25, 1341.67)
 scale = Vector2(9.21354, 9.79171)
 sprite_frames = SubResource("SpriteFrames_yh0q6")
 autoplay = "default"
@@ -344,9 +375,9 @@ texture = ExtResource("6_k613p")
 layout_mode = 3
 anchors_preset = 0
 offset_left = 285.0
-offset_top = 376.0
+offset_top = 356.0
 offset_right = 829.0
-offset_bottom = 536.0
+offset_bottom = 516.0
 
 [node name="Label" type="Label" parent="TutorialScroll2/Title"]
 layout_mode = 1
@@ -361,16 +392,17 @@ offset_right = 93.0
 offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 67
-text = "Skills"
+theme_override_fonts/font = ExtResource("9_eu8bc")
+theme_override_font_sizes/font_size = 120
+text = "Glyphs"
 
 [node name="Description" type="Control" parent="TutorialScroll2"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 214.0
-offset_top = 572.0
+offset_top = 483.0
 offset_right = 934.0
-offset_bottom = 833.0
+offset_bottom = 1043.0
 
 [node name="Label" type="Label" parent="TutorialScroll2/Description"]
 layout_mode = 1
@@ -380,7 +412,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
-text = "As mentioned before, your character has 3 differents skills, and also you're able to change beetwen colors with Q and E for different effects. To use them draw the respective pattern on the grid to the left of the screen. Once loaded release it with SPACE BAR."
+text = "You have 3 glyphs that summon
+different attacks. To use them draw
+the respective pattern on the grid to the right of the screen. Once loaded
+release them with SPACE BAR. You
+can change the paint colors used on
+the grid with 1, 2 ,3 or Q and E. Each
+color has a different effect on your
+attack."
 horizontal_alignment = 3
 autowrap_mode = 1
 
@@ -388,31 +427,35 @@ autowrap_mode = 1
 layout_mode = 3
 anchors_preset = 0
 offset_left = 214.0
-offset_top = 970.0
+offset_top = 1010.0
 offset_right = 934.0
-offset_bottom = 1287.0
+offset_bottom = 1300.0
 
-[node name="Label" type="Label" parent="TutorialScroll2/Description2"]
+[node name="Text2" type="RichTextLabel" parent="TutorialScroll2/Description2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 3.3335
+offset_bottom = 3.3335
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.152941, 1, 0.576471, 1)
-theme_override_font_sizes/font_size = 44
-text = "• Red: +10% more damage
-• Blue: Freezes enemies for 4 seconds
-• Yellow: converts 10% of damage into HP"
+theme_override_colors/default_color = Color(0.152941, 1, 0.576471, 1)
+theme_override_font_sizes/normal_font_size = 44
+bbcode_enabled = true
+text = "• [color=red]Red[/color]: +10% more damage.
+• [color=blue]Blue[/color]: Freezes enemies for 4s.
+• [color=yellow]Yellow[/color]: Heals you 10% of the
+damage caused."
 autowrap_mode = 1
 
 [node name="Description3" type="Control" parent="TutorialScroll2"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 214.0
-offset_top = 1400.0
+offset_top = 1280.0
 offset_right = 934.0
-offset_bottom = 1527.0
+offset_bottom = 1390.0
 
 [node name="Label" type="Label" parent="TutorialScroll2/Description3"]
 layout_mode = 1
@@ -427,6 +470,28 @@ text = "• Release skill
 "
 vertical_alignment = 1
 autowrap_mode = 1
+
+[node name="Description4" type="Control" parent="TutorialScroll2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 214.0
+offset_top = 1423.0
+offset_right = 934.0
+offset_bottom = 1610.0
+
+[node name="Label" type="Label" parent="TutorialScroll2/Description4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Divine inspiration will help you every minute, so choose carefully...
+and survive!"
+horizontal_alignment = 3
+autowrap_mode = 1
+justification_flags = 161
 
 [node name="RedSlime" parent="." instance=ExtResource("9_1dakm")]
 position = Vector2(196, 2016)
