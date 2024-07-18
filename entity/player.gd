@@ -93,6 +93,11 @@ func _on_upgrade_max_hp(value):
 	var max_hp_prev = get_hp_max()
 	set_hp_max(max_hp_prev+value)
 	set_hp(hp_prev)
+	if health_bar:
+		health_bar.max_value = get_hp_max()
+		health_bar.value = get_hp()
+	print("New maxHP: " + str(get_hp_max()))
+	print("current HP: " + str(get_hp()))
 	
 func die():
 	playback.travel("dead")

@@ -70,12 +70,14 @@ func _input(event):
 		_on_skip_pressed()
 
 func create_choices():
-	var list = range(7)
+	var list = range(8)
 	var sample = []
 	for i in range(3):
-		var x = randi()%list.size()
-		sample.append(list[x])
+		print(list)
+		var x = list.pick_random()
 		list.erase(x)
+		sample.append(x)
+		print(list)
 	print(sample)
 	return sample
 
