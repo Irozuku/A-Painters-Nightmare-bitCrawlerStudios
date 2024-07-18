@@ -11,9 +11,11 @@ show_behind_parent = true
 script = ExtResource("1_800n4")
 
 [node name="art" type="Sprite2D" parent="."]
+texture_filter = 1
 scale = Vector2(0.4, 0.4)
 
 [node name="border" type="Sprite2D" parent="."]
+texture_filter = 1
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("2_82uw5")
 
