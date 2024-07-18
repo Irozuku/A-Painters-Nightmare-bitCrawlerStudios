@@ -90,7 +90,7 @@ func apply_choice(val):
 		Global.HEALING_BONUS += 0.05
 		print("modification: " + str(Global.HEALING_BONUS))
 	if val == 3:
-		SignalManager.send_upgrade_speed(50)
+		SignalManager.send_upgrade_speed(15)
 	if val == 4:
 		Global.POWER1_SPEED += 50
 		print("modification: " + str(Global.POWER1_SPEED))
