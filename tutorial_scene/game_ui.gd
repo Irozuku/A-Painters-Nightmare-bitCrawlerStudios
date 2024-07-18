@@ -5,3 +5,6 @@ func _on_timeout():
 	
 func _on_player_dead_animation_finished():
 	pass
+
+func _on_upgrade_timeout():
+	pass
