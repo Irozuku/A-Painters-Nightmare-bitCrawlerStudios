@@ -11,6 +11,7 @@ var HEALING_BONUS = GlobalDefault.BASE_HEALING_BONUS
 
 var POWER1_SPEED = GlobalDefault.BASE_POWER1_SPEED
 var POWER2_RADIOUS = GlobalDefault.BASE_POWER2_RADIOUS
+var POWER2_SCALE = GlobalDefault.BASE_POWER2_SCALE
 var POWER3_ROUNDS = GlobalDefault.BASE_POWER3_ROUNDS
 
 func reset_globals():
@@ -25,4 +26,5 @@ func reset_globals():
 	
 	POWER1_SPEED = GlobalDefault.BASE_POWER1_SPEED
 	POWER2_RADIOUS = GlobalDefault.BASE_POWER2_RADIOUS
+	POWER2_SCALE = GlobalDefault.BASE_POWER2_SCALE
 	POWER3_ROUNDS = GlobalDefault.BASE_POWER3_ROUNDS

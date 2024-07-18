@@ -92,7 +92,9 @@ func apply_choice(val):
 		print("modification: " + str(Global.POWER1_SPEED))
 	if val == 5:
 		Global.POWER2_RADIOUS += 25
+		Global.POWER2_SCALE += Vector2(2.0, 2.0)
 		print("modification: " + str(Global.POWER2_RADIOUS))
+		print("modification: " + str(Global.POWER2_SCALE))
 	if val == 6:
 		Global.POWER3_ROUNDS += 5
 		print("modification: " + str(Global.POWER3_ROUNDS))

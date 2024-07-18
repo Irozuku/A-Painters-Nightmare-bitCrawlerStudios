@@ -23,7 +23,7 @@ func _ready():
 		damage += int(damage*Global.DAMAGE_BONUS)
 	var col = ColPolygon.shape
 	col.radius = Global.POWER2_RADIOUS
-	sprite.scale = Vector2((8.5*GlobalDefault.BASE_POWER2_RADIOUS)/Global.POWER2_RADIOUS, (8.5*GlobalDefault.BASE_POWER2_RADIOUS/Global.POWER2_RADIOUS))
+	sprite.scale = Global.POWER2_SCALE
 	# Crear un temporizador para eliminar el nodo después de 2 segundos
 	var timer = Timer.new()
 	timer.wait_time = 3.0
