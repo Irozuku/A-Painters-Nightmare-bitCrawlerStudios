@@ -40,6 +40,10 @@ var credits = [
 		"Sebastián Saez",
 		"Emilio Díaz"
 	],[
+		"Paintings",
+		"Hieronymus Bosch",
+		"The Bosch Project",
+	],[
 		"Enemies Art",
 		"Luck",
 		"Mattz Art",
@@ -84,8 +88,6 @@ var credits = [
 		"Sound Effects",
 		"SFX Name",
 		"Leohpaz",
-
-
 	],[
 		"Testers",
 		"Toto",
