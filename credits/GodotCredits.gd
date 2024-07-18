@@ -76,10 +76,16 @@ var credits = [
 		"greenpixels_"
 	],[
 		"Music",
-		"Sergio Quintero"
+		"Sergio Quintero",
+		"poulj",
+		"lucafrancini",
+		"Chimimin",
 	],[
 		"Sound Effects",
-		"SFX Name"
+		"SFX Name",
+		"Leohpaz",
+
+
 	],[
 		"Testers",
 		"Toto",
