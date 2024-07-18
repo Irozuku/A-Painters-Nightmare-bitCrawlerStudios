@@ -65,6 +65,10 @@ func _ready():
 	choice3.set_variables(choices.get(list[2]))
 	add_child(choice3)
 
+func _input(event):
+	if Input.is_action_just_pressed("pause"):
+		_on_skip_pressed()
+
 func create_choices():
 	var list = range(7)
 	var sample = []
