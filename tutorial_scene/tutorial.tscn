@@ -186,6 +186,7 @@ SPEED = 600
 
 [node name="GameUI" parent="Player/CanvasLayer" index="1"]
 script = ExtResource("3_io7dn")
+game_time = 3600
 
 [node name="GameTimer" parent="Player/CanvasLayer/GameUI" index="1"]
 wait_time = 3600.0

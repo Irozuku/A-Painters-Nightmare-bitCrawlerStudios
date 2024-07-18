@@ -185,9 +185,6 @@ libraries = {
 }
 
 [node name="AnimationTree" parent="." index="4"]
-libraries = {
-"": SubResource("AnimationLibrary_ic1db")
-}
 tree_root = SubResource("AnimationNodeStateMachine_mvsrv")
 anim_player = NodePath("../AnimationPlayer")
 
@@ -225,7 +222,7 @@ collision_mask = 0
 
 [node name="GameUI" parent="CanvasLayer" index="1" instance=ExtResource("7_4vilk")]
 
-[node name="TimeContainer" parent="CanvasLayer/GameUI" index="2"]
+[node name="TimeContainer" parent="CanvasLayer/GameUI" index="3"]
 self_modulate = Color(1, 1, 1, 0)
 offset_left = -104.5
 offset_right = 104.5

@@ -9,6 +9,8 @@ extends Node
 @onready var lose_container = %LoseContainer
 @onready var bg = $BG
 
+@export var game_time = 600
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	game_timer.timeout.connect(_on_timeout)
@@ -20,8 +22,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var time_left = int(game_timer.get_time_left())
-	var min = int(time_left) / 60
-	var sec = int(time_left) % 60
+	var time = game_time - time_left
+	var min = int(time) / 60
+	var sec = int(time) % 60
 	var sec_str = ""
 	if sec < 10:
 		sec_str = "0" + str(sec)
@@ -66,3 +69,4 @@ func _on_player_dead_animation_finished():
 	back_menu.show()
 	exit.show()
 	get_tree().paused = true
+
