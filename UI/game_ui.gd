@@ -8,6 +8,8 @@ extends Node
 @onready var exit = %ExitButton
 @onready var lose_container = %LoseContainer
 @onready var bg = $BG
+@onready var died_music = $LoseContainer/Died_music
+@onready var win_music = $WinContainer/Win_music
 
 @export var game_time = 600
 
@@ -45,6 +47,7 @@ func _on_timeout():
 	back_menu.show()
 	exit.show()
 	get_tree().paused = true
+	win_music.play()
 
 func _on_upgrade_timeout():
 	bg.show()
@@ -69,4 +72,5 @@ func _on_player_dead_animation_finished():
 	back_menu.show()
 	exit.show()
 	get_tree().paused = true
+	died_music.play()
 
