@@ -6,8 +6,19 @@
 script = ExtResource("1_jqs52")
 metadata/_edit_use_anchors_ = true
 
+[node name="BG" type="ColorRect" parent="."]
+visible = false
+z_index = 2
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.129412, 0.129412, 0.129412, 0.619608)
+
 [node name="GameTimer" type="Timer" parent="."]
 wait_time = 600.0
+autostart = true
+
+[node name="UpgradeTimer" type="Timer" parent="."]
+wait_time = 60.0
 autostart = true
 
 [node name="TimeContainer" type="PanelContainer" parent="."]

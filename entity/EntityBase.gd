@@ -5,7 +5,7 @@ signal hp_max_changed(new_hp_max)
 signal hp_changed(new_hp)
 signal died
 
-@export var hp_max: int = 100: set = set_hp_max
+@export var hp_max: int = 100: set = set_hp_max, get = get_hp_max
 @export var hp: int = hp_max: set = set_hp, get = get_hp
 @export var defense: int = 0
 
@@ -21,6 +21,9 @@ func set_hp_max(value):
 		hp_max = max(0, value)
 		emit_signal("hp_max_changed", hp_max)
 		self.hp = hp_max
+
+func get_hp_max():
+	return hp_max
 
 func set_hp(value):
 	hp = clamp(value, 0, hp_max)

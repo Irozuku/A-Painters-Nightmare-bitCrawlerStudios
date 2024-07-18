@@ -16,7 +16,6 @@ signal dead_animation_finished
 @onready var Background_music = $Background_music
 @onready var collision_shape_2d = $CollisionShape2D
 
-
 var attack_direction
 var static_direction
 var change_attack = false
@@ -27,6 +26,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	SignalManager.connect("gain_life", Callable(self, "_on_gain_life"))
+	SignalManager.connect("upgrade_speed", Callable(self, "_on_upgrade_speed"))
+	SignalManager.connect("upgrade_max_hp", Callable(self, "_on_upgrade_max_hp"))
 	health_bar.max_value = self.hp_max
 	health_bar.value = self.hp
 	Background_music.play()
@@ -84,6 +85,15 @@ func _on_hp_changed(new_hp):
 	if playback:
 		playback.travel("damage_taken")
 
+func _on_upgrade_speed(value):
+	SPEED += value
+
+func _on_upgrade_max_hp(value):
+	var hp_prev = get_hp()
+	var max_hp_prev = get_hp_max()
+	set_hp_max(max_hp_prev+value)
+	set_hp(hp_prev)
+	
 func die():
 	playback.travel("dead")
 	SPEED = 0

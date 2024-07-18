@@ -1,18 +1,22 @@
 extends Node
 
 @onready var game_timer = $GameTimer
+@onready var upgrade_timer = $UpgradeTimer
 @onready var game_time_text = %GameTimeText
 @onready var win_container = %WinContainer
 @onready var back_menu = %BackMenu
 @onready var exit = %ExitButton
 @onready var lose_container = %LoseContainer
-
+@onready var bg = $BG
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	game_timer.timeout.connect(_on_timeout)
+	upgrade_timer.timeout.connect(_on_upgrade_timeout)
 	back_menu.pressed.connect(_on_menu_pressed)
 	exit.pressed.connect(_on_exit_pressed)
+	SignalManager.connect("upgrade_taken", Callable(self, "_on_upgrade_taken"))
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var time_left = int(game_timer.get_time_left())
@@ -38,6 +42,17 @@ func _on_timeout():
 	back_menu.show()
 	exit.show()
 	get_tree().paused = true
+
+func _on_upgrade_timeout():
+	bg.show()
+	var upgrade_scene = load("res://upgrades/upgrade_screen.tscn")
+	var upgrade_node = upgrade_scene.instantiate()
+	add_child(upgrade_node)
+	get_tree().paused = true
+
+func _on_upgrade_taken():
+	bg.hide()
+	get_tree().paused = false
 
 func _on_menu_pressed():
 	get_tree().paused = false
