@@ -12,8 +12,8 @@ This game was developed as the final project for the **Workshop on Video Game De
 
 ## Gameplay
 
-- Mouse-based glyph drawing mechanics
-- Color-combination spell system
+- Mouse based glyph drawing mechanics
+- Color combination spell system
 - Progressive enemy waves
 - Multiple enemy types
 - Boss encounters
@@ -36,7 +36,7 @@ This game was developed as the final project for the **Workshop on Video Game De
 
 ## Features
 
-### Drawing-Based Combat
+### Drawing Based Combat
 
 Instead of selecting abilities from a hotbar, players paint glyphs with the mouse to unleash attacks.
 
